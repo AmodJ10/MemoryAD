@@ -1,0 +1,22 @@
+.venv/
+__pycache__/
+*.pyc
+
+# IDEs
+.vscode/
+.idea/
+
+# Data and cached features
+data/mvtec_ad/
+data/visa/
+data/features/
+results/
+tmp/
+*.npy
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Any temporary test files
+oner_full_text.txt

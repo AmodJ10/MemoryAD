@@ -1,0 +1,18 @@
+\begin{table}[H]
+\centering
+\caption{Memory footprint of \method{} as a function of coreset budget $B$. Feature dimension $D=1536$ (DINOv2 ViT-B/14, layers 7+11). Coreset stored as float32.}
+\label{tab:memory_footprint}
+\begin{tabular}{rrrr}
+\toprule
+Budget $B$ & Coreset (MB) & Index (MB) & Total (MB) \\
+\midrule
+1{,}000   &  5.9  &  5.9  &  11.7 \\
+5{,}000   & 29.3  & 29.3  &  58.6 \\
+10{,}000  & 58.6  & 58.6  & 117.2 \\
+20{,}000  & 117.2 & 117.2 & 234.4 \\
+50{,}000  & 292.9 & 292.9 & 585.9 \\
+\bottomrule
+\end{tabular}
+\vspace{1mm}
+\footnotesize{Computed as $B \times D \times 4$ bytes per component. The k-NN index stores a copy of the coreset. Backbone parameters (86M for ViT-B/14) are shared and frozen.}
+\end{table}

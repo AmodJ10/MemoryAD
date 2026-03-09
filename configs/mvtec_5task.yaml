@@ -1,0 +1,17 @@
+# MVTec AD — 5 tasks × 3 categories
+
+dataset:
+  name: "mvtec_ad"
+  root: "./data/mvtec_ad"
+
+tasks:
+  - task_id: 0
+    categories: ["bottle", "cable", "capsule"]
+  - task_id: 1
+    categories: ["carpet", "grid", "hazelnut"]
+  - task_id: 2
+    categories: ["leather", "metal_nut", "pill"]
+  - task_id: 3
+    categories: ["screw", "tile", "toothbrush"]
+  - task_id: 4
+    categories: ["transistor", "wood", "zipper"]

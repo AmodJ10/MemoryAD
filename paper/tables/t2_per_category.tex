@@ -1,0 +1,32 @@
+\begin{table}[H]
+\centering
+\caption{Per-category I-AUROC (\%) on MVTec AD after all 5 tasks. Categories sorted by task order. \method{} with DINOv2 ViT-B/14, $B=10\text{K}$.}
+\label{tab:per_category}
+\begin{tabular}{llc}
+\toprule
+Task & Category & I-AUROC \\
+\midrule
+\multirow{3}{*}{$\mathcal{T}_1$} & bottle     & 99.8 \\
+                                  & cable      & 93.4 \\
+                                  & capsule    & 83.7 \\
+\midrule
+\multirow{3}{*}{$\mathcal{T}_2$} & carpet     & 96.4 \\
+                                  & grid       & 95.6 \\
+                                  & hazelnut   & 99.2 \\
+\midrule
+\multirow{3}{*}{$\mathcal{T}_3$} & leather    & 84.5 \\
+                                  & metal\_nut & 98.0 \\
+                                  & pill       & 94.5 \\
+\midrule
+\multirow{3}{*}{$\mathcal{T}_4$} & screw      & 84.4 \\
+                                  & tile       & 99.9 \\
+                                  & toothbrush & 99.7 \\
+\midrule
+\multirow{3}{*}{$\mathcal{T}_5$} & transistor & 90.7 \\
+                                  & wood       & 99.6 \\
+                                  & zipper     & 99.9 \\
+\midrule
+\multicolumn{2}{l}{\textbf{Mean}} & \textbf{94.6} \\
+\bottomrule
+\end{tabular}
+\end{table}

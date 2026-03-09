@@ -1,0 +1,88 @@
+# GPU Experiments — Implementation Plan
+
+Five new experiments to strengthen the paper. ONER/UCAD comparison is excluded (requires external codebases and significant reimplementation effort).
+
+## Proposed Changes
+
+### Experiment Overview
+
+| ID | Experiment | What Changes | GPU Time Est. |
+|---|---|---|---|
+| E8 | **k ablation** | Override `config.scoring.k` for k ∈ {1,3,5,9,15,25} | ~18 min (6×3min) |
+| E9 | **Task ordering sensitivity** | Shuffle category order in 3 permutations | ~9 min (3×3min) |
+| E10 | **Statistical significance** | Run E1 with 3 seeds [42, 123, 456] | ~9 min (3×3min) |
+| E11 | **Layer selection ablation** | Re-extract features with different layer combos | ~2hrs extraction + 4×3min runs |
+| E12 | **P-AUROC** | Cache GT masks, compute pixel-level AUROC | ~5 min (rerun E1 with mask eval) |
+
+---
+
+### New Script
+
+#### [NEW] [run_new_experiments.py](file:///c:/Users/pramo/.gemini/antigravity/playground/stellar-equinox/scripts/run_new_experiments.py)
+
+Unified script with `--only E8 E9 ...` support, modeled after [run_all_experiments.py](file:///c:/Users/pramo/.gemini/antigravity/playground/stellar-equinox/scripts/run_all_experiments.py).
+
+**E8: k ablation** — Loops k ∈ {1, 3, 5, 9, 15, 25}, overrides `config['scoring']['k']`, runs E1 pipeline with cached features. No new feature extraction needed. Saves to `results/E8_k_ablation_k{N}/results.json`.
+
+**E9: Task ordering** — Creates 3 shuffled permutations of the 15 MVTec categories, groups into 5 tasks of 3, runs E1 pipeline for each. Uses same cached features. Saves to `results/E9_ordering_{seed}/results.json`.
+
+**E10: Statistical significance** — Runs E1 pipeline 3 times with seeds [42, 123, 456] for coreset random seed. Reports mean ± std. Saves to `results/E10_seed_{seed}/results.json`.
+
+**E11: Layer ablation** — Needs 3 additional feature extractions:
+- Layers [6, 11] → `data/features/dinov2_vitb14_l6_11/`
+- Layers [7, 9, 11] → `data/features/dinov2_vitb14_l7_9_11/`
+- Layers [11] → `data/features/dinov2_vitb14_l11/`
+
+Then runs E1 pipeline with each. The existing [7, 11] serves as the 4th config.
+
+**E12: P-AUROC** — Requires:
+
+---
+
+### Modifications for P-AUROC (E12)
+
+#### [MODIFY] [precompute_features.py](file:///c:/Users/pramo/.gemini/antigravity/playground/stellar-equinox/scripts/precompute_features.py)
+- Add mask caching: save `test_masks.npy` ([N_test, 1, mask_size, mask_size]) alongside test features
+
+#### [MODIFY] [feature_cache.py](file:///c:/Users/pramo/.gemini/antigravity/playground/stellar-equinox/src/data_utils/feature_cache.py)
+- Add `load_test_masks(category)` method
+
+#### [MODIFY] [pipeline.py](file:///c:/Users/pramo/.gemini/antigravity/playground/stellar-equinox/src/pipeline.py)
+- Modify [evaluate_on_category_cached](file:///c:/Users/pramo/.gemini/antigravity/playground/stellar-equinox/src/pipeline.py#95-116) to accept masks, compute P-AUROC via anomaly map upsampling
+- Store P-AUROC in results alongside I-AUROC
+
+---
+
+### Paper Updates (after experiments)
+
+#### [MODIFY] [main.tex](file:///c:/Users/pramo/.gemini/antigravity/playground/stellar-equinox/paper/main.tex)
+- Add k ablation table/figure
+- Add task ordering results paragraph
+- Add error bars to main results
+- Add layer ablation table
+- Add P-AUROC to main results table
+
+#### [NEW] Figure generation additions to [generate_paper_figures.py](file:///c:/Users/pramo/.gemini/antigravity/playground/stellar-equinox/scripts/generate_paper_figures.py)
+- k ablation figure
+- Layer ablation figure
+
+---
+
+## Execution Order
+
+1. **E8** (k ablation) — fastest, no dependencies
+2. **E9** (task ordering) — fast, no dependencies  
+3. **E10** (statistical significance) — fast, no dependencies
+4. **E12** (P-AUROC) — moderate, needs mask caching first
+5. **E11** (layer ablation) — slowest, needs new feature extraction
+
+## Verification Plan
+
+### Automated
+- Check all [results.json](file:///c:/Users/pramo/.gemini/antigravity/playground/stellar-equinox/results/E1_mvtec_5task/results.json) files have valid `final_mean_auroc` and [forgetting_rate](file:///c:/Users/pramo/.gemini/antigravity/playground/stellar-equinox/src/evaluation/metrics.py#59-98) values
+- Verify k=9 results from E8 match existing E1 results (regression check)
+- Verify seed=42 results from E10 match existing E1 results
+
+### Manual
+- Review generated figures in compiled PDF
+- Confirm error bars are reasonable (std < 2%)

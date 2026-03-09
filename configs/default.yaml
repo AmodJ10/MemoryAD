@@ -1,0 +1,26 @@
+# MemoryAD — Default Configuration
+
+# Feature extraction
+backbone:
+  name: "dinov2_vitb14"         # dinov2_vitb14 | dinov2_vitl14 | clip_vitl14 | wide_resnet50
+  layers: [7, 11]               # Intermediate layers to extract features from
+  feature_aggregation: "concat"  # concat | average
+  input_size: 518               # DINOv2 native resolution (518 for vitb14)
+  batch_size: 4                 # Batch size for feature extraction (keep low for 8GB VRAM)
+  use_fp16: true                # Use float16 for memory efficiency
+
+# Coreset management
+coreset:
+  global_budget: 10000          # Total patches in the global coreset
+  strategy: "proportional"      # proportional | weighted | recency
+  min_per_category: 100         # Minimum patches per category (class-balanced)
+  
+# Anomaly scoring
+scoring:
+  k: 9                          # Number of nearest neighbours for k-NN
+  image_score_method: "max"     # max | top_k_mean
+  top_k_percent: 1.0            # If top_k_mean: use top K% of patch scores
+
+# Evaluation
+evaluation:
+  random_seeds: [42, 123, 456]  # Seeds for task ordering randomisation

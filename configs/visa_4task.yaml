@@ -1,0 +1,15 @@
+# VisA — 4 tasks × 3 categories
+
+dataset:
+  name: "visa"
+  root: "./data/visa"
+
+tasks:
+  - task_id: 0
+    categories: ["candle", "capsules", "cashew"]
+  - task_id: 1
+    categories: ["chewinggum", "fryum", "macaroni1"]
+  - task_id: 2
+    categories: ["macaroni2", "pcb1", "pcb2"]
+  - task_id: 3
+    categories: ["pcb3", "pcb4", "pipe_fryum"]

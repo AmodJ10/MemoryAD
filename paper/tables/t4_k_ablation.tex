@@ -1,0 +1,17 @@
+\begin{table}[H]
+\centering
+\caption{Effect of $k$ on I-AUROC and Forgetting Rate (MVTec AD 5-task). Lower $k$ yields higher absolute performance but lower forgetting penalty.}
+\label{tab:k_ablation}
+\begin{tabular}{ccccc}
+\toprule
+$k$ & I-AUROC $\uparrow$ & FR $\downarrow$ & Avg Inc. $\uparrow$ \\
+\midrule
+1 & \textbf{97.2} & \textbf{0.01} & \textbf{96.8} \\
+3 & 96.8 & \textbf{0.01} & 96.6 \\
+5 & 96.0 & \textbf{0.01} & 95.8 \\
+9 (ours) & 94.6 & 0.01 & 94.0 \\
+15 & 92.3 & 0.02 & 91.5 \\
+25 & 88.2 & 0.02 & 87.9 \\
+\bottomrule
+\end{tabular}
+\end{table}

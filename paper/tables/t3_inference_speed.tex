@@ -1,0 +1,19 @@
+\begin{table}[t]
+\centering
+\caption{Inference time breakdown for MemoryAD ($B=10\text{K}$, MVTec AD full evaluation).}
+\label{tab:inference_speed}
+\begin{tabular}{lrr}
+\toprule
+Component & Time (s) & \% Total \\
+\midrule
+Feature loading & 43.9 & 17.3\% \\
+Coreset update & 54.3 & 21.4\% \\
+k-NN scorer fit & 0.7 & 0.3\% \\
+Evaluation & 155.1 & 61.1\% \\
+\midrule
+\textbf{Total} & \textbf{254.0} & 100\% \\
+\bottomrule
+\end{tabular}
+\vspace{1mm}
+\footnotesize{Images scored: 5,231. Throughput: 29.6 ms/image.}
+\end{table}
