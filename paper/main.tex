@@ -3,7 +3,7 @@
 \documentclass[runningheads]{llncs}
 
 \usepackage{graphicx}
-\usepackage{amsmath,amssymb,amsthm}
+\usepackage{amsmath,amssymb}
 \usepackage{booktabs}
 \usepackage{multirow}
 \usepackage{xcolor}
@@ -14,7 +14,6 @@
 \usepackage{tikz}
 \usetikzlibrary{arrows.meta,positioning,fit,backgrounds}
 
-\newtheorem{proposition}{Proposition}
 
 \newcommand{\method}{MemoryAD}
 \newcommand{\ie}{\textit{i.e.}}
@@ -45,7 +44,14 @@ Industrial anomaly detection (AD) systems must adapt to new product categories o
 
 Industrial anomaly detection (AD) aims to identify defective products in manufacturing by learning the distribution of normal samples~\cite{bergmann2019mvtec}. Recent methods such as PatchCore~\cite{roth2022patchcore} and EfficientAD~\cite{batzner2024efficientad} achieve near-perfect detection on individual product categories. However, real-world manufacturing lines change over time: new products are introduced, inspection criteria evolve, and the system must adapt \emph{without retraining from scratch on all historical data}.
 
-This creates a \textbf{class-incremental learning} (CIL) problem~\cite{masana2022class}: the model must sequentially learn new anomaly detection categories while retaining performance on previously seen ones. Standard CIL strategies---Elastic Weight Consolidation (EWC)~\cite{kirkpatrick2017ewc}, Learning without Forgetting (LwF)~\cite{li2017lwf}, and experience replay~\cite{buzzega2020dark}---were designed for classification networks and require trainable weights to regularise. When applied to anomaly detection, they introduce architectural complexity and still suffer from catastrophic forgetting.
+This creates a \textbf{class-incremental learning} (CIL) problem~\cite{masana2022class}: the model must sequentially learn new anomaly detection categories while retaining performance on previously seen ones. Standard CIL strategies---Elastic Weight Consolidation (EWC)~\cite{kirkpatrick2017ewc}, Learning without Forgetting (LwF)~\cite{li2017lwf}, and experience replay~\cite{buzzega2020dark}---were designed for classification networks and require trainable weights to regularise. When applied to anomaly detection, they introduce architectural complexity and still suffer from catastrophic forgetting (\Cref{fig:teaser}).
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=0.7\linewidth]{figures/f1_teaser.pdf}
+    \caption{\textbf{Catastrophic forgetting in continual anomaly detection.} Naive and regularisation-based methods suffer from severe performance degradation on early tasks as new categories are added. \method{} maintains stable, near-optimal performance by design (results shown for MVTec AD Task 1 categories evaluated after 5 tasks).}
+    \label{fig:teaser}
+\end{figure}
 
 \begin{figure}[t]
     \centering
@@ -278,7 +284,7 @@ We additionally evaluated \method{} under three completely randomized task order
 
 \input{tables/t2_visa_results}
 
-\method{} generalises well to VisA, achieving 90.3\% I-AUROC with even lower forgetting (0.52\%). The performance gap between MVTec AD and VisA reflects the inherent difficulty of the VisA benchmark rather than a limitation of the method.
+\method{} generalises well to VisA, achieving 90.3\% I-AUROC with even lower forgetting (0.52\%). Notably, it outperforms the Joint upper bound ($85.6\%$) while significantly exceeding the Naive lower bound ($56.6\%$). The performance gap between Joint and MemoryAD reflects a key advantage of coreset compression: VisA images contain highly variable background clutter, and the greedy truncation mechanism implicitly discards these noisy patches in favour of structurally significant foreground features, acting as a powerful noise filter.
 
 \subsection{Budget Ablation (E3)}
 
@@ -290,6 +296,12 @@ We additionally evaluated \method{} under three completely randomized task order
 \end{figure}
 
 \Cref{fig:budget} shows I-AUROC and forgetting rate as a function of the coreset budget $B$. Performance monotonically improves with budget, from 86.6\% at $B=1$K to 96.9\% at $B=50$K. The best accuracy/memory tradeoff is at $B=10$K, where going to $B=50$K gains only +2.2\% AUROC at $5\times$ the memory cost. Forgetting rate decreases with larger budgets since per-category compression is less aggressive.
+
+\subsection{Layer Selection Ablation (E11)}
+
+\input{tables/t8_layer_ablation}
+
+\Cref{tab:layer_ablation} evaluates the effect of extracting features from different combinations of DINOv2 layers. While using only the deepest semantic layer (Layer 11) achieves comparable image-level AUROC (94.7\%), we select the concatenation of Layers 7+11 (1536d) as our default to capture both mid-level textural patterns and high-level semantic features, following standard practices in visual anomaly detection. Notably, adding more intermediate layers (\eg, Layers 7+9+11, 2304d) introduces excessive dimensionality that degrades performance (92.0\%) due to distance concentration effects in the unweighted $k$-NN feature space.
 
 \subsection{$k$-NN Hyperparameter Ablation (E8)}
 

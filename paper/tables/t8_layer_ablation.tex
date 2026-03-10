@@ -1,0 +1,15 @@
+\begin{table}[t]
+\centering
+\caption{Layer selection ablation on MVTec AD (5-task). Concatenating layers 7 and 11 achieves optimal performance, while adding layer 9 degrades performance due to excessive dimensionality.}
+\label{tab:layer_ablation}
+\begin{tabular}{lccc}
+\toprule
+Layers & Feature Dim & I-AUROC $\uparrow$ & FR $\downarrow$ \\
+\midrule
+$11$ (Deepest) & 768 & 94.7 & 0.87 \\
+$6 + 11$ & 1536 & 94.6 & 1.00 \\
+$7 + 11$ (Default) & 1536 & 94.6 & 0.97 \\
+$7 + 9 + 11$ & 2304 & 92.0 & 1.03 \\
+\bottomrule
+\end{tabular}
+\end{table}

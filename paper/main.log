@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.2.25)  9 MAR 2026 19:59
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.2.25)  10 MAR 2026 11:29
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -255,34 +255,8 @@ Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
-)) (C:\Users\pramo\AppData\Local\Programs\MiKTeX\tex/latex/amscls\amsthm.sty
-Package: amsthm 2020/05/29 v2.20.6
-\thm@style=\toks27
-\thm@bodyfont=\toks28
-\thm@headfont=\toks29
-\thm@notefont=\toks30
-\thm@headpunct=\toks31
-\thm@preskip=\skip56
-\thm@postskip=\skip57
-\thm@headsep=\skip58
-\dth@everypar=\toks32
-LaTeX Info: Redefining \qed on input line 273.
-
-
-! LaTeX Error: Command \proof already defined.
-               Or name \end... illegal, see p.192 of the manual.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.440 }
-       
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-) (C:\Users\pramo\AppData\Local\Programs\MiKTeX\tex/latex/booktabs\booktabs.sty
+)) (C:\Users\pramo\AppData\Local\Programs\MiKTeX\tex/latex/booktabs\booktabs.st
+y
 Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
 \heavyrulewidth=\dimen182
 \lightrulewidth=\dimen183
@@ -303,9 +277,9 @@ Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
 \@thisrulewidth=\dimen194
 ) (C:\Users\pramo\AppData\Local\Programs\MiKTeX\tex/latex/multirow\multirow.sty
 Package: multirow 2024/11/12 v2.9 Span multiple rows of a table
-\multirow@colwidth=\skip59
+\multirow@colwidth=\skip56
 \multirow@cntb=\count330
-\multirow@dima=\skip60
+\multirow@dima=\skip57
 \bigstrutjot=\dimen195
 ) (C:\Users\pramo\AppData\Local\Programs\MiKTeX\tex/latex/xcolor\xcolor.sty
 Package: xcolor 2024/09/29 v3.02 LaTeX color extensions (UK)
@@ -327,9 +301,9 @@ Package xcolor Info: Model `wave' substituted by `hsb' on input line 1372.
 ) (C:\Users\pramo\AppData\Local\Programs\MiKTeX\tex/latex/float\float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \c@float@type=\count331
-\float@exts=\toks33
+\float@exts=\toks27
 \float@box=\box103
-\@float@everytoks=\toks34
+\@float@everytoks=\toks28
 \@floatcapt=\box104
 )
 (C:\Users\pramo\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hyperref.sty
@@ -464,7 +438,7 @@ Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 84.
 )
-\Hy@SectionHShift=\skip61
+\Hy@SectionHShift=\skip58
 )
 (C:\Users\pramo\AppData\Local\Programs\MiKTeX\tex/latex/cleveref\cleveref.sty
 Package: cleveref 2018/03/27 v0.21.4 Intelligent cross-referencing
@@ -479,7 +453,6 @@ LaTeX Info: Redefining \cpagerefrange on input line 2370.
 LaTeX Info: Redefining \Cpagerefrange on input line 2370.
 LaTeX Info: Redefining \labelcref on input line 2370.
 LaTeX Info: Redefining \labelcpageref on input line 2370.
-Package cleveref Info: `amsthm' support loaded on input line 3026.
 Package cleveref Info: `aliascnt' support loaded on input line 3193.
 Package cleveref Info: always capitalise cross-reference names on input line 78
 30.
@@ -495,7 +468,7 @@ Package: algorithm2e 2017/07/18 v5.2 algorithms environments
  (C:\Users\pramo\AppData\Local\Programs\MiKTeX\tex/latex/base\ifthen.sty
 Package: ifthen 2024/03/16 v1.1e Standard LaTeX ifthen package (DPC)
 )
-\algocf@hangindent=\skip62
+\algocf@hangindent=\skip59
 
 (C:\Users\pramo\AppData\Local\Programs\MiKTeX\tex/latex/ifoddpage\ifoddpage.sty
 Package: ifoddpage 2022/10/18 v1.2 Conditionals for odd/even page detection
@@ -506,36 +479,36 @@ Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
 (C:\Users\pramo\AppData\Local\Programs\MiKTeX\tex/latex/relsize\relsize.sty
 Package: relsize 2013/03/29 ver 4.1
 )
-\skiptotal=\skip63
-\skiplinenumber=\skip64
-\skiprule=\skip65
-\skiphlne=\skip66
-\skiptext=\skip67
-\skiplength=\skip68
-\algomargin=\skip69
-\skipalgocfslide=\skip70
+\skiptotal=\skip60
+\skiplinenumber=\skip61
+\skiprule=\skip62
+\skiphlne=\skip63
+\skiptext=\skip64
+\skiplength=\skip65
+\algomargin=\skip66
+\skipalgocfslide=\skip67
 \algowidth=\dimen256
 \inoutsize=\dimen257
 \inoutindent=\dimen258
 \interspacetitleruled=\dimen259
 \interspacealgoruled=\dimen260
 \interspacetitleboxruled=\dimen261
-\algocf@ruledwidth=\skip71
+\algocf@ruledwidth=\skip68
 \algocf@inoutbox=\box105
 \algocf@inputbox=\box106
-\AlCapSkip=\skip72
-\AlCapHSkip=\skip73
-\algoskipindent=\skip74
+\AlCapSkip=\skip69
+\AlCapHSkip=\skip70
+\algoskipindent=\skip71
 \algocf@nlbox=\box107
 \algocf@hangingbox=\box108
 \algocf@untilbox=\box109
-\algocf@skipuntil=\skip75
+\algocf@skipuntil=\skip72
 \algocf@capbox=\box110
-\algocf@lcaptionbox=\skip76
-\algoheightruledefault=\skip77
-\algoheightrule=\skip78
-\algotitleheightruledefault=\skip79
-\algotitleheightrule=\skip80
+\algocf@lcaptionbox=\skip73
+\algoheightruledefault=\skip74
+\algoheightrule=\skip75
+\algotitleheightruledefault=\skip76
+\algotitleheightrule=\skip77
 \c@algocfline=\count346
 \c@algocfproc=\count347
 \c@algocf=\count348
@@ -549,7 +522,7 @@ sty
 y
 (C:\Users\pramo\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfutil
 -common.tex
-\pgfutil@everybye=\toks35
+\pgfutil@everybye=\toks29
 \pgfutil@tempdima=\dimen262
 \pgfutil@tempdimb=\dimen263
 )
@@ -574,12 +547,12 @@ Package: pgfsys 2025-08-29 v3.1.11a (3.1.11a)
 
 (C:\Users\pramo\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfkeys
 .code.tex
-\pgfkeys@pathtoks=\toks36
-\pgfkeys@temptoks=\toks37
+\pgfkeys@pathtoks=\toks30
+\pgfkeys@temptoks=\toks31
 
 (C:\Users\pramo\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfkeys
 libraryfiltered.code.tex
-\pgfkeys@tmptoks=\toks38
+\pgfkeys@tmptoks=\toks32
 ))
 \pgf@x=\dimen264
 \pgf@y=\dimen265
@@ -597,9 +570,9 @@ libraryfiltered.code.tex
 \c@pgf@countb=\count350
 \c@pgf@countc=\count351
 \c@pgf@countd=\count352
-\t@pgf@toka=\toks39
-\t@pgf@tokb=\toks40
-\t@pgf@tokc=\toks41
+\t@pgf@toka=\toks33
+\t@pgf@tokb=\toks34
+\t@pgf@tokc=\toks35
 \pgf@sys@id@count=\count353
 
 (C:\Users\pramo\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgf.c
@@ -639,9 +612,9 @@ r.code.tex
 \pgfmath@dimen=\dimen274
 \pgfmath@count=\count356
 \pgfmath@box=\box114
-\pgfmath@toks=\toks42
-\pgfmath@stack@operand=\toks43
-\pgfmath@stack@operation=\toks44
+\pgfmath@toks=\toks36
+\pgfmath@stack@operand=\toks37
+\pgfmath@stack@operation=\toks38
 )
 (C:\Users\pramo\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunct
 ions.code.tex)
@@ -801,8 +774,8 @@ code.tex
 Package: pgffor 2025-08-29 v3.1.11a (3.1.11a)
 \pgffor@iter=\dimen301
 \pgffor@skip=\dimen302
-\pgffor@stack=\toks45
-\pgffor@toks=\toks46
+\pgffor@stack=\toks39
+\pgffor@toks=\toks40
 ))
 (C:\Users\pramo\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
 z\tikz.code.tex
@@ -866,33 +839,6 @@ File: tikzlibrarybackgrounds.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 \pgf@layerbox@background=\box124
 \pgf@layerboxsaved@background=\box125
 )
-
-! LaTeX Error: Command \proposition already defined.
-               Or name \end... illegal, see p.192 of the manual.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.17 \newtheorem{proposition}
-                             {Proposition}
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-! LaTeX Error: Missing \begin{document}.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.17 \newtheorem{proposition}{P
-                               roposition}
-You're in trouble here.  Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
 (C:\Users\pramo\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdf
 tex.def
 File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
@@ -900,24 +846,24 @@ File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
 ) (main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
 
 (C:\Users\pramo\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mk
 ii
@@ -927,12 +873,12 @@ ii
 \scratchbox=\box126
 \nofMPsegments=\count372
 \nofMParguments=\count373
-\everyMPshowfont=\toks47
+\everyMPshowfont=\toks41
 \MPscratchCnt=\count374
 \MPscratchDim=\dimen317
 \MPnumerator=\count375
 \makeMPintoPDFobject=\count376
-\everyMPtoPDFconversion=\toks48
+\everyMPtoPDFconversion=\toks42
 )
 (C:\Users\pramo\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-b
 ase.sty
@@ -944,21 +890,18 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 fg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
-Package hyperref Info: Link coloring OFF on input line 24.
+Package hyperref Info: Link coloring OFF on input line 23.
  (main.out) (main.out)
 \@outlinefile=\write4
 \openout4 = `main.out'.
 
- [1{C:/Users/pramo/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}
-
-]
-LaTeX Font Info:    Trying to load font information for U+msa on input line 32.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 31.
 
 
 (C:\Users\pramo\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 32.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 31.
 
 
 (C:\Users\pramo\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
@@ -966,139 +909,137 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\\' on input line 32.
+(hyperref)                removing `\\' on input line 31.
 
 Title too long for running head. Please supply
 a shorter form with \titlerunning prior to \maketitle
 
-Overfull \hbox (1.07405pt too wide) in paragraph at lines 37--38
+Overfull \hbox (1.07405pt too wide) in paragraph at lines 36--37
 \OT1/cmr/m/n/9 play+RD4AD (83.7%), while ap-proach-ing the joint up-per bound (
 95.1%).
  []
 
 
-Overfull \hbox (7.24689pt too wide) in paragraph at lines 37--38
+Overfull \hbox (7.24689pt too wide) in paragraph at lines 36--37
 \OT1/cmr/m/n/9 tion, gen-er-alises to VisA (90.3% I-AUROC), and op-er-ates at 2
 9.6 ms/image
  []
 
+<figures/f1_teaser.pdf, id=25, 463.36394pt x 280.35303pt>
+File: figures/f1_teaser.pdf Graphic file (type pdf)
+<use figures/f1_teaser.pdf>
+Package pdftex.def Info: figures/f1_teaser.pdf  used on input line 51.
+(pdftex.def)             Requested size: 242.98541pt x 147.01642pt.
+[1
 
-LaTeX Warning: Reference `fig:pipeline' on page 1 undefined on input line 84.
-
-[2]
-Overfull \hbox (8.2374pt too wide) in paragraph at lines 88--89
+{C:/Users/pramo/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
+Overfull \hbox (8.2374pt too wide) in paragraph at lines 94--95
 []$\OML/cmm/m/it/10 k$\OT1/cmr/bx/n/10 -NN anomaly scor-ing\OT1/cmr/m/n/10 : Te
 st patches are scored by their $\OML/cmm/m/it/10 k$\OT1/cmr/m/n/10 -nearest-nei
 ghbour
  []
 
 
-LaTeX Warning: Reference `prop:forgetting' on page 1 undefined on input line 93
-.
-
-
-Overfull \hbox (9.20818pt too wide) in paragraph at lines 93--94
+Overfull \hbox (9.20818pt too wide) in paragraph at lines 99--100
 []\OT1/cmr/m/n/10 A training-free, architecture-agnostic frame-work for con-tin
 -ual AD that achieves
  []
 
+[2 <./figures/f1_teaser.pdf>] [3]
 
-LaTeX Warning: Citation `lee2022cfa' on page 3 undefined on input line 105.
+LaTeX Warning: Cref reference format for label type `algocf' undefined on input
+ line 140.
 
-
-LaTeX Warning: Citation `liu2023simplenet' on page 3 undefined on input line 10
-5.
-
-
-LaTeX Warning: Citation `jeong2023winclip' on page 3 undefined on input line 10
-5.
-
-[3]
-
-LaTeX Warning: Reference `alg:incremental' on page 1 undefined on input line 13
-4.
-
-[4] [5] [6] (tables/t1_main_results.tex) [7]
-<figures/f2_incremental_auroc.pdf, id=184, 329.13277pt x 247.6496pt>
+[4] [5] [6] (tables/t1_main_results.tex)
+<figures/f2_incremental_auroc.pdf, id=281, 329.13277pt x 247.6496pt>
 File: figures/f2_incremental_auroc.pdf Graphic file (type pdf)
 <use figures/f2_incremental_auroc.pdf>
 Package pdftex.def Info: figures/f2_incremental_auroc.pdf  used on input line 2
-50.
+58.
 (pdftex.def)             Requested size: 260.34265pt x 195.89043pt.
 
-Overfull \hbox (10.04367pt too wide) in paragraph at lines 255--256
-[]\OT1/cmr/m/n/10 Figure []1[] shows the in-cre-men-tal per-for-mance tra-jec-t
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [7]
+Overfull \hbox (10.04367pt too wide) in paragraph at lines 263--264
+[]\OT1/cmr/m/n/10 Figure []3[] shows the in-cre-men-tal per-for-mance tra-jec-t
 ory. Mem-o-ryAD's I-AUROC
  []
 
-
-Underfull \vbox (badness 7451) has occurred while \output is active []
-
- [8 <./figures/f2_incremental_auroc.pdf>]
-
-LaTeX Warning: Reference `tab:per_category' on page 1 undefined on input line 2
-58.
-
-(tables/t5_per_category.tex) (tables/t2_visa_results.tex)
-<figures/f4_budget_curve.pdf, id=244, 370.99228pt x 247.80643pt>
-File: figures/f4_budget_curve.pdf Graphic file (type pdf)
-<use figures/f4_budget_curve.pdf>
-Package pdftex.def Info: figures/f4_budget_curve.pdf  used on input line 275.
-(pdftex.def)             Requested size: 260.34265pt x 173.90572pt.
- [9]
-(tables/t7_k_ablation.tex)
+(tables/t2_per_category.tex)
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [10 <./figures/f4_budget_curve.pdf>]
+ [8 <./figures/f2_incremental_auroc.pdf>]
+<figures/f7_qualitative_heatmaps.pdf, id=351, 625.61292pt x 1075.8644pt>
+File: figures/f7_qualitative_heatmaps.pdf Graphic file (type pdf)
+<use figures/f7_qualitative_heatmaps.pdf>
+Package pdftex.def Info: figures/f7_qualitative_heatmaps.pdf  used on input lin
+e 275.
+(pdftex.def)             Requested size: 295.05711pt x 507.41289pt.
 
-LaTeX Warning: Reference `tab:k_ablation' on page 1 undefined on input line 286
-.
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-(tables/t4_backbone_ablation.tex)
-<figures/f5_backbone_comparison.pdf, id=307, 491.2001pt x 254.57333pt>
-File: figures/f5_backbone_comparison.pdf Graphic file (type pdf)
-<use figures/f5_backbone_comparison.pdf>
-Package pdftex.def Info: figures/f5_backbone_comparison.pdf  used on input line
- 294.
-(pdftex.def)             Requested size: 312.40906pt x 161.91252pt.
+ [9]
+Overfull \vbox (14.02461pt too high) has occurred while \output is active []
+
+
+[10 <./figures/f7_qualitative_heatmaps.pdf>] (tables/t2_visa_results.tex)
+<figures/f4_budget_curve.pdf, id=428, 370.99228pt x 247.80643pt>
+File: figures/f4_budget_curve.pdf Graphic file (type pdf)
+<use figures/f4_budget_curve.pdf>
+Package pdftex.def Info: figures/f4_budget_curve.pdf  used on input line 293.
+(pdftex.def)             Requested size: 260.34265pt x 173.90572pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [11]
-Overfull \hbox (9.20935pt too wide) in paragraph at lines 303--304
+(tables/t8_layer_ablation.tex) [12 <./figures/f4_budget_curve.pdf>]
+(tables/t4_k_ablation.tex) (tables/t5_backbone_ablation.tex)
+<figures/f5_backbone_comparison.pdf, id=492, 491.2001pt x 254.57333pt>
+File: figures/f5_backbone_comparison.pdf Graphic file (type pdf)
+<use figures/f5_backbone_comparison.pdf>
+Package pdftex.def Info: figures/f5_backbone_comparison.pdf  used on input line
+ 318.
+(pdftex.def)             Requested size: 312.40906pt x 161.91252pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [13]
+Overfull \hbox (9.20935pt too wide) in paragraph at lines 327--328
 \OT1/cmr/m/n/10 ryAD achieves 94.6% I-AUROC---virtually iden-ti-cal to the 5-ta
 sk set-ting (94.6%)---
  []
 
-<figures/f3_forgetting_heatmap.pdf, id=317, 470.24817pt x 475.46391pt>
+<figures/f3_forgetting_heatmap.pdf, id=503, 470.24817pt x 475.46391pt>
 File: figures/f3_forgetting_heatmap.pdf Graphic file (type pdf)
 <use figures/f3_forgetting_heatmap.pdf>
 Package pdftex.def Info: figures/f3_forgetting_heatmap.pdf  used on input line 
-307.
+331.
 (pdftex.def)             Requested size: 312.40906pt x 315.88933pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [12 <./figures/f5_backbone_comparison.pdf>]
-<figures/f6_strategy_comparison.pdf, id=396, 418.93011pt x 238.4634pt>
+ [14 <./figures/f5_backbone_comparison.pdf>]
+<figures/f6_strategy_comparison.pdf, id=583, 418.93011pt x 238.4634pt>
 File: figures/f6_strategy_comparison.pdf Graphic file (type pdf)
 <use figures/f6_strategy_comparison.pdf>
 Package pdftex.def Info: figures/f6_strategy_comparison.pdf  used on input line
- 318.
+ 342.
 (pdftex.def)             Requested size: 277.69987pt x 158.07765pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [13 <./figures/f3_forgetting_heatmap.pdf>] (tables/t3_inference_speed.tex)
+ [15 <./figures/f3_forgetting_heatmap.pdf>] (tables/t3_inference_speed.tex)
 (tables/t6_memory_footprint.tex)
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [14 <./figures/f6_strategy_comparison.pdf>]
+ [16 <./figures/f6_strategy_comparison.pdf>]
+Overfull \hbox (0.7139pt too wide) in paragraph at lines 357--358
+\OT1/cmr/m/n/10 Table []8[] quan-ti-fies the mem-ory cost of Mem-o-ryAD. At the
+ de-fault bud-get $\OML/cmm/m/it/10 B[]\OT1/cmr/m/n/10 10$K,
+ []
 
-LaTeX Warning: Reference `tab:memory_footprint' on page 1 undefined on input li
-ne 333.
-
-[15] [16] [17] (main.aux)
+[17] [18] [19] (main.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-24>
@@ -1107,17 +1048,14 @@ L3 programming layer <2025-12-24>
 
 LaTeX Warning: There were undefined references.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 8B4C2EFC67AA9B06D6D791BB5D8017E5;514.
  ) 
 Here is how much of TeX's memory you used:
- 24383 strings out of 467870
- 463166 string characters out of 5418355
- 853022 words of memory out of 5000000
- 52743 multiletter control sequences out of 15000+600000
+ 24351 strings out of 467870
+ 463153 string characters out of 5418355
+ 855068 words of memory out of 5000000
+ 52706 multiletter control sequences out of 15000+600000
  639219 words of font info for 82 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  84i,15n,94p,1335b,876s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1151,9 +1089,9 @@ MiKTeX/fonts/type1/public/amsfonts/cm/cmti7.pfb><C:/Users/pramo/AppData/Local/P
 rograms/MiKTeX/fonts/type1/public/amsfonts/cm/cmti9.pfb><C:/Users/pramo/AppData
 /Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt9.pfb><C:/Users/pramo
 /AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on main.pdf (17 pages, 508190 bytes).
+Output written on main.pdf (19 pages, 5838212 bytes).
 PDF statistics:
- 674 PDF objects out of 1000 (max. 8388607)
- 112 named destinations out of 1000 (max. 500000)
- 46 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 859 PDF objects out of 1000 (max. 8388607)
+ 119 named destinations out of 1000 (max. 500000)
+ 56 words of extra memory for PDF output out of 10000 (max. 10000000)
 
