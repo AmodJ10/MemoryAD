@@ -107,9 +107,15 @@ class AnomalyDataset(Dataset):
                     else:
                         # Try to find corresponding ground truth mask
                         mask_path = gt_dir / defect_type / img_path.name
-                        # Handle extension mismatch (some GT masks are .png while images are .jpg)
+                        
+                        # Handle VisA (images might be .JPG but masks are .png)
                         if not mask_path.exists():
                             mask_path = mask_path.with_suffix(".png")
+                            
+                        # Handle MVTec (masks have _mask.png suffix)
+                        if not mask_path.exists():
+                            mask_path = mask_path.with_name(f"{img_path.stem}_mask.png")
+                            
                         if mask_path.exists():
                             self.mask_paths.append(str(mask_path))
                         else:

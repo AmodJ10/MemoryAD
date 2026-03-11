@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.2.25)  10 MAR 2026 11:29
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.2.25)  11 MAR 2026 10:17
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -914,13 +914,13 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Title too long for running head. Please supply
 a shorter form with \titlerunning prior to \maketitle
 
-Overfull \hbox (1.07405pt too wide) in paragraph at lines 36--37
+Overfull \hbox (1.07405pt too wide) in paragraph at lines 36--43
 \OT1/cmr/m/n/9 play+RD4AD (83.7%), while ap-proach-ing the joint up-per bound (
 95.1%).
  []
 
 
-Overfull \hbox (7.24689pt too wide) in paragraph at lines 36--37
+Overfull \hbox (7.24689pt too wide) in paragraph at lines 36--43
 \OT1/cmr/m/n/9 tion, gen-er-alises to VisA (90.3% I-AUROC), and op-er-ates at 2
 9.6 ms/image
  []
@@ -928,19 +928,19 @@ Overfull \hbox (7.24689pt too wide) in paragraph at lines 36--37
 <figures/f1_teaser.pdf, id=25, 463.36394pt x 280.35303pt>
 File: figures/f1_teaser.pdf Graphic file (type pdf)
 <use figures/f1_teaser.pdf>
-Package pdftex.def Info: figures/f1_teaser.pdf  used on input line 51.
+Package pdftex.def Info: figures/f1_teaser.pdf  used on input line 59.
 (pdftex.def)             Requested size: 242.98541pt x 147.01642pt.
 [1
 
 {C:/Users/pramo/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
-Overfull \hbox (8.2374pt too wide) in paragraph at lines 94--95
+Overfull \hbox (8.2374pt too wide) in paragraph at lines 108--109
 []$\OML/cmm/m/it/10 k$\OT1/cmr/bx/n/10 -NN anomaly scor-ing\OT1/cmr/m/n/10 : Te
 st patches are scored by their $\OML/cmm/m/it/10 k$\OT1/cmr/m/n/10 -nearest-nei
 ghbour
  []
 
 
-Overfull \hbox (9.20818pt too wide) in paragraph at lines 99--100
+Overfull \hbox (9.20818pt too wide) in paragraph at lines 113--114
 []\OT1/cmr/m/n/10 A training-free, architecture-agnostic frame-work for con-tin
 -ual AD that achieves
  []
@@ -948,20 +948,17 @@ Overfull \hbox (9.20818pt too wide) in paragraph at lines 99--100
 [2 <./figures/f1_teaser.pdf>] [3]
 
 LaTeX Warning: Cref reference format for label type `algocf' undefined on input
- line 140.
+ line 167.
 
 [4] [5] [6] (tables/t1_main_results.tex)
 <figures/f2_incremental_auroc.pdf, id=281, 329.13277pt x 247.6496pt>
 File: figures/f2_incremental_auroc.pdf Graphic file (type pdf)
 <use figures/f2_incremental_auroc.pdf>
-Package pdftex.def Info: figures/f2_incremental_auroc.pdf  used on input line 2
-58.
+Package pdftex.def Info: figures/f2_incremental_auroc.pdf  used on input line 3
+01.
 (pdftex.def)             Requested size: 260.34265pt x 195.89043pt.
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [7]
-Overfull \hbox (10.04367pt too wide) in paragraph at lines 263--264
+Overfull \hbox (10.04367pt too wide) in paragraph at lines 308--310
 []\OT1/cmr/m/n/10 Figure []3[] shows the in-cre-men-tal per-for-mance tra-jec-t
 ory. Mem-o-ryAD's I-AUROC
  []
@@ -969,77 +966,62 @@ ory. Mem-o-ryAD's I-AUROC
 (tables/t2_per_category.tex)
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [8 <./figures/f2_incremental_auroc.pdf>]
-<figures/f7_qualitative_heatmaps.pdf, id=351, 625.61292pt x 1075.8644pt>
+ [7]
+<figures/f7_qualitative_heatmaps.pdf, id=292, 625.61292pt x 1075.8644pt>
 File: figures/f7_qualitative_heatmaps.pdf Graphic file (type pdf)
 <use figures/f7_qualitative_heatmaps.pdf>
 Package pdftex.def Info: figures/f7_qualitative_heatmaps.pdf  used on input lin
-e 275.
+e 319.
 (pdftex.def)             Requested size: 295.05711pt x 507.41289pt.
 
+
+LaTeX Warning: Float too large for page by 14.02461pt on input line 323.
+
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [9]
-Overfull \vbox (14.02461pt too high) has occurred while \output is active []
-
-
-[10 <./figures/f7_qualitative_heatmaps.pdf>] (tables/t2_visa_results.tex)
-<figures/f4_budget_curve.pdf, id=428, 370.99228pt x 247.80643pt>
+ [8 <./figures/f2_incremental_auroc.pdf>] (tables/t2_visa_results.tex)
+<figures/f4_budget_curve.pdf, id=352, 370.99228pt x 247.80643pt>
 File: figures/f4_budget_curve.pdf Graphic file (type pdf)
 <use figures/f4_budget_curve.pdf>
-Package pdftex.def Info: figures/f4_budget_curve.pdf  used on input line 293.
+Package pdftex.def Info: figures/f4_budget_curve.pdf  used on input line 347.
 (pdftex.def)             Requested size: 260.34265pt x 173.90572pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [11]
-(tables/t8_layer_ablation.tex) [12 <./figures/f4_budget_curve.pdf>]
-(tables/t4_k_ablation.tex) (tables/t5_backbone_ablation.tex)
-<figures/f5_backbone_comparison.pdf, id=492, 491.2001pt x 254.57333pt>
+ [9]
+(tables/t8_layer_ablation.tex) (tables/t4_k_ablation.tex) [10]
+(tables/t5_backbone_ablation.tex)
+<figures/f5_backbone_comparison.pdf, id=377, 491.2001pt x 254.57333pt>
 File: figures/f5_backbone_comparison.pdf Graphic file (type pdf)
 <use figures/f5_backbone_comparison.pdf>
 Package pdftex.def Info: figures/f5_backbone_comparison.pdf  used on input line
- 318.
+ 383.
 (pdftex.def)             Requested size: 312.40906pt x 161.91252pt.
+<figures/f3_forgetting_heatmap.pdf, id=379, 470.24817pt x 475.46391pt>
+File: figures/f3_forgetting_heatmap.pdf Graphic file (type pdf)
+<use figures/f3_forgetting_heatmap.pdf>
+Package pdftex.def Info: figures/f3_forgetting_heatmap.pdf  used on input line 
+400.
+(pdftex.def)             Requested size: 312.40906pt x 315.88933pt.
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [13]
-Overfull \hbox (9.20935pt too wide) in paragraph at lines 327--328
+Overfull \hbox (9.20935pt too wide) in paragraph at lines 395--405
 \OT1/cmr/m/n/10 ryAD achieves 94.6% I-AUROC---virtually iden-ti-cal to the 5-ta
 sk set-ting (94.6%)---
  []
 
-<figures/f3_forgetting_heatmap.pdf, id=503, 470.24817pt x 475.46391pt>
-File: figures/f3_forgetting_heatmap.pdf Graphic file (type pdf)
-<use figures/f3_forgetting_heatmap.pdf>
-Package pdftex.def Info: figures/f3_forgetting_heatmap.pdf  used on input line 
-331.
-(pdftex.def)             Requested size: 312.40906pt x 315.88933pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [14 <./figures/f5_backbone_comparison.pdf>]
-<figures/f6_strategy_comparison.pdf, id=583, 418.93011pt x 238.4634pt>
+<figures/f6_strategy_comparison.pdf, id=381, 418.93011pt x 238.4634pt>
 File: figures/f6_strategy_comparison.pdf Graphic file (type pdf)
 <use figures/f6_strategy_comparison.pdf>
 Package pdftex.def Info: figures/f6_strategy_comparison.pdf  used on input line
- 342.
+ 414.
 (pdftex.def)             Requested size: 277.69987pt x 158.07765pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [15 <./figures/f3_forgetting_heatmap.pdf>] (tables/t3_inference_speed.tex)
-(tables/t6_memory_footprint.tex)
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [16 <./figures/f6_strategy_comparison.pdf>]
-Overfull \hbox (0.7139pt too wide) in paragraph at lines 357--358
+(tables/t3_inference_speed.tex) (tables/t6_memory_footprint.tex) [11]
+Overfull \hbox (0.7139pt too wide) in paragraph at lines 434--440
 \OT1/cmr/m/n/10 Table []8[] quan-ti-fies the mem-ory cost of Mem-o-ryAD. At the
  de-fault bud-get $\OML/cmm/m/it/10 B[]\OT1/cmr/m/n/10 10$K,
  []
 
-[17] [18] [19] (main.aux)
+[12] [13] [14] [15 <./figures/f7_qualitative_heatmaps.pdf>] [16 <./figures/f4_b
+udget_curve.pdf> <./figures/f5_backbone_comparison.pdf>] [17 <./figures/f3_forg
+etting_heatmap.pdf>] [18 <./figures/f6_strategy_comparison.pdf>] (main.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-24>
@@ -1052,13 +1034,13 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 8B4C2EFC67AA9B06D6D791BB5D8017E5;514.
  ) 
 Here is how much of TeX's memory you used:
- 24351 strings out of 467870
- 463153 string characters out of 5418355
- 855068 words of memory out of 5000000
- 52706 multiletter control sequences out of 15000+600000
+ 24349 strings out of 467870
+ 463136 string characters out of 5418355
+ 855064 words of memory out of 5000000
+ 52705 multiletter control sequences out of 15000+600000
  639219 words of font info for 82 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 84i,15n,94p,1335b,876s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 84i,16n,94p,555b,876s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/pramo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
 cmbx10.pfb><C:/Users/pramo/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
 fonts/cm/cmbx12.pfb><C:/Users/pramo/AppData/Local/Programs/MiKTeX/fonts/type1/p
@@ -1089,9 +1071,9 @@ MiKTeX/fonts/type1/public/amsfonts/cm/cmti7.pfb><C:/Users/pramo/AppData/Local/P
 rograms/MiKTeX/fonts/type1/public/amsfonts/cm/cmti9.pfb><C:/Users/pramo/AppData
 /Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt9.pfb><C:/Users/pramo
 /AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on main.pdf (19 pages, 5838212 bytes).
+Output written on main.pdf (18 pages, 5864161 bytes).
 PDF statistics:
- 859 PDF objects out of 1000 (max. 8388607)
- 119 named destinations out of 1000 (max. 500000)
+ 854 PDF objects out of 1000 (max. 8388607)
+ 118 named destinations out of 1000 (max. 500000)
  56 words of extra memory for PDF output out of 10000 (max. 10000000)
 
