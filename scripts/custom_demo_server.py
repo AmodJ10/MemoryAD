@@ -318,11 +318,13 @@ def create_app(
             return jsonify({"ok": False, "error": "toy_train_data directory not found"}), 500
             
         # 1. Extract features for training images
+        task_features = {}
         for cat in task_cats:
             cat_dir = toy_train_dir / cat
             if not cat_dir.exists():
                 continue
                 
+            cat_feats_list = []
             for img_path in cat_dir.glob("*.*"):
                 if img_path.suffix.lower() not in (".png", ".jpg", ".jpeg"):
                     continue
@@ -335,12 +337,17 @@ def create_app(
                 
                 # Reshape from [1, P, D] to [P, D]
                 feats = feats.reshape(-1, feats.shape[-1])
-                engine.coreset_manager.add_features(feats)
+                cat_feats_list.append(feats)
                 
+            if cat_feats_list:
+                task_features[cat] = np.vstack(cat_feats_list)
             engine.toy_learned_categories.append(cat)
             
+        if task_features:
+            engine.coreset_manager.add_task(task_features)
+            
         # 2. Refit scorer
-        engine._coreset = engine.coreset_manager.get_coreset()
+        engine._coreset = engine.coreset_manager.get_global_coreset()
         engine.scorer.fit(engine._coreset)
         
         # 3. Evaluate on ALL learned categories so far
@@ -399,7 +406,7 @@ def create_app(
         return jsonify({
             "ok": True,
             "task_id": task_id,
-            "coreset_size": engine.coreset_manager.get_coreset().shape[0],
+            "coreset_size": engine.coreset_manager.total_patches,
             "auroc_row": row_aurocs,
             "auroc_matrix": engine.toy_auroc_matrix,
         })
