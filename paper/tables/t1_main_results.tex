@@ -1,4 +1,4 @@
-\begin{table}[H]
+\begin{table}[htbp]
 \centering
 \caption{Main results on MVTec AD (5-task, 15 categories). I-AUROC (\%) after all tasks. MemoryAD uses DINOv2 ViT-B/14 with budget $B=10\text{K}$.}
 \label{tab:main_results}
@@ -6,7 +6,7 @@
 \toprule
 Method & I-AUROC $\uparrow$ & P-AUROC $\uparrow$ & FR $\downarrow$ & Avg Inc. & FT $\uparrow$ \\
 \midrule
-Joint (upper bound) & 95.1 & -- & -- & -- & -- \\
+Joint (reference baseline) & 95.1 & -- & -- & -- & -- \\
 \textbf{MemoryAD (ours)} & 94.0 $\pm$ 0.8 & 96.0 & 0.97 & 94.0 & 99.0 \\
 UCAD (Liu et al. 2024)* & 93.0 & -- & -- & -- & -- \\
 ONER (Li et al. 2024)* & 93.4 & -- & -- & -- & -- \\
@@ -17,5 +17,5 @@ LwF + RD4AD & 70.0 & -- & -- & -- & -- \\
 \bottomrule
 \end{tabular}
 \vspace{1mm}
-\footnotesize{Forgetting metrics (FR, Avg Inc., FT) for baselines are denoted as '--' because the original papers did not report the full $T \times T$ incremental evaluation matrix, and replicating their training-heavy CIL pipelines across all task boundaries is computationally prohibitive. Baselines were evaluated on final I-AUROC only. *Note: UCAD and ONER results are cited from their 15-class class-incremental literature values where available.}
+\footnotesize{Forgetting metrics (FR, Avg Inc., FT) for baselines are denoted as '--' because the original papers did not report the full $T \times T$ incremental evaluation matrix, and replicating their training-heavy CIL pipelines across all task boundaries is computationally prohibitive. Baselines were evaluated on final I-AUROC only. *Note: UCAD and ONER results are cited from their 15-class class-incremental literature values where available (evaluated on MVTec AD using a 15-task protocol with 1 category per task).}
 \end{table}

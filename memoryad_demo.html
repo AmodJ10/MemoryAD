@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>MemoryAD Judge Demo</title>
+<style>
+:root {
+  --bg: #f4f5f7;
+  --panel: #ffffff;
+  --panel-soft: #fafafa;
+  --line: #e3e5e8;
+  --text: #0f1720;
+  --muted: #5a616b;
+  --primary: #0f766e;
+  --primary-soft: #e8f6f4;
+  --warn: #b45309;
+  --danger: #b91c1c;
+  --success: #166534;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: "Segoe UI", "Inter", Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+.page {
+  max-width: 1220px;
+  margin: 0 auto;
+  padding: 24px 18px 36px;
+}
+
+.top {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 18px 18px 16px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+  margin-bottom: 14px;
+}
+
+.kicker {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--primary);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+h1 {
+  font-size: 30px;
+  line-height: 1.2;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+
+.sub {
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.status {
+  margin-top: 10px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.project-metrics {
+  margin-top: 12px;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.switcher {
+  margin-top: 14px;
+  display: inline-flex;
+  gap: 6px;
+  background: var(--panel-soft);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 6px;
+}
+
+.switcher button {
+  border: 1px solid transparent;
+  background: transparent;
+  color: #1f2937;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 8px;
+  padding: 10px 14px;
+  cursor: pointer;
+}
+
+.switcher button.active {
+  background: var(--panel);
+  border-color: var(--line);
+  color: var(--primary);
+}
+
+.panel {
+  display: none;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 16px;
+}
+
+.panel.active {
+  display: block;
+}
+
+.section-title {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.help {
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 12px;
+}
+
+.row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+
+input[type="file"] {
+  flex: 1;
+  min-width: 260px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+  color: #111;
+  padding: 9px;
+  font-size: 14px;
+}
+
+button.action {
+  border: 1px solid var(--primary);
+  background: var(--primary-soft);
+  color: var(--primary);
+  border-radius: 8px;
+  padding: 10px 16px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+button.action:hover {
+  background: #ddf2ef;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.preview {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #f8fafb;
+  aspect-ratio: 16 / 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.placeholder {
+  color: #6b7280;
+  font-size: 13px;
+}
+
+.hidden {
+  display: none;
+}
+
+.result-card {
+  margin-top: 12px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 14px;
+  background: #ffffff;
+}
+
+.result-head {
+  font-size: 12px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 6px;
+}
+
+.prediction {
+  font-size: 34px;
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 8px;
+}
+
+.prediction.low { color: var(--success); }
+.prediction.moderate { color: var(--warn); }
+.prediction.high { color: var(--danger); }
+
+.kv-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.kv {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 8px;
+  background: #fafafa;
+}
+
+.k {
+  color: var(--muted);
+  font-size: 12px;
+  margin-bottom: 3px;
+}
+
+.v {
+  color: var(--text);
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.compare-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.compare-label {
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.compare-summary {
+  margin-top: 12px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 12px;
+  background: #fff;
+}
+
+.compare-main {
+  font-size: 28px;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+
+.compare-main.a { color: var(--danger); }
+.compare-main.b { color: var(--warn); }
+.compare-main.equal { color: var(--success); }
+
+.log {
+  margin-top: 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fbfbfb;
+  padding: 9px 10px;
+  min-height: 56px;
+  max-height: 120px;
+  overflow-y: auto;
+  font-size: 12px;
+  color: #29303a;
+}
+
+.log .line { margin-bottom: 3px; }
+.log .warn { color: var(--danger); }
+
+@media (max-width: 960px) {
+  .grid-2, .compare-grid { grid-template-columns: 1fr; }
+  .kv-grid { grid-template-columns: 1fr 1fr; }
+  .project-metrics { grid-template-columns: 1fr 1fr; }
+  h1 { font-size: 24px; }
+}
+</style>
+</head>
+<body>
+  <main class="page">
+    <section class="top">
+      <p class="kicker">MemoryAD Interactive Demo</p>
+      <h1>Continual Anomaly Detection - Judge Interface</h1>
+      <p class="sub">Upload one image for prediction, or upload two images to compare anomaly score. This interface runs on your exported CPU model bundle.</p>
+      <p class="status" id="api-status">Checking backend status...</p>
+
+      <div class="project-metrics">
+        <div class="kv"><p class="k">Final Mean I-AUROC</p><p id="m-final-auroc" class="v">-</p></div>
+        <div class="kv"><p class="k">Avg Incremental I-AUROC</p><p id="m-inc-auroc" class="v">-</p></div>
+        <div class="kv"><p class="k">Forgetting Rate</p><p id="m-forgetting" class="v">-</p></div>
+        <div class="kv"><p class="k">Forward Transfer</p><p id="m-fwt" class="v">-</p></div>
+      </div>
+
+      <div class="switcher" role="tablist" aria-label="demo mode switch">
+        <button id="tab-single" class="active" onclick="showMode('single')">Single Image</button>
+        <button id="tab-compare" onclick="showMode('compare')">Compare Two Images</button>
+      </div>
+    </section>
+
+    <section id="panel-single" class="panel active">
+      <h2 class="section-title">Single Image Inference</h2>
+      <p class="help">Upload one image and click Analyze. Results will appear only after inference is completed.</p>
+
+      <div class="row">
+        <input id="single-file" type="file" accept="image/*" onchange="onSingleFile(event)" />
+        <button class="action" onclick="runSingle()">Analyze Image</button>
+      </div>
+
+      <div class="grid-2">
+        <div class="preview" id="single-input-preview"><span class="placeholder">Input preview</span></div>
+        <div class="preview" id="single-overlay-preview"><span class="placeholder">Output heatmap overlay</span></div>
+      </div>
+
+      <div id="single-result" class="result-card hidden">
+        <p class="result-head">Inference Output</p>
+        <p id="single-main-score" class="prediction">-</p>
+        <div class="kv-grid">
+          <div class="kv"><p class="k">Anomaly Score</p><p id="single-raw" class="v">-</p></div>
+          <div class="kv"><p class="k">Inference Time (ms)</p><p id="single-latency" class="v">-</p></div>
+          <div class="kv"><p class="k">Scoring k</p><p id="single-k" class="v">-</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="panel-compare" class="panel">
+      <h2 class="section-title">Two Image Comparison</h2>
+      <p class="help">Upload two images (A and B), then click Compare to see which image is more anomalous.</p>
+
+      <div class="row">
+        <input id="cmp-file-a" type="file" accept="image/*" onchange="onCompareFile(event, 'a')" />
+        <input id="cmp-file-b" type="file" accept="image/*" onchange="onCompareFile(event, 'b')" />
+        <button class="action" onclick="runCompare()">Compare Results</button>
+      </div>
+
+      <div class="compare-grid">
+        <div>
+          <p class="compare-label">Image A</p>
+          <div class="preview" id="cmp-preview-a"><span class="placeholder">Image A preview</span></div>
+        </div>
+        <div>
+          <p class="compare-label">Image B</p>
+          <div class="preview" id="cmp-preview-b"><span class="placeholder">Image B preview</span></div>
+        </div>
+      </div>
+
+      <div id="compare-result" class="compare-summary hidden">
+        <p class="result-head">Comparison Result</p>
+        <p id="compare-main" class="compare-main">-</p>
+        <div class="kv-grid">
+          <div class="kv"><p class="k">A Raw Score</p><p id="cmp-score-a" class="v">-</p></div>
+          <div class="kv"><p class="k">B Raw Score</p><p id="cmp-score-b" class="v">-</p></div>
+          <div class="kv"><p class="k">Absolute Delta</p><p id="cmp-delta" class="v">-</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="log" id="log"></section>
+  </main>
+
+<script>
+let singleFile = null;
+let cmpFileA = null;
+let cmpFileB = null;
+const logs = [];
+const API_BASE = (window.location.protocol === 'file:')
+  ? 'http://127.0.0.1:8000'
+  : `${window.location.protocol}//${window.location.host}`;
+
+function showMode(mode) {
+  document.getElementById('tab-single').classList.toggle('active', mode === 'single');
+  document.getElementById('tab-compare').classList.toggle('active', mode === 'compare');
+  document.getElementById('panel-single').classList.toggle('active', mode === 'single');
+  document.getElementById('panel-compare').classList.toggle('active', mode === 'compare');
+}
+
+function log(msg, warn = false) {
+  const ts = new Date().toTimeString().slice(0, 8);
+  logs.push({ ts, msg, warn });
+  if (logs.length > 50) logs.shift();
+  const el = document.getElementById('log');
+  el.innerHTML = logs.map(l => `<div class="line ${l.warn ? 'warn' : ''}">[${l.ts}] ${l.msg}</div>`).join('');
+  el.scrollTop = el.scrollHeight;
+}
+
+function setImagePreview(elId, src) {
+  const box = document.getElementById(elId);
+  box.innerHTML = '';
+  const img = document.createElement('img');
+  img.src = src;
+  img.alt = 'preview';
+  box.appendChild(img);
+}
+
+function fmtMetric(v, scale100 = false, digits = 4) {
+  if (v === null || v === undefined || Number.isNaN(Number(v))) return 'N/A';
+  const n = Number(v);
+  const shown = scale100 ? (n * 100.0) : n;
+  return shown.toFixed(digits);
+}
+
+async function checkHealth() {
+  try {
+    const res = await fetch(`${API_BASE}/api/health`);
+    if (!res.ok) throw new Error('health endpoint failed');
+    const data = await res.json();
+    if (data.ok) {
+      document.getElementById('api-status').textContent = `Backend ready · ${data.backbone} · Coreset: ${data.coreset_size} · API: ${API_BASE}`;
+      document.getElementById('m-final-auroc').textContent = fmtMetric(data.final_mean_auroc, true, 2);
+      document.getElementById('m-inc-auroc').textContent = fmtMetric(data.avg_incremental_auroc, true, 2);
+      document.getElementById('m-forgetting').textContent = fmtMetric(data.forgetting_rate, true, 2);
+      document.getElementById('m-fwt').textContent = fmtMetric(data.forward_transfer, true, 2);
+      log('Backend ready for live inference');
+      return;
+    }
+    throw new Error('health response not ok');
+  } catch (e) {
+    document.getElementById('api-status').textContent = 'Backend not connected. Start: python scripts/memoryad_demo_server.py';
+    log('Backend not connected. Start server script first.', true);
+  }
+}
+
+function onSingleFile(e) {
+  singleFile = e.target.files?.[0] || null;
+  if (!singleFile) return;
+  setImagePreview('single-input-preview', URL.createObjectURL(singleFile));
+  document.getElementById('single-result').classList.add('hidden');
+  log(`Selected single image: ${singleFile.name}`);
+}
+
+async function runSingle() {
+  if (!singleFile) {
+    log('Please upload an image before running inference.', true);
+    return;
+  }
+
+  try {
+    log('Running single-image inference...');
+    const fd = new FormData();
+    fd.append('image', singleFile);
+    const res = await fetch(`${API_BASE}/api/infer`, { method: 'POST', body: fd });
+    const data = await res.json();
+    if (!res.ok || !data.ok) throw new Error(data.error || 'inference failed');
+
+    const r = data.result;
+    setImagePreview('single-overlay-preview', r.overlay_data_uri);
+
+    const mainEl = document.getElementById('single-main-score');
+    mainEl.textContent = `Anomaly Score: ${Number(r.score_raw).toFixed(3)}`;
+    mainEl.className = 'prediction';
+
+    document.getElementById('single-raw').textContent = Number(r.score_raw).toFixed(3);
+    document.getElementById('single-latency').textContent = Number(r.inference_ms).toFixed(2);
+    document.getElementById('single-k').textContent = Number(r.scoring_k).toFixed(0);
+    document.getElementById('single-result').classList.remove('hidden');
+
+    log(`Single inference completed. Anomaly score: ${Number(r.score_raw).toFixed(3)}`);
+  } catch (e) {
+    log(`Single inference failed: ${e.message}`, true);
+  }
+}
+
+function onCompareFile(e, side) {
+  const f = e.target.files?.[0] || null;
+  if (side === 'a') cmpFileA = f;
+  if (side === 'b') cmpFileB = f;
+  if (!f) return;
+
+  if (side === 'a') setImagePreview('cmp-preview-a', URL.createObjectURL(f));
+  if (side === 'b') setImagePreview('cmp-preview-b', URL.createObjectURL(f));
+  document.getElementById('compare-result').classList.add('hidden');
+  log(`Selected compare image ${side.toUpperCase()}: ${f.name}`);
+}
+
+async function runCompare() {
+  if (!cmpFileA || !cmpFileB) {
+    log('Please upload both Image A and Image B.', true);
+    return;
+  }
+
+  try {
+    log('Running two-image comparison...');
+    const fd = new FormData();
+    fd.append('image_a', cmpFileA);
+    fd.append('image_b', cmpFileB);
+
+    const res = await fetch(`${API_BASE}/api/compare`, { method: 'POST', body: fd });
+    const data = await res.json();
+    if (!res.ok || !data.ok) throw new Error(data.error || 'comparison failed');
+
+    setImagePreview('cmp-preview-a', data.result_a.overlay_data_uri);
+    setImagePreview('cmp-preview-b', data.result_b.overlay_data_uri);
+
+    document.getElementById('cmp-score-a').textContent = Number(data.result_a.score_raw).toFixed(3);
+    document.getElementById('cmp-score-b').textContent = Number(data.result_b.score_raw).toFixed(3);
+    document.getElementById('cmp-delta').textContent = Number(data.delta_abs).toFixed(3);
+
+    const main = document.getElementById('compare-main');
+    const h = data.higher_risk;
+    if (h === 'A') {
+      main.textContent = 'Image A has higher anomaly score';
+      main.className = 'compare-main a';
+    } else if (h === 'B') {
+      main.textContent = 'Image B has higher anomaly score';
+      main.className = 'compare-main b';
+    } else {
+      main.textContent = 'Both images have similar anomaly scores';
+      main.className = 'compare-main equal';
+    }
+
+    document.getElementById('compare-result').classList.remove('hidden');
+    log(`Comparison complete. Higher score: ${h}. Delta: ${Number(data.delta_abs).toFixed(3)}`);
+  } catch (e) {
+    log(`Comparison failed: ${e.message}`, true);
+  }
+}
+
+checkHealth();
+</script>
+</body>
+</html>

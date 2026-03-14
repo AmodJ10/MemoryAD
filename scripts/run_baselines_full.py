@@ -7,11 +7,14 @@ for each method (Joint, Naive, MemoryAD, EWC, LwF, Replay).
 Usage:
     .venv\\Scripts\\python.exe scripts\\run_baselines_full.py
     .venv\\Scripts\\python.exe scripts\\run_baselines_full.py --skip-rd4ad
+    .venv\\Scripts\\python.exe scripts\\run_baselines_full.py --only independent
+    .venv\\Scripts\\python.exe scripts\\run_baselines_full.py --only independent joint memoryad
 """
-import sys, os, time, json, subprocess, copy
+import sys, os, time, json, subprocess, copy, gc, argparse
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 import numpy as np
+import torch
 
 from src.data_utils.feature_cache import FeatureCache
 from src.coreset.adaptive_manager import AdaptiveCoresetManager
@@ -31,6 +34,14 @@ ALL_CATEGORIES = [c for t in TASKS for c in t["categories"]]
 BUDGET = 10000
 K = 9
 FEATURE_DIR = "data/features/dinov2_vitb14"
+MAX_PATCHES_PER_CAT = 20000
+
+
+def _cleanup():
+    """Free GPU memory and trigger garbage collection."""
+    gc.collect()
+    if torch.cuda.is_available():
+        torch.cuda.empty_cache()
 
 
 def evaluate_cached(scorer, cache, categories, spatial_dims):
@@ -43,12 +54,12 @@ def evaluate_cached(scorer, cache, categories, spatial_dims):
     return results
 
 
-def compute_cil_metrics(auroc_matrix, n_tasks, n_cats, all_categories, tasks):
+def compute_cil_metrics(auroc_matrix, n_tasks, n_cats, all_categories, tasks,
+                        joint_aurocs=None):
     """Compute forgetting rate, avg incremental AUROC, and forward transfer."""
     am = np.array(auroc_matrix)
 
     # Final mean AUROC (last row, non-NaN)
-    valid_final = ~np.isnan(am[-1])
     final_mean = float(np.nanmean(am[-1]))
 
     # Avg Incremental: mean of per-task mean AUROCs
@@ -59,25 +70,28 @@ def compute_cil_metrics(auroc_matrix, n_tasks, n_cats, all_categories, tasks):
             task_means.append(float(np.mean(am[t, valid])))
     avg_inc = float(np.mean(task_means)) if task_means else 0.0
 
-    # Forgetting Rate: for each category, max AUROC seen - final AUROC
+    # Forgetting Rate: for each category, max AUROC before final - final AUROC
     forgetting_vals = []
     for cat_idx in range(n_cats):
         col = am[:, cat_idx]
         valid = ~np.isnan(col)
         if valid.sum() > 1:
-            best = np.nanmax(col)
-            final = col[-1] if not np.isnan(col[-1]) else 0.0
-            forgetting_vals.append(best - final)
+            valid_scores = col[valid]
+            best = np.max(valid_scores[:-1])
+            final = valid_scores[-1]
+            forgetting_vals.append(max(0.0, best - final))
     forgetting_rate = float(np.mean(forgetting_vals)) if forgetting_vals else 0.0
 
-    # Forward Transfer: AUROC at first exposure for each category
+    # Forward Transfer: AUROC at first exposure / independent AUROC
     ft_vals = []
-    cats_seen = []
     for t_idx, task in enumerate(tasks):
         for cat in task["categories"]:
             cat_idx = all_categories.index(cat)
             if not np.isnan(am[t_idx, cat_idx]):
-                ft_vals.append(am[t_idx, cat_idx])
+                if joint_aurocs is not None and joint_aurocs[cat_idx] > 0:
+                    ft_vals.append(am[t_idx, cat_idx] / joint_aurocs[cat_idx])
+                else:
+                    ft_vals.append(am[t_idx, cat_idx])
     forward_transfer = float(np.mean(ft_vals)) if ft_vals else 0.0
 
     return {
@@ -89,12 +103,13 @@ def compute_cil_metrics(auroc_matrix, n_tasks, n_cats, all_categories, tasks):
 
 
 # ── MemoryAD ────────────────────────────────────────────
-def run_memoryad(cache):
+def run_memoryad(cache, joint_cat_aurocs=None):
     print(f"\n{'='*60}")
     print("MemoryAD (ours) — 5-task, 15 categories")
     print(f"{'='*60}")
     t0 = time.time()
 
+    rng = np.random.RandomState(42)
     manager = AdaptiveCoresetManager(global_budget=BUDGET, strategy="proportional")
     scorer = KNNScorer(k=K)
     spatial_dims = cache.spatial_dims
@@ -109,10 +124,15 @@ def run_memoryad(cache):
         task_features = {}
         for c in cats:
             feats = cache.load_train_features(c)
+            if feats.shape[0] > MAX_PATCHES_PER_CAT:
+                indices = rng.choice(feats.shape[0], MAX_PATCHES_PER_CAT, replace=False)
+                feats = feats[indices]
             task_features[c] = feats
             print(f"  {c}: {feats.shape[0]} patches")
 
         manager.add_task(task_features)
+        del task_features
+        _cleanup()
         scorer.fit(manager.get_global_coreset())
         categories_seen.extend(cats)
 
@@ -122,17 +142,20 @@ def run_memoryad(cache):
             print(f"    {cat}: I-AUROC={cat_aurocs[cat]:.4f}")
 
     elapsed = time.time() - t0
-    metrics = compute_cil_metrics(auroc_matrix, n_tasks, n_cats, ALL_CATEGORIES, TASKS)
+    metrics = compute_cil_metrics(auroc_matrix, n_tasks, n_cats, ALL_CATEGORIES,
+                                  TASKS, joint_aurocs=joint_cat_aurocs)
     metrics["auroc_matrix"] = auroc_matrix.tolist()
     metrics["time_s"] = elapsed
     print(f"\nMemoryAD done in {elapsed:.1f}s — I-AUROC={metrics['final_mean_auroc']:.4f}")
+    del scorer, manager
+    _cleanup()
     return metrics
 
 
 # ── Joint (upper bound) ─────────────────────────────────
 def run_joint(cache):
     print(f"\n{'='*60}")
-    print("Joint (upper bound) — 5-task, 15 categories")
+    print("Joint (upper) — 5-task, 15 categories")
     print(f"{'='*60}")
     t0 = time.time()
 
@@ -140,21 +163,27 @@ def run_joint(cache):
     all_feats = []
     for cat in ALL_CATEGORIES:
         f = cache.load_train_features(cat)
+        if f.shape[0] > MAX_PATCHES_PER_CAT:
+            indices = rng.choice(f.shape[0], MAX_PATCHES_PER_CAT, replace=False)
+            f = f[indices]
         all_feats.append(f)
         print(f"  {cat}: {f.shape[0]} patches")
 
     combined = np.concatenate(all_feats, axis=0)
+    del all_feats
     print(f"  Total: {combined.shape[0]} patches -> coreset {BUDGET}...")
     coreset = greedy_coreset_selection(combined, budget=BUDGET)
+    del combined
+    _cleanup()
 
     scorer = KNNScorer(k=K)
     scorer.fit(coreset)
+    del coreset
 
     cat_aurocs = evaluate_cached(scorer, cache, ALL_CATEGORIES, cache.spatial_dims)
     for cat in ALL_CATEGORIES:
         print(f"    {cat}: I-AUROC={cat_aurocs[cat]:.4f}")
 
-    # Joint has no incremental setup — same result at all "tasks"
     n_tasks = len(TASKS)
     n_cats = len(ALL_CATEGORIES)
     auroc_matrix = np.full((n_tasks, n_cats), np.nan)
@@ -165,15 +194,21 @@ def run_joint(cache):
             auroc_matrix[t_idx, ALL_CATEGORIES.index(cat)] = cat_aurocs[cat]
 
     elapsed = time.time() - t0
-    metrics = compute_cil_metrics(auroc_matrix, n_tasks, n_cats, ALL_CATEGORIES, TASKS)
+    joint_cat_aurocs = np.array([cat_aurocs[cat] for cat in ALL_CATEGORIES])
+
+    elapsed = time.time() - t0
+    metrics = compute_cil_metrics(auroc_matrix, n_tasks, n_cats, ALL_CATEGORIES,
+                                  TASKS, joint_aurocs=joint_cat_aurocs)
     metrics["auroc_matrix"] = auroc_matrix.tolist()
     metrics["time_s"] = elapsed
     print(f"\nJoint done in {elapsed:.1f}s — I-AUROC={metrics['final_mean_auroc']:.4f}")
-    return metrics
+    del scorer
+    _cleanup()
+    return metrics, joint_cat_aurocs
 
 
 # ── Naive (lower bound) ─────────────────────────────────
-def run_naive(cache):
+def run_naive(cache, joint_cat_aurocs=None):
     print(f"\n{'='*60}")
     print("Naive (lower bound) — 5-task, 15 categories")
     print(f"{'='*60}")
@@ -190,15 +225,22 @@ def run_naive(cache):
         cats = task["categories"]
         print(f"\n--- Task {task_idx} ---")
 
-        # Naive: only use current task's features (forget everything else)
         task_feats = []
         for c in cats:
             f = cache.load_train_features(c)
+            if f.shape[0] > MAX_PATCHES_PER_CAT:
+                indices = rng.choice(f.shape[0], MAX_PATCHES_PER_CAT, replace=False)
+                f = f[indices]
             task_feats.append(f)
 
         combined = np.concatenate(task_feats, axis=0)
+        del task_feats
         coreset = greedy_coreset_selection(combined, budget=BUDGET)
+        del combined
+        _cleanup()
         scorer.fit(coreset)
+        del coreset
+        _cleanup()
 
         categories_seen.extend(cats)
 
@@ -208,10 +250,13 @@ def run_naive(cache):
             print(f"    {cat}: I-AUROC={cat_aurocs[cat]:.4f}")
 
     elapsed = time.time() - t0
-    metrics = compute_cil_metrics(auroc_matrix, n_tasks, n_cats, ALL_CATEGORIES, TASKS)
+    metrics = compute_cil_metrics(auroc_matrix, n_tasks, n_cats, ALL_CATEGORIES,
+                                  TASKS, joint_aurocs=joint_cat_aurocs)
     metrics["auroc_matrix"] = auroc_matrix.tolist()
     metrics["time_s"] = elapsed
     print(f"\nNaive done in {elapsed:.1f}s — I-AUROC={metrics['final_mean_auroc']:.4f}")
+    del scorer
+    _cleanup()
     return metrics
 
 
@@ -261,11 +306,16 @@ def run_rd4ad_subprocess(method, epochs=30):
 
 
 def main():
-    import argparse
     parser = argparse.ArgumentParser()
     parser.add_argument("--skip-rd4ad", action="store_true",
                         help="Skip RD4AD baselines (EWC/LwF/Replay)")
+    parser.add_argument("--only", nargs="+",
+                        choices=["joint", "naive", "memoryad",
+                                 "ewc", "lwf", "replay"],
+                        help="Run only specific methods (default: all)")
     args = parser.parse_args()
+    run_methods = set(args.only) if args.only else {
+        "joint", "naive", "memoryad", "ewc", "lwf", "replay"}
 
     cache = FeatureCache(FEATURE_DIR)
     print(f"Feature cache: {cache.feature_dir}")
@@ -273,17 +323,27 @@ def main():
 
     results = {}
     t_start = time.time()
+    joint_cat_aurocs = None
 
-    # Feature-based methods (fast)
-    results["MemoryAD (ours)"] = run_memoryad(cache)
-    results["Joint (upper)"] = run_joint(cache)
-    results["Naive (lower)"] = run_naive(cache)
+    # Joint first (upper bound + provides FT reference)
+    if "joint" in run_methods:
+        joint_result, joint_cat_aurocs = run_joint(cache)
+        results["Joint (upper)"] = joint_result
+
+    # Feature-based methods
+    if "memoryad" in run_methods:
+        results["MemoryAD (ours)"] = run_memoryad(cache, joint_cat_aurocs)
+    if "naive" in run_methods:
+        results["Naive (lower)"] = run_naive(cache, joint_cat_aurocs)
 
     # RD4AD-based methods (slow, need GPU)
     if not args.skip_rd4ad:
-        results["EWC + RD4AD"] = run_rd4ad_subprocess("ewc", epochs=30)
-        results["LwF + RD4AD"] = run_rd4ad_subprocess("lwf", epochs=30)
-        results["Replay + RD4AD"] = run_rd4ad_subprocess("replay", epochs=30)
+        if "ewc" in run_methods:
+            results["EWC + RD4AD"] = run_rd4ad_subprocess("ewc", epochs=30)
+        if "lwf" in run_methods:
+            results["LwF + RD4AD"] = run_rd4ad_subprocess("lwf", epochs=30)
+        if "replay" in run_methods:
+            results["Replay + RD4AD"] = run_rd4ad_subprocess("replay", epochs=30)
     else:
         print("\n[SKIPPED] RD4AD baselines (--skip-rd4ad)")
 

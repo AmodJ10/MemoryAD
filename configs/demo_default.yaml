@@ -1,0 +1,22 @@
+# MemoryAD demo configuration (tiny cache for quick showcase)
+
+backbone:
+  name: "dinov2_vitb14"
+  layers: [7, 11]
+  feature_aggregation: "concat"
+  input_size: 518
+  batch_size: 2
+  use_fp16: false
+
+coreset:
+  global_budget: 400
+  strategy: "proportional"
+  min_per_category: 50
+
+scoring:
+  k: 3
+  image_score_method: "max"
+  top_k_percent: 1.0
+
+evaluation:
+  random_seeds: [42]

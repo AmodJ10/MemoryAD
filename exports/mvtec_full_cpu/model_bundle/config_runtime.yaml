@@ -1,0 +1,22 @@
+backbone:
+  name: dinov2_vitb14
+  layers:
+  - 7
+  - 11
+  feature_aggregation: concat
+  input_size: 518
+  batch_size: 4
+  use_fp16: false
+coreset:
+  global_budget: 10000
+  strategy: proportional
+  min_per_category: 100
+scoring:
+  k: 9
+  image_score_method: max
+  top_k_percent: 1.0
+evaluation:
+  random_seeds:
+  - 42
+  - 123
+  - 456

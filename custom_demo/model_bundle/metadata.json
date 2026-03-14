@@ -1,0 +1,99 @@
+{
+  "name": "MemoryAD MVTec Full CPU Bundle",
+  "dataset": {
+    "name": "mvtec_ad",
+    "root": "./data/mvtec_ad"
+  },
+  "categories": [
+    "bottle",
+    "cable",
+    "capsule",
+    "carpet",
+    "grid",
+    "hazelnut",
+    "leather",
+    "metal_nut",
+    "pill",
+    "screw",
+    "tile",
+    "toothbrush",
+    "transistor",
+    "wood",
+    "zipper"
+  ],
+  "spatial_dims": [
+    37,
+    37
+  ],
+  "feature_dim": 1536,
+  "coreset_size": 9990,
+  "backbone": {
+    "name": "dinov2_vitb14",
+    "layers": [
+      7,
+      11
+    ],
+    "feature_aggregation": "concat",
+    "input_size": 518,
+    "batch_size": 4,
+    "use_fp16": false
+  },
+  "scoring": {
+    "k": 9,
+    "image_score_method": "max",
+    "top_k_percent": 1.0
+  },
+  "coreset": {
+    "global_budget": 10000,
+    "strategy": "proportional",
+    "min_per_category": 100
+  },
+  "training_summary": {
+    "final_mean_auroc": 0.9462030282005841,
+    "avg_incremental_auroc": 0.9395420770604567,
+    "forgetting_rate": 0.009748920723159285,
+    "forward_transfer": 0.9901396057379749,
+    "total_time_seconds": 163.95369029045105
+  },
+  "per_category_results": {
+    "bottle": 0.9984126984126984,
+    "cable": 0.9340329835082459,
+    "capsule": 0.8372556840845632,
+    "carpet": 0.9642857142857143,
+    "grid": 0.9557226399331662,
+    "hazelnut": 0.9917857142857143,
+    "leather": 0.845108695652174,
+    "metal_nut": 0.9804496578690127,
+    "pill": 0.944899072558647,
+    "screw": 0.8438204550112728,
+    "tile": 0.9985569985569986,
+    "toothbrush": 0.9972222222222222,
+    "transistor": 0.9066666666666666,
+    "wood": 0.9956140350877193,
+    "zipper": 0.9992121848739496
+  },
+  "coreset_stats": {
+    "total_categories": 15,
+    "total_patches": 9990,
+    "global_budget": 10000,
+    "per_category": {
+      "bottle": 666,
+      "cable": 666,
+      "capsule": 666,
+      "carpet": 666,
+      "grid": 666,
+      "hazelnut": 666,
+      "leather": 666,
+      "metal_nut": 666,
+      "pill": 666,
+      "screw": 666,
+      "tile": 666,
+      "toothbrush": 666,
+      "transistor": 666,
+      "wood": 666,
+      "zipper": 666
+    },
+    "tasks_seen": 5,
+    "feature_dim": 1536
+  }
+}

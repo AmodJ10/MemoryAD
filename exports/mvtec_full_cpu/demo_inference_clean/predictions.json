@@ -1,0 +1,842 @@
+[
+  {
+    "image_path": "exports/mvtec_full_cpu/mini_testset_120/grid/test/bent/001.png",
+    "overlay_path": "exports/mvtec_full_cpu/demo_inference_clean/overlays/001_overlay.png",
+    "anomaly_score": 7810.1650390625,
+    "width": 1024,
+    "height": 1024
+  },
+  {
+    "image_path": "exports/mvtec_full_cpu/mini_testset_120/leather/test/good/001.png",
+    "overlay_path": "exports/mvtec_full_cpu/demo_inference_clean/overlays/001_overlay.png",
+    "anomaly_score": 6324.2998046875,
+    "width": 1024,
+    "height": 1024
+  },
+  {
+    "image_path": "exports/mvtec_full_cpu/mini_testset_120/grid/test/bent/000.png",
+    "overlay_path": "exports/mvtec_full_cpu/demo_inference_clean/overlays/000_overlay.png",
+    "anomaly_score": 5491.2568359375,
+    "width": 1024,
+    "height": 1024
+  },
+  {
+    "image_path": "exports/mvtec_full_cpu/mini_testset_120/leather/test/color/000.png",
+    "overlay_path": "exports/mvtec_full_cpu/demo_inference_clean/overlays/000_overlay.png",
+    "anomaly_score": 4715.93212890625,
+    "width": 1024,
+    "height": 1024
+  },
+  {
+    "image_path": "exports/mvtec_full_cpu/mini_testset_120/grid/test/good/002.png",
+    "overlay_path": "exports/mvtec_full_cpu/demo_inference_clean/overlays/002_overlay.png",
+    "anomaly_score": 4496.15283203125,
+    "width": 1024,
+    "height": 1024
+  },
+  {
+    "image_path": "exports/mvtec_full_cpu/mini_testset_120/tile/test/crack/002.png",
+    "overlay_path": "exports/mvtec_full_cpu/demo_inference_clean/overlays/002_overlay.png",
+    "anomaly_score": 3728.044189453125,
+    "width": 840,
+    "height": 840
+  },
+  {
+    "image_path": "exports/mvtec_full_cpu/mini_testset_120/leather/test/color/001.png",
+    "overlay_path": "exports/mvtec_full_cpu/demo_inference_clean/overlays/001_overlay.png",
+    "anomaly_score": 3630.95751953125,
+    "width": 1024,
+    "height": 1024
+  },
+  {
+    "image_path": "exports/mvtec_full_cpu/mini_testset_120/tile/test/crack/001.png",
+    "overlay_path": "exports/mvtec_full_cpu/demo_inference_clean/overlays/001_overlay.png",
+    "anomaly_score": 3604.8837890625,
+    "width": 840,
+    "height": 840
+  },
+  {
+    "image_path": "exports/mvtec_full_cpu/mini_testset_120/toothbrush/test/defective/001.png",
+    "overlay_path": "exports/mvtec_full_cpu/demo_inference_clean/overlays/001_overlay.png",
+    "anomaly_score": 3570.109130859375,
+    "width": 1024,
+    "height": 1024
+  },
+  {
+    "image_path": "exports/mvtec_full_cpu/mini_testset_120/hazelnut/test/crack/002.png",
+    "overlay_path": "exports/mvtec_full_cpu/demo_inference_clean/overlays/002_overlay.png",
+    "anomaly_score": 3510.919189453125,
+    "width": 1024,
+    "height": 1024
+  },
+  {
+    "image_path": "exports/mvtec_full_cpu/mini_testset_120/hazelnut/test/crack/000.png",
+    "overlay_path": "exports/mvtec_full_cpu/demo_inference_clean/overlays/000_overlay.png",
+    "anomaly_score": 3506.85205078125,
+    "width": 1024,
+    "height": 1024
+  },
+  {
+    "image_path": "exports/mvtec_full_cpu/mini_testset_120/tile/test/crack/003.png",
+    "overlay_path": "exports/mvtec_full_cpu/demo_inference_clean/overlays/003_overlay.png",
+    "anomaly_score": 3469.4111328125,
+    "width": 840,
+    "height": 840
+  },
+  {
+    "image_path": "exports/mvtec_full_cpu/mini_testset_120/hazelnut/test/crack/003.png",
+    "overlay_path": "exports/mvtec_full_cpu/demo_inference_clean/overlays/003_overlay.png",
+    "anomaly_score": 3446.580810546875,
+    "width": 1024,
+    "height": 1024
+  },
+  {
+    "image_path": "exports/mvtec_full_cpu/mini_testset_120/tile/test/crack/000.png",
+    "overlay_path": "exports/mvtec_full_cpu/demo_inference_clean/overlays/000_overlay.png",
+    "anomaly_score": 3416.865234375,
+    "width": 840,
+    "height": 840
+  },
+  {
+    "image_path": "exports/mvtec_full_cpu/mini_testset_120/hazelnut/test/crack/001.png",
+    "overlay_path": "exports/mvtec_full_cpu/demo_inference_clean/overlays/001_overlay.png",
+    "anomaly_score": 3398.738037109375,
+    "width": 1024,
+    "height": 1024
+  },
+  {
+    "image_path": "exports/mvtec_full_cpu/mini_testset_120/cable/test/bent_wire/003.png",
+    "overlay_path": "exports/mvtec_full_cpu/demo_inference_clean/overlays/003_overlay.png",
+    "anomaly_score": 3377.11328125,
+    "width": 1024,
+    "height": 1024
+  },
+  {
+    "image_path": "exports/mvtec_full_cpu/mini_testset_120/cable/test/bent_wire/001.png",
+    "overlay_path": "exports/mvtec_full_cpu/demo_inference_clean/overlays/001_overlay.png",
+    "anomaly_score": 3296.254150390625,
+    "width": 1024,
+    "height": 1024
+  },
+  {
+    "image_path": "exports/mvtec_full_cpu/mini_testset_120/wood/test/color/003.png",
+    "overlay_path": "exports/mvtec_full_cpu/demo_inference_clean/overlays/003_overlay.png",
+    "anomaly_score": 3271.8984375,
+    "width": 1024,
+    "height": 1024
+  },
+  {
+    "image_path": "exports/mvtec_full_cpu/mini_testset_120/grid/test/bent/003.png",
+    "overlay_path": "exports/mvtec_full_cpu/demo_inference_clean/overlays/003_overlay.png",
+    "anomaly_score": 3214.583984375,
+    "width": 1024,
+    "height": 1024
+  },
+  {
+    "image_path": "exports/mvtec_full_cpu/mini_testset_120/screw/test/manipulated_front/003.png",
+    "overlay_path": "exports/mvtec_full_cpu/demo_inference_clean/overlays/003_overlay.png",
+    "anomaly_score": 3189.567626953125,
+    "width": 1024,
+    "height": 1024
+  },
+  {
+    "image_path": "exports/mvtec_full_cpu/mini_testset_120/toothbrush/test/defective/002.png",
+    "overlay_path": "exports/mvtec_full_cpu/demo_inference_clean/overlays/002_overlay.png",
+    "anomaly_score": 3163.7666015625,
+    "width": 1024,
+    "height": 1024
+  },
+  {
+    "image_path": "exports/mvtec_full_cpu/mini_testset_120/pill/test/color/003.png",
+    "overlay_path": "exports/mvtec_full_cpu/demo_inference_clean/overlays/003_overlay.png",
+    "anomaly_score": 3153.979736328125,
+    "width": 800,
+    "height": 800
+  },
+  {
+    "image_path": "exports/mvtec_full_cpu/mini_testset_120/screw/test/manipulated_front/001.png",
+    "overlay_path": "exports/mvtec_full_cpu/demo_inference_clean/overlays/001_overlay.png",
+    "anomaly_score": 3022.4775390625,
+    "width": 1024,
+    "height": 1024
+  },
+  {
+    "image_path": "exports/mvtec_full_cpu/mini_testset_120/screw/test/manipulated_front/000.png",
+    "overlay_path": "exports/mvtec_full_cpu/demo_inference_clean/overlays/000_overlay.png",
+    "anomaly_score": 3017.186767578125,
+    "width": 1024,
+    "height": 1024
+  },
+  {
+    "image_path": "exports/mvtec_full_cpu/mini_testset_120/pill/test/color/001.png",
+    "overlay_path": "exports/mvtec_full_cpu/demo_inference_clean/overlays/001_overlay.png",
+    "anomaly_score": 2987.341064453125,
+    "width": 800,
+    "height": 800
+  },
+  {
+    "image_path": "exports/mvtec_full_cpu/mini_testset_120/wood/test/color/001.png",
+    "overlay_path": "exports/mvtec_full_cpu/demo_inference_clean/overlays/001_overlay.png",
+    "anomaly_score": 2947.436279296875,
+    "width": 1024,
+    "height": 1024
+  },
+  {
+    "image_path": "exports/mvtec_full_cpu/mini_testset_120/grid/test/bent/002.png",
+    "overlay_path": "exports/mvtec_full_cpu/demo_inference_clean/overlays/002_overlay.png",
+    "anomaly_score": 2896.661376953125,
+    "width": 1024,
+    "height": 1024
+  },
+  {
+    "image_path": "exports/mvtec_full_cpu/mini_testset_120/capsule/test/crack/001.png",
+    "overlay_path": "exports/mvtec_full_cpu/demo_inference_clean/overlays/001_overlay.png",
+    "anomaly_score": 2887.795166015625,
+    "width": 1000,
+    "height": 1000
+  },
+  {
+    "image_path": "exports/mvtec_full_cpu/mini_testset_120/cable/test/bent_wire/002.png",
+    "overlay_path": "exports/mvtec_full_cpu/demo_inference_clean/overlays/002_overlay.png",
+    "anomaly_score": 2859.967529296875,
+    "width": 1024,
+    "height": 1024
+  },
+  {
+    "image_path": "exports/mvtec_full_cpu/mini_testset_120/metal_nut/test/bent/002.png",
+    "overlay_path": "exports/mvtec_full_cpu/demo_inference_clean/overlays/002_overlay.png",
+    "anomaly_score": 2835.048095703125,
+    "width": 700,
+    "height": 700
+  },
+  {
+    "image_path": "exports/mvtec_full_cpu/mini_testset_120/toothbrush/test/defective/000.png",
+    "overlay_path": "exports/mvtec_full_cpu/demo_inference_clean/overlays/000_overlay.png",
+    "anomaly_score": 2759.61328125,
+    "width": 1024,
+    "height": 1024
+  },
+  {
+    "image_path": "exports/mvtec_full_cpu/mini_testset_120/carpet/test/color/003.png",
+    "overlay_path": "exports/mvtec_full_cpu/demo_inference_clean/overlays/003_overlay.png",
+    "anomaly_score": 2740.98828125,
+    "width": 1024,
+    "height": 1024
+  },
+  {
+    "image_path": "exports/mvtec_full_cpu/mini_testset_120/toothbrush/test/defective/003.png",
+    "overlay_path": "exports/mvtec_full_cpu/demo_inference_clean/overlays/003_overlay.png",
+    "anomaly_score": 2704.318359375,
+    "width": 1024,
+    "height": 1024
+  },
+  {
+    "image_path": "exports/mvtec_full_cpu/mini_testset_120/cable/test/bent_wire/000.png",
+    "overlay_path": "exports/mvtec_full_cpu/demo_inference_clean/overlays/000_overlay.png",
+    "anomaly_score": 2639.65185546875,
+    "width": 1024,
+    "height": 1024
+  },
+  {
+    "image_path": "exports/mvtec_full_cpu/mini_testset_120/transistor/test/bent_lead/003.png",
+    "overlay_path": "exports/mvtec_full_cpu/demo_inference_clean/overlays/003_overlay.png",
+    "anomaly_score": 2633.511962890625,
+    "width": 1024,
+    "height": 1024
+  },
+  {
+    "image_path": "exports/mvtec_full_cpu/mini_testset_120/carpet/test/color/000.png",
+    "overlay_path": "exports/mvtec_full_cpu/demo_inference_clean/overlays/000_overlay.png",
+    "anomaly_score": 2614.59033203125,
+    "width": 1024,
+    "height": 1024
+  },
+  {
+    "image_path": "exports/mvtec_full_cpu/mini_testset_120/wood/test/color/002.png",
+    "overlay_path": "exports/mvtec_full_cpu/demo_inference_clean/overlays/002_overlay.png",
+    "anomaly_score": 2569.959228515625,
+    "width": 1024,
+    "height": 1024
+  },
+  {
+    "image_path": "exports/mvtec_full_cpu/mini_testset_120/bottle/test/broken_large/003.png",
+    "overlay_path": "exports/mvtec_full_cpu/demo_inference_clean/overlays/003_overlay.png",
+    "anomaly_score": 2568.8984375,
+    "width": 900,
+    "height": 900
+  },
+  {
+    "image_path": "exports/mvtec_full_cpu/mini_testset_120/carpet/test/color/002.png",
+    "overlay_path": "exports/mvtec_full_cpu/demo_inference_clean/overlays/002_overlay.png",
+    "anomaly_score": 2546.60986328125,
+    "width": 1024,
+    "height": 1024
+  },
+  {
+    "image_path": "exports/mvtec_full_cpu/mini_testset_120/pill/test/color/002.png",
+    "overlay_path": "exports/mvtec_full_cpu/demo_inference_clean/overlays/002_overlay.png",
+    "anomaly_score": 2521.7509765625,
+    "width": 800,
+    "height": 800
+  },
+  {
+    "image_path": "exports/mvtec_full_cpu/mini_testset_120/leather/test/color/003.png",
+    "overlay_path": "exports/mvtec_full_cpu/demo_inference_clean/overlays/003_overlay.png",
+    "anomaly_score": 2514.55078125,
+    "width": 1024,
+    "height": 1024
+  },
+  {
+    "image_path": "exports/mvtec_full_cpu/mini_testset_120/metal_nut/test/bent/001.png",
+    "overlay_path": "exports/mvtec_full_cpu/demo_inference_clean/overlays/001_overlay.png",
+    "anomaly_score": 2504.20263671875,
+    "width": 700,
+    "height": 700
+  },
+  {
+    "image_path": "exports/mvtec_full_cpu/mini_testset_120/bottle/test/broken_large/000.png",
+    "overlay_path": "exports/mvtec_full_cpu/demo_inference_clean/overlays/000_overlay.png",
+    "anomaly_score": 2441.430908203125,
+    "width": 900,
+    "height": 900
+  },
+  {
+    "image_path": "exports/mvtec_full_cpu/mini_testset_120/metal_nut/test/bent/003.png",
+    "overlay_path": "exports/mvtec_full_cpu/demo_inference_clean/overlays/003_overlay.png",
+    "anomaly_score": 2419.970703125,
+    "width": 700,
+    "height": 700
+  },
+  {
+    "image_path": "exports/mvtec_full_cpu/mini_testset_120/wood/test/color/000.png",
+    "overlay_path": "exports/mvtec_full_cpu/demo_inference_clean/overlays/000_overlay.png",
+    "anomaly_score": 2408.460693359375,
+    "width": 1024,
+    "height": 1024
+  },
+  {
+    "image_path": "exports/mvtec_full_cpu/mini_testset_120/bottle/test/broken_large/002.png",
+    "overlay_path": "exports/mvtec_full_cpu/demo_inference_clean/overlays/002_overlay.png",
+    "anomaly_score": 2369.800048828125,
+    "width": 900,
+    "height": 900
+  },
+  {
+    "image_path": "exports/mvtec_full_cpu/mini_testset_120/capsule/test/crack/003.png",
+    "overlay_path": "exports/mvtec_full_cpu/demo_inference_clean/overlays/003_overlay.png",
+    "anomaly_score": 2366.961669921875,
+    "width": 1000,
+    "height": 1000
+  },
+  {
+    "image_path": "exports/mvtec_full_cpu/mini_testset_120/hazelnut/test/good/002.png",
+    "overlay_path": "exports/mvtec_full_cpu/demo_inference_clean/overlays/002_overlay.png",
+    "anomaly_score": 2351.9306640625,
+    "width": 1024,
+    "height": 1024
+  },
+  {
+    "image_path": "exports/mvtec_full_cpu/mini_testset_120/hazelnut/test/good/001.png",
+    "overlay_path": "exports/mvtec_full_cpu/demo_inference_clean/overlays/001_overlay.png",
+    "anomaly_score": 2347.532958984375,
+    "width": 1024,
+    "height": 1024
+  },
+  {
+    "image_path": "exports/mvtec_full_cpu/mini_testset_120/transistor/test/bent_lead/002.png",
+    "overlay_path": "exports/mvtec_full_cpu/demo_inference_clean/overlays/002_overlay.png",
+    "anomaly_score": 2327.116455078125,
+    "width": 1024,
+    "height": 1024
+  },
+  {
+    "image_path": "exports/mvtec_full_cpu/mini_testset_120/capsule/test/good/002.png",
+    "overlay_path": "exports/mvtec_full_cpu/demo_inference_clean/overlays/002_overlay.png",
+    "anomaly_score": 2323.33154296875,
+    "width": 1000,
+    "height": 1000
+  },
+  {
+    "image_path": "exports/mvtec_full_cpu/mini_testset_120/bottle/test/broken_large/001.png",
+    "overlay_path": "exports/mvtec_full_cpu/demo_inference_clean/overlays/001_overlay.png",
+    "anomaly_score": 2318.783935546875,
+    "width": 900,
+    "height": 900
+  },
+  {
+    "image_path": "exports/mvtec_full_cpu/mini_testset_120/transistor/test/bent_lead/000.png",
+    "overlay_path": "exports/mvtec_full_cpu/demo_inference_clean/overlays/000_overlay.png",
+    "anomaly_score": 2314.3056640625,
+    "width": 1024,
+    "height": 1024
+  },
+  {
+    "image_path": "exports/mvtec_full_cpu/mini_testset_120/screw/test/manipulated_front/002.png",
+    "overlay_path": "exports/mvtec_full_cpu/demo_inference_clean/overlays/002_overlay.png",
+    "anomaly_score": 2292.26806640625,
+    "width": 1024,
+    "height": 1024
+  },
+  {
+    "image_path": "exports/mvtec_full_cpu/mini_testset_120/zipper/test/broken_teeth/003.png",
+    "overlay_path": "exports/mvtec_full_cpu/demo_inference_clean/overlays/003_overlay.png",
+    "anomaly_score": 2211.3359375,
+    "width": 1024,
+    "height": 1024
+  },
+  {
+    "image_path": "exports/mvtec_full_cpu/mini_testset_120/leather/test/color/002.png",
+    "overlay_path": "exports/mvtec_full_cpu/demo_inference_clean/overlays/002_overlay.png",
+    "anomaly_score": 2195.947509765625,
+    "width": 1024,
+    "height": 1024
+  },
+  {
+    "image_path": "exports/mvtec_full_cpu/mini_testset_120/transistor/test/bent_lead/001.png",
+    "overlay_path": "exports/mvtec_full_cpu/demo_inference_clean/overlays/001_overlay.png",
+    "anomaly_score": 2174.36767578125,
+    "width": 1024,
+    "height": 1024
+  },
+  {
+    "image_path": "exports/mvtec_full_cpu/mini_testset_120/screw/test/good/001.png",
+    "overlay_path": "exports/mvtec_full_cpu/demo_inference_clean/overlays/001_overlay.png",
+    "anomaly_score": 2172.713623046875,
+    "width": 1024,
+    "height": 1024
+  },
+  {
+    "image_path": "exports/mvtec_full_cpu/mini_testset_120/carpet/test/color/001.png",
+    "overlay_path": "exports/mvtec_full_cpu/demo_inference_clean/overlays/001_overlay.png",
+    "anomaly_score": 2170.1064453125,
+    "width": 1024,
+    "height": 1024
+  },
+  {
+    "image_path": "exports/mvtec_full_cpu/mini_testset_120/toothbrush/test/good/000.png",
+    "overlay_path": "exports/mvtec_full_cpu/demo_inference_clean/overlays/000_overlay.png",
+    "anomaly_score": 2130.359130859375,
+    "width": 1024,
+    "height": 1024
+  },
+  {
+    "image_path": "exports/mvtec_full_cpu/mini_testset_120/capsule/test/crack/000.png",
+    "overlay_path": "exports/mvtec_full_cpu/demo_inference_clean/overlays/000_overlay.png",
+    "anomaly_score": 2129.404296875,
+    "width": 1000,
+    "height": 1000
+  },
+  {
+    "image_path": "exports/mvtec_full_cpu/mini_testset_120/cable/test/good/002.png",
+    "overlay_path": "exports/mvtec_full_cpu/demo_inference_clean/overlays/002_overlay.png",
+    "anomaly_score": 2113.635498046875,
+    "width": 1024,
+    "height": 1024
+  },
+  {
+    "image_path": "exports/mvtec_full_cpu/mini_testset_120/screw/test/good/000.png",
+    "overlay_path": "exports/mvtec_full_cpu/demo_inference_clean/overlays/000_overlay.png",
+    "anomaly_score": 2074.07568359375,
+    "width": 1024,
+    "height": 1024
+  },
+  {
+    "image_path": "exports/mvtec_full_cpu/mini_testset_120/hazelnut/test/good/000.png",
+    "overlay_path": "exports/mvtec_full_cpu/demo_inference_clean/overlays/000_overlay.png",
+    "anomaly_score": 2055.77099609375,
+    "width": 1024,
+    "height": 1024
+  },
+  {
+    "image_path": "exports/mvtec_full_cpu/mini_testset_120/metal_nut/test/bent/000.png",
+    "overlay_path": "exports/mvtec_full_cpu/demo_inference_clean/overlays/000_overlay.png",
+    "anomaly_score": 2019.08251953125,
+    "width": 700,
+    "height": 700
+  },
+  {
+    "image_path": "exports/mvtec_full_cpu/mini_testset_120/zipper/test/broken_teeth/001.png",
+    "overlay_path": "exports/mvtec_full_cpu/demo_inference_clean/overlays/001_overlay.png",
+    "anomaly_score": 2015.6319580078125,
+    "width": 1024,
+    "height": 1024
+  },
+  {
+    "image_path": "exports/mvtec_full_cpu/mini_testset_120/capsule/test/crack/002.png",
+    "overlay_path": "exports/mvtec_full_cpu/demo_inference_clean/overlays/002_overlay.png",
+    "anomaly_score": 1973.9039306640625,
+    "width": 1000,
+    "height": 1000
+  },
+  {
+    "image_path": "exports/mvtec_full_cpu/mini_testset_120/toothbrush/test/good/001.png",
+    "overlay_path": "exports/mvtec_full_cpu/demo_inference_clean/overlays/001_overlay.png",
+    "anomaly_score": 1973.757568359375,
+    "width": 1024,
+    "height": 1024
+  },
+  {
+    "image_path": "exports/mvtec_full_cpu/mini_testset_120/cable/test/good/003.png",
+    "overlay_path": "exports/mvtec_full_cpu/demo_inference_clean/overlays/003_overlay.png",
+    "anomaly_score": 1957.966796875,
+    "width": 1024,
+    "height": 1024
+  },
+  {
+    "image_path": "exports/mvtec_full_cpu/mini_testset_120/transistor/test/good/001.png",
+    "overlay_path": "exports/mvtec_full_cpu/demo_inference_clean/overlays/001_overlay.png",
+    "anomaly_score": 1889.4078369140625,
+    "width": 1024,
+    "height": 1024
+  },
+  {
+    "image_path": "exports/mvtec_full_cpu/mini_testset_120/transistor/test/good/000.png",
+    "overlay_path": "exports/mvtec_full_cpu/demo_inference_clean/overlays/000_overlay.png",
+    "anomaly_score": 1887.0692138671875,
+    "width": 1024,
+    "height": 1024
+  },
+  {
+    "image_path": "exports/mvtec_full_cpu/mini_testset_120/zipper/test/broken_teeth/002.png",
+    "overlay_path": "exports/mvtec_full_cpu/demo_inference_clean/overlays/002_overlay.png",
+    "anomaly_score": 1874.884765625,
+    "width": 1024,
+    "height": 1024
+  },
+  {
+    "image_path": "exports/mvtec_full_cpu/mini_testset_120/screw/test/good/002.png",
+    "overlay_path": "exports/mvtec_full_cpu/demo_inference_clean/overlays/002_overlay.png",
+    "anomaly_score": 1855.1510009765625,
+    "width": 1024,
+    "height": 1024
+  },
+  {
+    "image_path": "exports/mvtec_full_cpu/mini_testset_120/cable/test/good/001.png",
+    "overlay_path": "exports/mvtec_full_cpu/demo_inference_clean/overlays/001_overlay.png",
+    "anomaly_score": 1852.927978515625,
+    "width": 1024,
+    "height": 1024
+  },
+  {
+    "image_path": "exports/mvtec_full_cpu/mini_testset_120/screw/test/good/003.png",
+    "overlay_path": "exports/mvtec_full_cpu/demo_inference_clean/overlays/003_overlay.png",
+    "anomaly_score": 1826.46923828125,
+    "width": 1024,
+    "height": 1024
+  },
+  {
+    "image_path": "exports/mvtec_full_cpu/mini_testset_120/cable/test/good/000.png",
+    "overlay_path": "exports/mvtec_full_cpu/demo_inference_clean/overlays/000_overlay.png",
+    "anomaly_score": 1791.8997802734375,
+    "width": 1024,
+    "height": 1024
+  },
+  {
+    "image_path": "exports/mvtec_full_cpu/mini_testset_120/transistor/test/good/002.png",
+    "overlay_path": "exports/mvtec_full_cpu/demo_inference_clean/overlays/002_overlay.png",
+    "anomaly_score": 1782.8370361328125,
+    "width": 1024,
+    "height": 1024
+  },
+  {
+    "image_path": "exports/mvtec_full_cpu/mini_testset_120/toothbrush/test/good/003.png",
+    "overlay_path": "exports/mvtec_full_cpu/demo_inference_clean/overlays/003_overlay.png",
+    "anomaly_score": 1774.548828125,
+    "width": 1024,
+    "height": 1024
+  },
+  {
+    "image_path": "exports/mvtec_full_cpu/mini_testset_120/toothbrush/test/good/002.png",
+    "overlay_path": "exports/mvtec_full_cpu/demo_inference_clean/overlays/002_overlay.png",
+    "anomaly_score": 1756.4482421875,
+    "width": 1024,
+    "height": 1024
+  },
+  {
+    "image_path": "exports/mvtec_full_cpu/mini_testset_120/transistor/test/good/003.png",
+    "overlay_path": "exports/mvtec_full_cpu/demo_inference_clean/overlays/003_overlay.png",
+    "anomaly_score": 1739.7593994140625,
+    "width": 1024,
+    "height": 1024
+  },
+  {
+    "image_path": "exports/mvtec_full_cpu/mini_testset_120/metal_nut/test/good/002.png",
+    "overlay_path": "exports/mvtec_full_cpu/demo_inference_clean/overlays/002_overlay.png",
+    "anomaly_score": 1696.9000244140625,
+    "width": 700,
+    "height": 700
+  },
+  {
+    "image_path": "exports/mvtec_full_cpu/mini_testset_120/metal_nut/test/good/001.png",
+    "overlay_path": "exports/mvtec_full_cpu/demo_inference_clean/overlays/001_overlay.png",
+    "anomaly_score": 1683.2584228515625,
+    "width": 700,
+    "height": 700
+  },
+  {
+    "image_path": "exports/mvtec_full_cpu/mini_testset_120/hazelnut/test/good/003.png",
+    "overlay_path": "exports/mvtec_full_cpu/demo_inference_clean/overlays/003_overlay.png",
+    "anomaly_score": 1683.142822265625,
+    "width": 1024,
+    "height": 1024
+  },
+  {
+    "image_path": "exports/mvtec_full_cpu/mini_testset_120/bottle/test/good/001.png",
+    "overlay_path": "exports/mvtec_full_cpu/demo_inference_clean/overlays/001_overlay.png",
+    "anomaly_score": 1675.187255859375,
+    "width": 900,
+    "height": 900
+  },
+  {
+    "image_path": "exports/mvtec_full_cpu/mini_testset_120/carpet/test/good/000.png",
+    "overlay_path": "exports/mvtec_full_cpu/demo_inference_clean/overlays/000_overlay.png",
+    "anomaly_score": 1632.119384765625,
+    "width": 1024,
+    "height": 1024
+  },
+  {
+    "image_path": "exports/mvtec_full_cpu/mini_testset_120/grid/test/good/003.png",
+    "overlay_path": "exports/mvtec_full_cpu/demo_inference_clean/overlays/003_overlay.png",
+    "anomaly_score": 1627.0872802734375,
+    "width": 1024,
+    "height": 1024
+  },
+  {
+    "image_path": "exports/mvtec_full_cpu/mini_testset_120/zipper/test/good/003.png",
+    "overlay_path": "exports/mvtec_full_cpu/demo_inference_clean/overlays/003_overlay.png",
+    "anomaly_score": 1594.7740478515625,
+    "width": 1024,
+    "height": 1024
+  },
+  {
+    "image_path": "exports/mvtec_full_cpu/mini_testset_120/tile/test/good/000.png",
+    "overlay_path": "exports/mvtec_full_cpu/demo_inference_clean/overlays/000_overlay.png",
+    "anomaly_score": 1580.9522705078125,
+    "width": 840,
+    "height": 840
+  },
+  {
+    "image_path": "exports/mvtec_full_cpu/mini_testset_120/pill/test/good/000.png",
+    "overlay_path": "exports/mvtec_full_cpu/demo_inference_clean/overlays/000_overlay.png",
+    "anomaly_score": 1571.0057373046875,
+    "width": 800,
+    "height": 800
+  },
+  {
+    "image_path": "exports/mvtec_full_cpu/mini_testset_120/zipper/test/broken_teeth/000.png",
+    "overlay_path": "exports/mvtec_full_cpu/demo_inference_clean/overlays/000_overlay.png",
+    "anomaly_score": 1563.301025390625,
+    "width": 1024,
+    "height": 1024
+  },
+  {
+    "image_path": "exports/mvtec_full_cpu/mini_testset_120/metal_nut/test/good/000.png",
+    "overlay_path": "exports/mvtec_full_cpu/demo_inference_clean/overlays/000_overlay.png",
+    "anomaly_score": 1539.3861083984375,
+    "width": 700,
+    "height": 700
+  },
+  {
+    "image_path": "exports/mvtec_full_cpu/mini_testset_120/metal_nut/test/good/003.png",
+    "overlay_path": "exports/mvtec_full_cpu/demo_inference_clean/overlays/003_overlay.png",
+    "anomaly_score": 1536.426025390625,
+    "width": 700,
+    "height": 700
+  },
+  {
+    "image_path": "exports/mvtec_full_cpu/mini_testset_120/pill/test/good/001.png",
+    "overlay_path": "exports/mvtec_full_cpu/demo_inference_clean/overlays/001_overlay.png",
+    "anomaly_score": 1490.7347412109375,
+    "width": 800,
+    "height": 800
+  },
+  {
+    "image_path": "exports/mvtec_full_cpu/mini_testset_120/wood/test/good/000.png",
+    "overlay_path": "exports/mvtec_full_cpu/demo_inference_clean/overlays/000_overlay.png",
+    "anomaly_score": 1473.9007568359375,
+    "width": 1024,
+    "height": 1024
+  },
+  {
+    "image_path": "exports/mvtec_full_cpu/mini_testset_120/bottle/test/good/000.png",
+    "overlay_path": "exports/mvtec_full_cpu/demo_inference_clean/overlays/000_overlay.png",
+    "anomaly_score": 1471.802490234375,
+    "width": 900,
+    "height": 900
+  },
+  {
+    "image_path": "exports/mvtec_full_cpu/mini_testset_120/pill/test/color/000.png",
+    "overlay_path": "exports/mvtec_full_cpu/demo_inference_clean/overlays/000_overlay.png",
+    "anomaly_score": 1417.6156005859375,
+    "width": 800,
+    "height": 800
+  },
+  {
+    "image_path": "exports/mvtec_full_cpu/mini_testset_120/pill/test/good/002.png",
+    "overlay_path": "exports/mvtec_full_cpu/demo_inference_clean/overlays/002_overlay.png",
+    "anomaly_score": 1406.36181640625,
+    "width": 800,
+    "height": 800
+  },
+  {
+    "image_path": "exports/mvtec_full_cpu/mini_testset_120/bottle/test/good/002.png",
+    "overlay_path": "exports/mvtec_full_cpu/demo_inference_clean/overlays/002_overlay.png",
+    "anomaly_score": 1402.3489990234375,
+    "width": 900,
+    "height": 900
+  },
+  {
+    "image_path": "exports/mvtec_full_cpu/mini_testset_120/bottle/test/good/003.png",
+    "overlay_path": "exports/mvtec_full_cpu/demo_inference_clean/overlays/003_overlay.png",
+    "anomaly_score": 1392.3570556640625,
+    "width": 900,
+    "height": 900
+  },
+  {
+    "image_path": "exports/mvtec_full_cpu/mini_testset_120/grid/test/good/001.png",
+    "overlay_path": "exports/mvtec_full_cpu/demo_inference_clean/overlays/001_overlay.png",
+    "anomaly_score": 1367.44580078125,
+    "width": 1024,
+    "height": 1024
+  },
+  {
+    "image_path": "exports/mvtec_full_cpu/mini_testset_120/capsule/test/good/000.png",
+    "overlay_path": "exports/mvtec_full_cpu/demo_inference_clean/overlays/000_overlay.png",
+    "anomaly_score": 1366.515625,
+    "width": 1000,
+    "height": 1000
+  },
+  {
+    "image_path": "exports/mvtec_full_cpu/mini_testset_120/zipper/test/good/001.png",
+    "overlay_path": "exports/mvtec_full_cpu/demo_inference_clean/overlays/001_overlay.png",
+    "anomaly_score": 1359.5137939453125,
+    "width": 1024,
+    "height": 1024
+  },
+  {
+    "image_path": "exports/mvtec_full_cpu/mini_testset_120/carpet/test/good/001.png",
+    "overlay_path": "exports/mvtec_full_cpu/demo_inference_clean/overlays/001_overlay.png",
+    "anomaly_score": 1333.166259765625,
+    "width": 1024,
+    "height": 1024
+  },
+  {
+    "image_path": "exports/mvtec_full_cpu/mini_testset_120/capsule/test/good/001.png",
+    "overlay_path": "exports/mvtec_full_cpu/demo_inference_clean/overlays/001_overlay.png",
+    "anomaly_score": 1285.6275634765625,
+    "width": 1000,
+    "height": 1000
+  },
+  {
+    "image_path": "exports/mvtec_full_cpu/mini_testset_120/tile/test/good/002.png",
+    "overlay_path": "exports/mvtec_full_cpu/demo_inference_clean/overlays/002_overlay.png",
+    "anomaly_score": 1281.686279296875,
+    "width": 840,
+    "height": 840
+  },
+  {
+    "image_path": "exports/mvtec_full_cpu/mini_testset_120/capsule/test/good/003.png",
+    "overlay_path": "exports/mvtec_full_cpu/demo_inference_clean/overlays/003_overlay.png",
+    "anomaly_score": 1260.3995361328125,
+    "width": 1000,
+    "height": 1000
+  },
+  {
+    "image_path": "exports/mvtec_full_cpu/mini_testset_120/pill/test/good/003.png",
+    "overlay_path": "exports/mvtec_full_cpu/demo_inference_clean/overlays/003_overlay.png",
+    "anomaly_score": 1257.8802490234375,
+    "width": 800,
+    "height": 800
+  },
+  {
+    "image_path": "exports/mvtec_full_cpu/mini_testset_120/wood/test/good/002.png",
+    "overlay_path": "exports/mvtec_full_cpu/demo_inference_clean/overlays/002_overlay.png",
+    "anomaly_score": 1239.3548583984375,
+    "width": 1024,
+    "height": 1024
+  },
+  {
+    "image_path": "exports/mvtec_full_cpu/mini_testset_120/wood/test/good/003.png",
+    "overlay_path": "exports/mvtec_full_cpu/demo_inference_clean/overlays/003_overlay.png",
+    "anomaly_score": 1237.5596923828125,
+    "width": 1024,
+    "height": 1024
+  },
+  {
+    "image_path": "exports/mvtec_full_cpu/mini_testset_120/wood/test/good/001.png",
+    "overlay_path": "exports/mvtec_full_cpu/demo_inference_clean/overlays/001_overlay.png",
+    "anomaly_score": 1202.6446533203125,
+    "width": 1024,
+    "height": 1024
+  },
+  {
+    "image_path": "exports/mvtec_full_cpu/mini_testset_120/grid/test/good/000.png",
+    "overlay_path": "exports/mvtec_full_cpu/demo_inference_clean/overlays/000_overlay.png",
+    "anomaly_score": 1184.628662109375,
+    "width": 1024,
+    "height": 1024
+  },
+  {
+    "image_path": "exports/mvtec_full_cpu/mini_testset_120/zipper/test/good/002.png",
+    "overlay_path": "exports/mvtec_full_cpu/demo_inference_clean/overlays/002_overlay.png",
+    "anomaly_score": 1173.609619140625,
+    "width": 1024,
+    "height": 1024
+  },
+  {
+    "image_path": "exports/mvtec_full_cpu/mini_testset_120/tile/test/good/001.png",
+    "overlay_path": "exports/mvtec_full_cpu/demo_inference_clean/overlays/001_overlay.png",
+    "anomaly_score": 1133.9654541015625,
+    "width": 840,
+    "height": 840
+  },
+  {
+    "image_path": "exports/mvtec_full_cpu/mini_testset_120/tile/test/good/003.png",
+    "overlay_path": "exports/mvtec_full_cpu/demo_inference_clean/overlays/003_overlay.png",
+    "anomaly_score": 1133.0064697265625,
+    "width": 840,
+    "height": 840
+  },
+  {
+    "image_path": "exports/mvtec_full_cpu/mini_testset_120/zipper/test/good/000.png",
+    "overlay_path": "exports/mvtec_full_cpu/demo_inference_clean/overlays/000_overlay.png",
+    "anomaly_score": 1105.2359619140625,
+    "width": 1024,
+    "height": 1024
+  },
+  {
+    "image_path": "exports/mvtec_full_cpu/mini_testset_120/leather/test/good/002.png",
+    "overlay_path": "exports/mvtec_full_cpu/demo_inference_clean/overlays/002_overlay.png",
+    "anomaly_score": 1092.4757080078125,
+    "width": 1024,
+    "height": 1024
+  },
+  {
+    "image_path": "exports/mvtec_full_cpu/mini_testset_120/leather/test/good/000.png",
+    "overlay_path": "exports/mvtec_full_cpu/demo_inference_clean/overlays/000_overlay.png",
+    "anomaly_score": 1091.6124267578125,
+    "width": 1024,
+    "height": 1024
+  },
+  {
+    "image_path": "exports/mvtec_full_cpu/mini_testset_120/leather/test/good/003.png",
+    "overlay_path": "exports/mvtec_full_cpu/demo_inference_clean/overlays/003_overlay.png",
+    "anomaly_score": 1067.1939697265625,
+    "width": 1024,
+    "height": 1024
+  },
+  {
+    "image_path": "exports/mvtec_full_cpu/mini_testset_120/carpet/test/good/003.png",
+    "overlay_path": "exports/mvtec_full_cpu/demo_inference_clean/overlays/003_overlay.png",
+    "anomaly_score": 1060.72314453125,
+    "width": 1024,
+    "height": 1024
+  },
+  {
+    "image_path": "exports/mvtec_full_cpu/mini_testset_120/carpet/test/good/002.png",
+    "overlay_path": "exports/mvtec_full_cpu/demo_inference_clean/overlays/002_overlay.png",
+    "anomaly_score": 1015.804931640625,
+    "width": 1024,
+    "height": 1024
+  }
+]

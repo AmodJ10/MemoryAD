@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.2.25)  11 MAR 2026 10:17
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.2.25)  11 MAR 2026 17:20
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -306,6 +306,60 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \@float@everytoks=\toks28
 \@floatcapt=\box104
 )
+(C:\Users\pramo\AppData\Local\Programs\MiKTeX\tex/latex/algorithm2e\algorithm2e
+.sty
+Package: algorithm2e 2017/07/18 v5.2 algorithms environments
+\c@AlgoLine=\count332
+ (C:\Users\pramo\AppData\Local\Programs\MiKTeX\tex/latex/base\ifthen.sty
+Package: ifthen 2024/03/16 v1.1e Standard LaTeX ifthen package (DPC)
+)
+\algocf@hangindent=\skip58
+
+(C:\Users\pramo\AppData\Local\Programs\MiKTeX\tex/latex/ifoddpage\ifoddpage.sty
+Package: ifoddpage 2022/10/18 v1.2 Conditionals for odd/even page detection
+\c@checkoddpage=\count333
+) (C:\Users\pramo\AppData\Local\Programs\MiKTeX\tex/latex/tools\xspace.sty
+Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
+)
+(C:\Users\pramo\AppData\Local\Programs\MiKTeX\tex/latex/relsize\relsize.sty
+Package: relsize 2013/03/29 ver 4.1
+)
+\skiptotal=\skip59
+\skiplinenumber=\skip60
+\skiprule=\skip61
+\skiphlne=\skip62
+\skiptext=\skip63
+\skiplength=\skip64
+\algomargin=\skip65
+\skipalgocfslide=\skip66
+\algowidth=\dimen196
+\inoutsize=\dimen197
+\inoutindent=\dimen198
+\interspacetitleruled=\dimen199
+\interspacealgoruled=\dimen256
+\interspacetitleboxruled=\dimen257
+\algocf@ruledwidth=\skip67
+\algocf@inoutbox=\box105
+\algocf@inputbox=\box106
+\AlCapSkip=\skip68
+\AlCapHSkip=\skip69
+\algoskipindent=\skip70
+\algocf@nlbox=\box107
+\algocf@hangingbox=\box108
+\algocf@untilbox=\box109
+\algocf@skipuntil=\skip71
+\algocf@capbox=\box110
+\algocf@lcaptionbox=\skip72
+\algoheightruledefault=\skip73
+\algoheightrule=\skip74
+\algotitleheightruledefault=\skip75
+\algotitleheightrule=\skip76
+\c@algocfline=\count334
+\c@algocfproc=\count335
+\c@algocf=\count336
+\algocf@algoframe=\box111
+\algocf@algobox=\box112
+)
 (C:\Users\pramo\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hyperref.sty
 Package: hyperref 2025-07-12 v7.01o Hypertext links for LaTeX
 
@@ -355,20 +409,20 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 (C:\Users\pramo\AppData\Local\Programs\MiKTeX\tex/latex/kvoptions\kvoptions.sty
 Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
 ))
-\c@section@level=\count332
+\c@section@level=\count337
 )
 (C:\Users\pramo\AppData\Local\Programs\MiKTeX\tex/latex/etoolbox\etoolbox.sty
 Package: etoolbox 2025/10/02 v2.5m e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count333
+\etb@tempcnta=\count338
 )
 (C:\Users\pramo\AppData\Local\Programs\MiKTeX\tex/generic/stringenc\stringenc.s
 ty
 Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO
 )
 )
-\@linkdim=\dimen196
-\Hy@linkcounter=\count334
-\Hy@pagecounter=\count335
+\@linkdim=\dimen258
+\Hy@linkcounter=\count339
+\Hy@pagecounter=\count340
  (C:\Users\pramo\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\pd1enc.def
 File: pd1enc.def 2025-07-12 v7.01o Hyperref: PDFDocEncoding definition (HO)
 Now handling font encoding PD1 ...
@@ -376,7 +430,7 @@ Now handling font encoding PD1 ...
 ) (C:\Users\pramo\AppData\Local\Programs\MiKTeX\tex/generic/intcalc\intcalc.sty
 Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 )
-\Hy@SavedSpaceFactor=\count336
+\Hy@SavedSpaceFactor=\count341
  (C:\Users\pramo\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\puenc.def
 File: puenc.def 2025-07-12 v7.01o Hyperref: PDF Unicode definition (HO)
 Now handling font encoding PU ...
@@ -389,14 +443,14 @@ Package hyperref Info: Plain pages OFF on input line 4210.
 Package hyperref Info: Backreferencing OFF on input line 4215.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4462.
-\c@Hy@tempcnt=\count337
+\c@Hy@tempcnt=\count342
 
 (C:\Users\pramo\AppData\Local\Programs\MiKTeX\tex/latex/url\url.sty
 \Urlmuskip=\muskip18
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
 LaTeX Info: Redefining \url on input line 4801.
-\XeTeXLinkMargin=\dimen197
+\XeTeXLinkMargin=\dimen259
 
 (C:\Users\pramo\AppData\Local\Programs\MiKTeX\tex/generic/bitset\bitset.sty
 Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
@@ -406,9 +460,9 @@ Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
 )
 ))
-\Fld@menulength=\count338
-\Field@Width=\dimen198
-\Fld@charsize=\dimen199
+\Fld@menulength=\count343
+\Field@Width=\dimen260
+\Fld@charsize=\dimen261
 Package hyperref Info: Hyper figures OFF on input line 6078.
 Package hyperref Info: Link nesting OFF on input line 6083.
 Package hyperref Info: Hyper index ON on input line 6086.
@@ -416,16 +470,16 @@ Package hyperref Info: backreferencing OFF on input line 6093.
 Package hyperref Info: Link coloring OFF on input line 6098.
 Package hyperref Info: Link coloring with OCG OFF on input line 6103.
 Package hyperref Info: PDF/A mode OFF on input line 6108.
-\Hy@abspage=\count339
-\c@Item=\count340
-\c@Hfootnote=\count341
+\Hy@abspage=\count344
+\c@Item=\count345
+\c@Hfootnote=\count346
 )
 Package hyperref Info: Driver (autodetected): hpdftex.
 
 (C:\Users\pramo\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hpdftex.def
 File: hpdftex.def 2025-07-12 v7.01o Hyperref driver for pdfTeX
-\Fld@listcount=\count342
-\c@bookmark@seq@number=\count343
+\Fld@listcount=\count347
+\c@bookmark@seq@number=\count348
 
 (C:\Users\pramo\AppData\Local\Programs\MiKTeX\tex/latex/rerunfilecheck\rerunfil
 echeck.sty
@@ -438,7 +492,7 @@ Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 84.
 )
-\Hy@SectionHShift=\skip58
+\Hy@SectionHShift=\skip77
 )
 (C:\Users\pramo\AppData\Local\Programs\MiKTeX\tex/latex/cleveref\cleveref.sty
 Package: cleveref 2018/03/27 v0.21.4 Intelligent cross-referencing
@@ -453,6 +507,7 @@ LaTeX Info: Redefining \cpagerefrange on input line 2370.
 LaTeX Info: Redefining \Cpagerefrange on input line 2370.
 LaTeX Info: Redefining \labelcref on input line 2370.
 LaTeX Info: Redefining \labelcpageref on input line 2370.
+Package cleveref Info: `algorithm2e' support loaded on input line 3147.
 Package cleveref Info: `aliascnt' support loaded on input line 3193.
 Package cleveref Info: always capitalise cross-reference names on input line 78
 30.
@@ -461,60 +516,6 @@ Package cleveref Info: always capitalise cross-reference names on input line 78
 )
 ==> First Aid for cleveref.sty applied!
 
-(C:\Users\pramo\AppData\Local\Programs\MiKTeX\tex/latex/algorithm2e\algorithm2e
-.sty
-Package: algorithm2e 2017/07/18 v5.2 algorithms environments
-\c@AlgoLine=\count344
- (C:\Users\pramo\AppData\Local\Programs\MiKTeX\tex/latex/base\ifthen.sty
-Package: ifthen 2024/03/16 v1.1e Standard LaTeX ifthen package (DPC)
-)
-\algocf@hangindent=\skip59
-
-(C:\Users\pramo\AppData\Local\Programs\MiKTeX\tex/latex/ifoddpage\ifoddpage.sty
-Package: ifoddpage 2022/10/18 v1.2 Conditionals for odd/even page detection
-\c@checkoddpage=\count345
-) (C:\Users\pramo\AppData\Local\Programs\MiKTeX\tex/latex/tools\xspace.sty
-Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
-)
-(C:\Users\pramo\AppData\Local\Programs\MiKTeX\tex/latex/relsize\relsize.sty
-Package: relsize 2013/03/29 ver 4.1
-)
-\skiptotal=\skip60
-\skiplinenumber=\skip61
-\skiprule=\skip62
-\skiphlne=\skip63
-\skiptext=\skip64
-\skiplength=\skip65
-\algomargin=\skip66
-\skipalgocfslide=\skip67
-\algowidth=\dimen256
-\inoutsize=\dimen257
-\inoutindent=\dimen258
-\interspacetitleruled=\dimen259
-\interspacealgoruled=\dimen260
-\interspacetitleboxruled=\dimen261
-\algocf@ruledwidth=\skip68
-\algocf@inoutbox=\box105
-\algocf@inputbox=\box106
-\AlCapSkip=\skip69
-\AlCapHSkip=\skip70
-\algoskipindent=\skip71
-\algocf@nlbox=\box107
-\algocf@hangingbox=\box108
-\algocf@untilbox=\box109
-\algocf@skipuntil=\skip72
-\algocf@capbox=\box110
-\algocf@lcaptionbox=\skip73
-\algoheightruledefault=\skip74
-\algoheightrule=\skip75
-\algotitleheightruledefault=\skip76
-\algotitleheightrule=\skip77
-\c@algocfline=\count346
-\c@algocfproc=\count347
-\c@algocf=\count348
-\algocf@algoframe=\box111
-\algocf@algobox=\box112
-)
 (C:\Users\pramo\AppData\Local\Programs\MiKTeX\tex/latex/pgf/frontendlayer\tikz.
 sty
 (C:\Users\pramo\AppData\Local\Programs\MiKTeX\tex/latex/pgf/basiclayer\pgf.sty
@@ -846,24 +847,24 @@ File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
 ) (main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
 
 (C:\Users\pramo\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mk
 ii
@@ -890,18 +891,18 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 fg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
-Package hyperref Info: Link coloring OFF on input line 23.
+Package hyperref Info: Link coloring OFF on input line 24.
  (main.out) (main.out)
 \@outlinefile=\write4
 \openout4 = `main.out'.
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 31.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 32.
 
 
 (C:\Users\pramo\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 31.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 32.
 
 
 (C:\Users\pramo\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
@@ -909,138 +910,109 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\\' on input line 31.
+(hyperref)                removing `\\' on input line 32.
 
 Title too long for running head. Please supply
 a shorter form with \titlerunning prior to \maketitle
-
-Overfull \hbox (1.07405pt too wide) in paragraph at lines 36--43
-\OT1/cmr/m/n/9 play+RD4AD (83.7%), while ap-proach-ing the joint up-per bound (
-95.1%).
- []
-
-
-Overfull \hbox (7.24689pt too wide) in paragraph at lines 36--43
-\OT1/cmr/m/n/9 tion, gen-er-alises to VisA (90.3% I-AUROC), and op-er-ates at 2
-9.6 ms/image
- []
-
 <figures/f1_teaser.pdf, id=25, 463.36394pt x 280.35303pt>
 File: figures/f1_teaser.pdf Graphic file (type pdf)
 <use figures/f1_teaser.pdf>
-Package pdftex.def Info: figures/f1_teaser.pdf  used on input line 59.
+Package pdftex.def Info: figures/f1_teaser.pdf  used on input line 60.
 (pdftex.def)             Requested size: 242.98541pt x 147.01642pt.
 [1
 
 {C:/Users/pramo/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
-Overfull \hbox (8.2374pt too wide) in paragraph at lines 108--109
+Overfull \hbox (8.2374pt too wide) in paragraph at lines 109--110
 []$\OML/cmm/m/it/10 k$\OT1/cmr/bx/n/10 -NN anomaly scor-ing\OT1/cmr/m/n/10 : Te
 st patches are scored by their $\OML/cmm/m/it/10 k$\OT1/cmr/m/n/10 -nearest-nei
 ghbour
  []
 
 
-Overfull \hbox (9.20818pt too wide) in paragraph at lines 113--114
+Overfull \hbox (9.20818pt too wide) in paragraph at lines 114--115
 []\OT1/cmr/m/n/10 A training-free, architecture-agnostic frame-work for con-tin
 -ual AD that achieves
  []
 
-[2 <./figures/f1_teaser.pdf>] [3]
-
-LaTeX Warning: Cref reference format for label type `algocf' undefined on input
- line 167.
-
-[4] [5] [6] (tables/t1_main_results.tex)
+[2 <./figures/f1_teaser.pdf>] [3] [4] [5] [6] (tables/t1_main_results.tex)
 <figures/f2_incremental_auroc.pdf, id=281, 329.13277pt x 247.6496pt>
 File: figures/f2_incremental_auroc.pdf Graphic file (type pdf)
 <use figures/f2_incremental_auroc.pdf>
 Package pdftex.def Info: figures/f2_incremental_auroc.pdf  used on input line 3
-01.
+02.
 (pdftex.def)             Requested size: 260.34265pt x 195.89043pt.
 
-Overfull \hbox (10.04367pt too wide) in paragraph at lines 308--310
+Overfull \hbox (10.04367pt too wide) in paragraph at lines 309--311
 []\OT1/cmr/m/n/10 Figure []3[] shows the in-cre-men-tal per-for-mance tra-jec-t
 ory. Mem-o-ryAD's I-AUROC
  []
 
 (tables/t2_per_category.tex)
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [7]
-<figures/f7_qualitative_heatmaps.pdf, id=292, 625.61292pt x 1075.8644pt>
+<figures/f7_qualitative_heatmaps.pdf, id=284, 625.61292pt x 1075.8644pt>
 File: figures/f7_qualitative_heatmaps.pdf Graphic file (type pdf)
 <use figures/f7_qualitative_heatmaps.pdf>
 Package pdftex.def Info: figures/f7_qualitative_heatmaps.pdf  used on input lin
-e 319.
+e 320.
 (pdftex.def)             Requested size: 295.05711pt x 507.41289pt.
 
 
-LaTeX Warning: Float too large for page by 14.02461pt on input line 323.
+LaTeX Warning: Float too large for page by 25.02461pt on input line 324.
 
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [8 <./figures/f2_incremental_auroc.pdf>] (tables/t2_visa_results.tex)
-<figures/f4_budget_curve.pdf, id=352, 370.99228pt x 247.80643pt>
+[7] (tables/t2_visa_results.tex)
+<figures/f4_budget_curve.pdf, id=296, 370.99228pt x 247.80643pt>
 File: figures/f4_budget_curve.pdf Graphic file (type pdf)
 <use figures/f4_budget_curve.pdf>
-Package pdftex.def Info: figures/f4_budget_curve.pdf  used on input line 347.
+Package pdftex.def Info: figures/f4_budget_curve.pdf  used on input line 348.
 (pdftex.def)             Requested size: 260.34265pt x 173.90572pt.
- [9]
-(tables/t8_layer_ablation.tex) (tables/t4_k_ablation.tex) [10]
-(tables/t5_backbone_ablation.tex)
-<figures/f5_backbone_comparison.pdf, id=377, 491.2001pt x 254.57333pt>
+
+Underfull \vbox (badness 1371) has occurred while \output is active []
+
+ [8 <./figures/f2_incremental_auroc.pdf>] (tables/t8_layer_ablation.tex)
+(tables/t4_k_ablation.tex) [9] (tables/t5_backbone_ablation.tex)
+<figures/f5_backbone_comparison.pdf, id=372, 491.2001pt x 254.57333pt>
 File: figures/f5_backbone_comparison.pdf Graphic file (type pdf)
 <use figures/f5_backbone_comparison.pdf>
 Package pdftex.def Info: figures/f5_backbone_comparison.pdf  used on input line
- 383.
+ 384.
 (pdftex.def)             Requested size: 312.40906pt x 161.91252pt.
-<figures/f3_forgetting_heatmap.pdf, id=379, 470.24817pt x 475.46391pt>
+ [10]
+<figures/f3_forgetting_heatmap.pdf, id=380, 470.24817pt x 475.46391pt>
 File: figures/f3_forgetting_heatmap.pdf Graphic file (type pdf)
 <use figures/f3_forgetting_heatmap.pdf>
 Package pdftex.def Info: figures/f3_forgetting_heatmap.pdf  used on input line 
-400.
+401.
 (pdftex.def)             Requested size: 312.40906pt x 315.88933pt.
 
-Overfull \hbox (9.20935pt too wide) in paragraph at lines 395--405
-\OT1/cmr/m/n/10 ryAD achieves 94.6% I-AUROC---virtually iden-ti-cal to the 5-ta
-sk set-ting (94.6%)---
+Overfull \hbox (9.20935pt too wide) in paragraph at lines 396--406
+\OT1/cmr/m/n/10 ryAD achieves 94.0% I-AUROC---virtually iden-ti-cal to the 5-ta
+sk set-ting (94.0%)---
  []
 
-<figures/f6_strategy_comparison.pdf, id=381, 418.93011pt x 238.4634pt>
+<figures/f6_strategy_comparison.pdf, id=382, 418.93011pt x 238.4634pt>
 File: figures/f6_strategy_comparison.pdf Graphic file (type pdf)
 <use figures/f6_strategy_comparison.pdf>
 Package pdftex.def Info: figures/f6_strategy_comparison.pdf  used on input line
- 414.
+ 415.
 (pdftex.def)             Requested size: 277.69987pt x 158.07765pt.
-(tables/t3_inference_speed.tex) (tables/t6_memory_footprint.tex) [11]
-Overfull \hbox (0.7139pt too wide) in paragraph at lines 434--440
-\OT1/cmr/m/n/10 Table []8[] quan-ti-fies the mem-ory cost of Mem-o-ryAD. At the
- de-fault bud-get $\OML/cmm/m/it/10 B[]\OT1/cmr/m/n/10 10$K,
- []
-
-[12] [13] [14] [15 <./figures/f7_qualitative_heatmaps.pdf>] [16 <./figures/f4_b
-udget_curve.pdf> <./figures/f5_backbone_comparison.pdf>] [17 <./figures/f3_forg
-etting_heatmap.pdf>] [18 <./figures/f6_strategy_comparison.pdf>] (main.aux)
+(tables/t3_inference_speed.tex) [11] (tables/t6_memory_footprint.tex) [12]
+[13] [14] [15 <./figures/f7_qualitative_heatmaps.pdf>] [16 <./figures/f4_budget
+_curve.pdf> <./figures/f5_backbone_comparison.pdf>] [17 <./figures/f3_forgettin
+g_heatmap.pdf>] [18 <./figures/f6_strategy_comparison.pdf>] (main.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-24>
  ***********
-
-
-LaTeX Warning: There were undefined references.
-
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 8B4C2EFC67AA9B06D6D791BB5D8017E5;514.
  ) 
 Here is how much of TeX's memory you used:
- 24349 strings out of 467870
- 463136 string characters out of 5418355
- 855064 words of memory out of 5000000
- 52705 multiletter control sequences out of 15000+600000
- 639219 words of font info for 82 fonts, out of 8000000 for 9000
+ 24351 strings out of 467870
+ 463195 string characters out of 5418355
+ 858455 words of memory out of 5000000
+ 52707 multiletter control sequences out of 15000+600000
+ 638870 words of font info for 81 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 84i,16n,94p,555b,876s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 84i,16n,94p,588b,876s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/pramo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
 cmbx10.pfb><C:/Users/pramo/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
 fonts/cm/cmbx12.pfb><C:/Users/pramo/AppData/Local/Programs/MiKTeX/fonts/type1/p
@@ -1067,13 +1039,12 @@ s/cm/cmsy6.pfb><C:/Users/pramo/AppData/Local/Programs/MiKTeX/fonts/type1/public
 /amsfonts/cm/cmsy7.pfb><C:/Users/pramo/AppData/Local/Programs/MiKTeX/fonts/type
 1/public/amsfonts/cm/cmsy9.pfb><C:/Users/pramo/AppData/Local/Programs/MiKTeX/fo
 nts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/pramo/AppData/Local/Programs/
-MiKTeX/fonts/type1/public/amsfonts/cm/cmti7.pfb><C:/Users/pramo/AppData/Local/P
-rograms/MiKTeX/fonts/type1/public/amsfonts/cm/cmti9.pfb><C:/Users/pramo/AppData
-/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt9.pfb><C:/Users/pramo
-/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on main.pdf (18 pages, 5864161 bytes).
+MiKTeX/fonts/type1/public/amsfonts/cm/cmti9.pfb><C:/Users/pramo/AppData/Local/P
+rograms/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt9.pfb><C:/Users/pramo/AppData
+/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on main.pdf (18 pages, 5853160 bytes).
 PDF statistics:
- 854 PDF objects out of 1000 (max. 8388607)
+ 846 PDF objects out of 1000 (max. 8388607)
  118 named destinations out of 1000 (max. 500000)
  56 words of extra memory for PDF output out of 10000 (max. 10000000)
 

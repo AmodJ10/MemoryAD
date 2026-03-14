@@ -1,0 +1,49 @@
+dataset:
+  name: mvtec_ad
+  root: ./data/mvtec_ad
+tasks:
+- task_id: 0
+  categories:
+  - bottle
+- task_id: 1
+  categories:
+  - cable
+- task_id: 2
+  categories:
+  - capsule
+- task_id: 3
+  categories:
+  - carpet
+- task_id: 4
+  categories:
+  - grid
+- task_id: 5
+  categories:
+  - hazelnut
+- task_id: 6
+  categories:
+  - leather
+- task_id: 7
+  categories:
+  - metal_nut
+- task_id: 8
+  categories:
+  - pill
+- task_id: 9
+  categories:
+  - screw
+- task_id: 10
+  categories:
+  - tile
+- task_id: 11
+  categories:
+  - toothbrush
+- task_id: 12
+  categories:
+  - transistor
+- task_id: 13
+  categories:
+  - wood
+- task_id: 14
+  categories:
+  - zipper

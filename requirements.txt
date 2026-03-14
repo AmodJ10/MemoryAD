@@ -13,3 +13,4 @@ seaborn>=0.13.0
 pandas>=2.1.0
 opencv-python>=4.8.0
 faiss-cpu>=1.7.4
+flask>=3.0.0

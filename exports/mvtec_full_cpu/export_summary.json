@@ -1,0 +1,12 @@
+{
+  "bundle_dir": "exports/mvtec_full_cpu/model_bundle",
+  "mini_testset_dir": "exports/mvtec_full_cpu/mini_testset_120",
+  "demo_report": "exports/mvtec_full_cpu/visual_demo_clean/index.html",
+  "training_results": "exports/mvtec_full_cpu/training_results/results.json",
+  "inference_csv": "exports/mvtec_full_cpu/demo_inference_clean/predictions.csv",
+  "mini_testset_summary": {
+    "images": 120,
+    "good": 60,
+    "anomalous": 60
+  }
+}

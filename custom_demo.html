@@ -1,0 +1,1315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>MemoryAD — Judge Demo</title>
+<meta name="description" content="Interactive anomaly detection demo for MemoryAD: Architecture-Agnostic Continual Anomaly Detection" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+<style>
+/* ═══════════════════════════════════════════════════════════
+   DESIGN SYSTEM
+   ═══════════════════════════════════════════════════════════ */
+:root {
+  --bg-deep: #0a0e1a;
+  --bg-card: rgba(15, 20, 35, 0.75);
+  --bg-glass: rgba(20, 28, 50, 0.55);
+  --border: rgba(100, 180, 255, 0.12);
+  --border-glow: rgba(0, 210, 255, 0.25);
+  --text: #e8ecf4;
+  --text-muted: #8892a8;
+  --text-dim: #5a6478;
+  --accent: #00d4ff;
+  --accent2: #ff6b35;
+  --success: #22c55e;
+  --warn: #f59e0b;
+  --danger: #ef4444;
+  --glow-accent: 0 0 30px rgba(0, 212, 255, 0.15);
+  --glow-warm: 0 0 30px rgba(255, 107, 53, 0.12);
+  --radius: 16px;
+  --radius-sm: 10px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg-deep);
+  color: var(--text);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Animated background mesh */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 900px 600px at 10% 20%, rgba(0, 212, 255, 0.06) 0%, transparent 70%),
+    radial-gradient(ellipse 700px 500px at 85% 10%, rgba(255, 107, 53, 0.05) 0%, transparent 70%),
+    radial-gradient(ellipse 500px 400px at 50% 80%, rgba(34, 197, 94, 0.03) 0%, transparent 60%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.page {
+  position: relative;
+  z-index: 1;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 28px 20px 48px;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   HERO HEADER
+   ═══════════════════════════════════════════════════════════ */
+.hero {
+  background: var(--bg-glass);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 28px 28px 24px;
+  box-shadow: var(--glow-accent);
+  margin-bottom: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent), var(--accent2), var(--accent));
+  opacity: 0.8;
+}
+
+.hero-badge {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  background: rgba(0, 212, 255, 0.08);
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  border-radius: 6px;
+  padding: 4px 10px;
+  margin-bottom: 12px;
+}
+
+h1 {
+  font-size: 32px;
+  font-weight: 900;
+  line-height: 1.15;
+  letter-spacing: -0.5px;
+  background: linear-gradient(135deg, #fff 30%, var(--accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 8px;
+}
+
+.hero-sub {
+  color: var(--text-muted);
+  font-size: 14px;
+  line-height: 1.6;
+  max-width: 700px;
+}
+
+#status-line {
+  margin-top: 10px;
+  font-size: 12px;
+  color: var(--text-dim);
+}
+
+#status-line.ready { color: var(--success); }
+#status-line.error { color: var(--danger); }
+
+/* ═══════════════════════════════════════════════════════════
+   METRICS BANNER
+   ═══════════════════════════════════════════════════════════ */
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.metric-card {
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 14px 14px 12px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.metric-card:hover {
+  border-color: var(--border-glow);
+  box-shadow: var(--glow-accent);
+}
+
+.metric-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 6px;
+}
+
+.metric-value {
+  font-size: 26px;
+  font-weight: 800;
+  color: #fff;
+  line-height: 1;
+}
+
+.metric-value.accent { color: var(--accent); }
+.metric-value.success { color: var(--success); }
+.metric-value.warn { color: var(--warn); }
+
+.metric-unit {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-muted);
+  margin-left: 2px;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   MODE SWITCHER
+   ═══════════════════════════════════════════════════════════ */
+.switcher {
+  display: inline-flex;
+  gap: 4px;
+  margin-top: 20px;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 5px;
+}
+
+.switcher button {
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-muted);
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 7px;
+  padding: 10px 18px;
+  cursor: pointer;
+  transition: all 0.25s;
+}
+
+.switcher button:hover { color: var(--text); }
+
+.switcher button.active {
+  background: rgba(0, 212, 255, 0.1);
+  border-color: rgba(0, 212, 255, 0.25);
+  color: var(--accent);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   PANELS
+   ═══════════════════════════════════════════════════════════ */
+.panel {
+  display: none;
+  background: var(--bg-glass);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+  animation: fadeIn 0.35s ease;
+}
+
+.panel.active { display: block; }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.section-title {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.section-help {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   UPLOAD ZONES
+   ═══════════════════════════════════════════════════════════ */
+.upload-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+.upload-zone {
+  flex: 1;
+  min-width: 240px;
+  border: 2px dashed rgba(100, 180, 255, 0.15);
+  border-radius: var(--radius-sm);
+  background: rgba(0, 0, 0, 0.2);
+  padding: 28px 16px;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.3s, background 0.3s;
+  position: relative;
+}
+
+.upload-zone:hover,
+.upload-zone.dragover {
+  border-color: var(--accent);
+  background: rgba(0, 212, 255, 0.04);
+}
+
+.upload-zone input[type="file"] {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.upload-icon {
+  font-size: 32px;
+  margin-bottom: 8px;
+  opacity: 0.5;
+}
+
+.upload-text {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.upload-filename {
+  font-size: 12px;
+  color: var(--accent);
+  margin-top: 6px;
+  word-break: break-all;
+}
+
+.btn {
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: 12px 24px;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--accent), #0090cc);
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(0, 212, 255, 0.25);
+}
+
+.btn-primary:hover {
+  box-shadow: 0 6px 24px rgba(0, 212, 255, 0.35);
+  transform: translateY(-1px);
+}
+
+.btn-primary:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   IMAGE PREVIEW + RESULTS GRID
+   ═══════════════════════════════════════════════════════════ */
+.preview-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-top: 16px;
+}
+
+.preview-box {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: rgba(0, 0, 0, 0.25);
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.preview-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.preview-label {
+  position: absolute;
+  top: 8px;
+  left: 10px;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 3px 8px;
+  border-radius: 5px;
+}
+
+.placeholder-text {
+  color: var(--text-dim);
+  font-size: 13px;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   RESULT CARDS
+   ═══════════════════════════════════════════════════════════ */
+.result-card {
+  margin-top: 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.2);
+  animation: slideUp 0.4s ease;
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.result-header {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+}
+
+.score-display {
+  font-size: 42px;
+  font-weight: 900;
+  line-height: 1;
+  margin-bottom: 14px;
+  transition: color 0.3s;
+}
+
+.score-display.low     { color: var(--success); }
+.score-display.medium  { color: var(--warn); }
+.score-display.high    { color: var(--danger); }
+
+.detail-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 8px;
+}
+
+.detail-item {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 12px;
+  background: rgba(0, 0, 0, 0.15);
+}
+
+.detail-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 4px;
+}
+
+.detail-value {
+  font-size: 18px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.detail-desc {
+  font-size: 10px;
+  color: var(--text-dim);
+  margin-top: 3px;
+  line-height: 1.35;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   COMPARISON RESULT
+   ═══════════════════════════════════════════════════════════ */
+.compare-verdict {
+  font-size: 22px;
+  font-weight: 800;
+  margin-bottom: 14px;
+  line-height: 1.3;
+}
+
+.compare-verdict.a     { color: var(--danger); }
+.compare-verdict.b     { color: var(--warn); }
+.compare-verdict.equal { color: var(--success); }
+
+.compare-scores {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.compare-side {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 14px;
+  background: rgba(0, 0, 0, 0.15);
+}
+
+.compare-side-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.compare-side-score {
+  font-size: 28px;
+  font-weight: 800;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   PER-CATEGORY TABLE
+   ═══════════════════════════════════════════════════════════ */
+.cat-table-section {
+  margin-top: 20px;
+}
+
+.cat-table-toggle {
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--accent);
+  background: transparent;
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  border-radius: 8px;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.cat-table-toggle:hover {
+  background: rgba(0, 212, 255, 0.06);
+}
+
+.cat-table-wrap {
+  display: none;
+  margin-top: 12px;
+}
+
+.cat-table-wrap.open { display: block; }
+
+.cat-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.cat-table th {
+  text-align: left;
+  padding: 8px 12px;
+  color: var(--text-muted);
+  border-bottom: 1px solid var(--border);
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 11px;
+  letter-spacing: 0.05em;
+}
+
+.cat-table td {
+  padding: 8px 12px;
+  border-bottom: 1px solid rgba(100, 180, 255, 0.06);
+}
+
+.cat-table tr:hover td {
+  background: rgba(0, 212, 255, 0.03);
+}
+
+.auroc-bar {
+  display: inline-block;
+  height: 6px;
+  border-radius: 3px;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   SPINNER
+   ═══════════════════════════════════════════════════════════ */
+.spinner {
+  display: none;
+  margin: 20px auto;
+  width: 36px;
+  height: 36px;
+  border: 3px solid var(--border);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+.spinner.active { display: block; }
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   LOG
+   ═══════════════════════════════════════════════════════════ */
+.log-section {
+  margin-top: 20px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: rgba(0, 0, 0, 0.3);
+  padding: 10px 14px;
+  max-height: 100px;
+  overflow-y: auto;
+  font-size: 11px;
+  color: var(--text-dim);
+  font-family: 'SF Mono', 'Fira Code', monospace;
+}
+
+.log-section .warn { color: var(--danger); }
+
+.hidden { display: none !important; }
+
+/* ═══════════════════════════════════════════════════════════
+   RESPONSIVE
+   ═══════════════════════════════════════════════════════════ */
+@media (max-width: 800px) {
+  .metrics-grid { grid-template-columns: 1fr 1fr; }
+  .preview-grid { grid-template-columns: 1fr; }
+  .compare-scores { grid-template-columns: 1fr; }
+  .hp-controls { grid-template-columns: 1fr; }
+  h1 { font-size: 24px; }
+  .score-display { font-size: 32px; }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   HYPERPARAMETER PANEL
+   ═══════════════════════════════════════════════════════════ */
+.hp-section {
+  background: var(--bg-glass);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px 24px;
+  margin-bottom: 16px;
+}
+
+.hp-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.hp-title {
+  font-size: 15px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.hp-badge {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--accent2);
+  background: rgba(255, 107, 53, 0.1);
+  border: 1px solid rgba(255, 107, 53, 0.25);
+  border-radius: 5px;
+  padding: 2px 7px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.hp-toggle-icon {
+  font-size: 13px;
+  color: var(--text-muted);
+  transition: transform 0.25s;
+}
+
+.hp-toggle-icon.open { transform: rotate(180deg); }
+
+.hp-body {
+  display: none;
+  margin-top: 16px;
+}
+
+.hp-body.open { display: block; }
+
+.hp-controls {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.hp-control {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 14px;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.hp-control-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 8px;
+}
+
+.hp-control-desc {
+  font-size: 10px;
+  color: var(--text-dim);
+  margin-bottom: 10px;
+  line-height: 1.35;
+}
+
+.hp-control input[type="range"] {
+  width: 100%;
+  accent-color: var(--accent);
+  margin-bottom: 4px;
+}
+
+.hp-control select {
+  width: 100%;
+  padding: 8px 10px;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text);
+  font-family: inherit;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.hp-control select:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.hp-range-value {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.hp-actions {
+  margin-top: 14px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.hp-status {
+  font-size: 12px;
+  color: var(--success);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.hp-status.show { opacity: 1; }
+</style>
+</head>
+<body>
+<main class="page">
+
+  <!-- ════════════ HERO ════════════ -->
+  <section class="hero" id="hero">
+    <span class="hero-badge">Interactive Judge Demo</span>
+    <h1>MemoryAD — Continual Anomaly Detection</h1>
+    <p class="hero-sub">
+      Architecture-agnostic, training-free anomaly detection via adaptive coreset replay and frozen DINOv2 features.
+      Upload a product image to detect anomalies, or compare two images side-by-side.
+    </p>
+    <p id="status-line">Connecting to backend...</p>
+
+    <!-- Original project metrics -->
+    <div class="metrics-grid" id="metrics-grid">
+      <div class="metric-card">
+        <p class="metric-label">Final Mean I-AUROC</p>
+        <p class="metric-value accent" id="m-auroc">—</p>
+      </div>
+      <div class="metric-card">
+        <p class="metric-label">Avg Incremental I-AUROC</p>
+        <p class="metric-value accent" id="m-inc">—</p>
+      </div>
+      <div class="metric-card">
+        <p class="metric-label">Forgetting Rate</p>
+        <p class="metric-value success" id="m-fr">—</p>
+      </div>
+      <div class="metric-card">
+        <p class="metric-label">Forward Transfer</p>
+        <p class="metric-value warn" id="m-ft">—</p>
+      </div>
+    </div>
+
+    <!-- Per-category expandable table -->
+    <div class="cat-table-section" id="cat-section">
+      <button class="cat-table-toggle" onclick="toggleCatTable()">Show Per-Category Results ▾</button>
+      <div class="cat-table-wrap" id="cat-table-wrap">
+        <table class="cat-table" id="cat-table">
+          <thead><tr><th>Category</th><th>I-AUROC</th><th></th></tr></thead>
+          <tbody id="cat-tbody"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Mode switcher -->
+    <div class="switcher">
+      <button id="tab-single" class="active" onclick="switchMode('single')">🔍 Single Image</button>
+      <button id="tab-compare" onclick="switchMode('compare')">⚖️ Compare Two</button>
+    </div>
+  </section>
+
+  <!-- ════════════ HYPERPARAMETER TUNING ════════════ -->
+  <section class="hp-section" id="hp-section">
+    <div class="hp-header" onclick="toggleHP()">
+      <span class="hp-title">⚙️ Scoring Hyperparameters <span class="hp-badge">Tunable</span></span>
+      <span class="hp-toggle-icon" id="hp-arrow">▼</span>
+    </div>
+    <div class="hp-body" id="hp-body">
+      <div class="hp-controls">
+        <div class="hp-control">
+          <p class="hp-control-label">k (Nearest Neighbours)</p>
+          <p class="hp-control-desc">Number of nearest coreset patches used for distance computation. Lower = stricter, higher = smoother.</p>
+          <input type="range" id="hp-k" min="1" max="50" value="9" oninput="document.getElementById('hp-k-val').textContent=this.value" />
+          <span class="hp-range-value" id="hp-k-val">9</span>
+        </div>
+        <div class="hp-control">
+          <p class="hp-control-label">Score Aggregation Method</p>
+          <p class="hp-control-desc">How patch-level scores are combined into an image-level anomaly score.</p>
+          <select id="hp-method">
+            <option value="max" selected>Max (default) — worst patch determines score</option>
+            <option value="top_k_mean">Top-K Mean — average of top K% patches</option>
+          </select>
+        </div>
+        <div class="hp-control">
+          <p class="hp-control-label">Top-K Percent</p>
+          <p class="hp-control-desc">Percentage of top-scoring patches to average when using "Top-K Mean" method. Ignored for "Max".</p>
+          <input type="range" id="hp-topk" min="1" max="100" value="100" oninput="document.getElementById('hp-topk-val').textContent=this.value+'%'" />
+          <span class="hp-range-value" id="hp-topk-val">100%</span>
+        </div>
+      </div>
+      <div class="hp-actions">
+        <button class="btn btn-primary" onclick="applyHP()">✓ Apply Changes</button>
+        <button class="btn" style="background:rgba(255,255,255,0.06);color:var(--text-muted);border:1px solid var(--border)" onclick="resetHP()">↺ Reset to Default</button>
+        <span class="hp-status" id="hp-status">✓ Applied successfully</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════ SINGLE IMAGE PANEL ════════════ -->
+  <section id="panel-single" class="panel active">
+    <h2 class="section-title">Single Image Analysis</h2>
+    <p class="section-help">Upload an image to detect anomalies. The model scores every 14×14 patch and generates a heatmap overlay showing the anomalous regions.</p>
+
+    <div class="upload-row">
+      <div class="upload-zone" id="drop-single">
+        <div class="upload-icon">📁</div>
+        <div class="upload-text">Drop image here or click to browse</div>
+        <div class="upload-filename" id="single-filename"></div>
+        <input type="file" id="single-file" accept="image/*" onchange="onSingleFile(event)" />
+      </div>
+      <button class="btn btn-primary" id="btn-analyze" onclick="runSingle()" disabled>
+        <span>⚡</span> Analyze
+      </button>
+    </div>
+
+    <div class="spinner" id="spinner-single"></div>
+
+    <div class="preview-grid" id="single-previews">
+      <div class="preview-box" id="single-input-box">
+        <span class="preview-label">Original</span>
+        <span class="placeholder-text" id="single-input-ph">Upload an image</span>
+      </div>
+      <div class="preview-box" id="single-output-box">
+        <span class="preview-label">Anomaly Heatmap</span>
+        <span class="placeholder-text" id="single-output-ph">Results will appear here</span>
+      </div>
+    </div>
+
+    <div id="single-result" class="result-card hidden">
+      <p class="result-header">Inference Result</p>
+      <p class="score-display" id="single-score">—</p>
+      <div class="detail-grid">
+        <div class="detail-item">
+          <p class="detail-label">Anomaly Score (k-NN Distance)</p>
+          <p class="detail-value" id="s-raw">—</p>
+          <p class="detail-desc">Max k-NN distance across all image patches to the learned coreset. Higher = more anomalous.</p>
+        </div>
+        <div class="detail-item">
+          <p class="detail-label">Inference Latency</p>
+          <p class="detail-value" id="s-time">—</p>
+          <p class="detail-desc">End-to-end time for feature extraction + k-NN scoring on this image.</p>
+        </div>
+        <div class="detail-item">
+          <p class="detail-label">k (Nearest Neighbours)</p>
+          <p class="detail-value" id="s-k">—</p>
+          <p class="detail-desc">Number of nearest coreset neighbours used for distance computation.</p>
+        </div>
+        <div class="detail-item">
+          <p class="detail-label">Peak Anomaly Intensity</p>
+          <p class="detail-value" id="s-hmax">—</p>
+          <p class="detail-desc">Maximum value in the spatial anomaly heatmap — highest defect signal.</p>
+        </div>
+        <div class="detail-item">
+          <p class="detail-label">Avg Anomaly Intensity</p>
+          <p class="detail-value" id="s-hmean">—</p>
+          <p class="detail-desc">Mean value across the spatial anomaly heatmap — overall defect spread.</p>
+        </div>
+        <div class="detail-item">
+          <p class="detail-label">Input Resolution</p>
+          <p class="detail-value" id="s-dims">—</p>
+          <p class="detail-desc">Original image dimensions before resizing to 518×518 for DINOv2.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════ COMPARE PANEL ════════════ -->
+  <section id="panel-compare" class="panel">
+    <h2 class="section-title">Two-Image Comparison</h2>
+    <p class="section-help">Upload two images and compare their anomaly scores. The model determines which one has a higher risk of being defective.</p>
+
+    <div class="upload-row">
+      <div class="upload-zone" id="drop-a">
+        <div class="upload-icon">🅰️</div>
+        <div class="upload-text">Image A</div>
+        <div class="upload-filename" id="cmp-fname-a"></div>
+        <input type="file" id="cmp-file-a" accept="image/*" onchange="onCmpFile(event,'a')" />
+      </div>
+      <div class="upload-zone" id="drop-b">
+        <div class="upload-icon">🅱️</div>
+        <div class="upload-text">Image B</div>
+        <div class="upload-filename" id="cmp-fname-b"></div>
+        <input type="file" id="cmp-file-b" accept="image/*" onchange="onCmpFile(event,'b')" />
+      </div>
+      <button class="btn btn-primary" id="btn-compare" onclick="runCompare()" disabled>
+        <span>⚡</span> Compare
+      </button>
+    </div>
+
+    <div class="spinner" id="spinner-compare"></div>
+
+    <div class="preview-grid" id="cmp-previews">
+      <div class="preview-box" id="cmp-box-a">
+        <span class="preview-label">Image A</span>
+        <span class="placeholder-text" id="cmp-ph-a">Upload Image A</span>
+      </div>
+      <div class="preview-box" id="cmp-box-b">
+        <span class="preview-label">Image B</span>
+        <span class="placeholder-text" id="cmp-ph-b">Upload Image B</span>
+      </div>
+    </div>
+
+    <div id="cmp-result" class="result-card hidden">
+      <p class="result-header">Comparison Result</p>
+      <p class="compare-verdict" id="cmp-verdict">—</p>
+      <div class="compare-scores">
+        <div class="compare-side">
+          <p class="compare-side-label">Image A Score</p>
+          <p class="compare-side-score" id="cmp-sa">—</p>
+        </div>
+        <div class="compare-side">
+          <p class="compare-side-label">Image B Score</p>
+          <p class="compare-side-score" id="cmp-sb">—</p>
+        </div>
+      </div>
+      <div class="detail-grid" style="margin-top:12px">
+        <div class="detail-item">
+          <p class="detail-label">Score Difference</p>
+          <p class="detail-value" id="cmp-delta">—</p>
+          <p class="detail-desc">Absolute difference in k-NN anomaly scores between the two images.</p>
+        </div>
+        <div class="detail-item">
+          <p class="detail-label">Image A Latency</p>
+          <p class="detail-value" id="cmp-ta">—</p>
+          <p class="detail-desc">Inference time for Image A (feature extraction + scoring).</p>
+        </div>
+        <div class="detail-item">
+          <p class="detail-label">Image B Latency</p>
+          <p class="detail-value" id="cmp-tb">—</p>
+          <p class="detail-desc">Inference time for Image B (feature extraction + scoring).</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════ LOG ════════════ -->
+  <section class="log-section" id="log-box"></section>
+
+</main>
+
+<script>
+/* ═══════════════════════════════════════════════════════════
+   STATE
+   ═══════════════════════════════════════════════════════════ */
+let singleFile = null;
+let cmpFileA = null;
+let cmpFileB = null;
+const logEntries = [];
+
+const API = (location.protocol === 'file:')
+  ? 'http://127.0.0.1:8000'
+  : `${location.protocol}//${location.host}`;
+
+/* ═══════════════════════════════════════════════════════════
+   UTILITIES
+   ═══════════════════════════════════════════════════════════ */
+function log(msg, warn = false) {
+  const ts = new Date().toTimeString().slice(0, 8);
+  logEntries.push({ ts, msg, warn });
+  if (logEntries.length > 60) logEntries.shift();
+  const el = document.getElementById('log-box');
+  el.innerHTML = logEntries.map(l =>
+    `<div class="${l.warn ? 'warn' : ''}">[${l.ts}] ${l.msg}</div>`
+  ).join('');
+  el.scrollTop = el.scrollHeight;
+}
+
+function fmt(v, pct = false, digits = 2) {
+  if (v == null || isNaN(Number(v))) return 'N/A';
+  const n = Number(v);
+  return pct ? (n * 100).toFixed(digits) + '%' : n.toFixed(digits);
+}
+
+function setImg(boxId, src, removePhId) {
+  const box = document.getElementById(boxId);
+  // Remove placeholder if present
+  const ph = removePhId ? document.getElementById(removePhId) : null;
+  if (ph) ph.style.display = 'none';
+  // Remove old img if any
+  const old = box.querySelector('img');
+  if (old) old.remove();
+  const img = document.createElement('img');
+  img.src = src;
+  img.alt = 'preview';
+  box.appendChild(img);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   BOOT: LOAD METRICS
+   ═══════════════════════════════════════════════════════════ */
+async function boot() {
+  try {
+    const res = await fetch(`${API}/api/metrics`);
+    if (!res.ok) throw new Error('metrics endpoint failed');
+    const d = await res.json();
+    if (!d.ok) throw new Error('metrics response not ok');
+
+    document.getElementById('m-auroc').textContent = fmt(d.final_mean_auroc, true);
+    document.getElementById('m-inc').textContent = fmt(d.avg_incremental_auroc, true);
+    document.getElementById('m-fr').textContent = fmt(d.forgetting_rate, true);
+    document.getElementById('m-ft').textContent = fmt(d.forward_transfer, true);
+
+    const sl = document.getElementById('status-line');
+    sl.textContent = `✓ Backend ready · ${d.backbone} · Coreset: ${d.coreset_size} patches`;
+    sl.className = 'ready';
+    log('Backend connected. Metrics loaded.');
+
+    // Populate per-category table
+    if (d.per_category) {
+      const tbody = document.getElementById('cat-tbody');
+      const cats = Object.entries(d.per_category).sort((a, b) => b[1] - a[1]);
+      tbody.innerHTML = cats.map(([cat, auroc]) => {
+        const pct = (auroc * 100).toFixed(1);
+        const w = Math.max(0, Math.min(100, auroc * 100));
+        const color = auroc >= 0.95 ? 'var(--success)' : auroc >= 0.85 ? 'var(--warn)' : 'var(--danger)';
+        return `<tr>
+          <td style="font-weight:600">${cat}</td>
+          <td style="font-weight:700">${pct}%</td>
+          <td><span class="auroc-bar" style="width:${w}px;background:${color}"></span></td>
+        </tr>`;
+      }).join('');
+    }
+  } catch (e) {
+    const sl = document.getElementById('status-line');
+    sl.textContent = '✗ Backend not connected. Run: python scripts/custom_demo_server.py';
+    sl.className = 'error';
+    log('Backend not connected.', true);
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   MODE SWITCHER
+   ═══════════════════════════════════════════════════════════ */
+function switchMode(mode) {
+  document.getElementById('tab-single').classList.toggle('active', mode === 'single');
+  document.getElementById('tab-compare').classList.toggle('active', mode === 'compare');
+  document.getElementById('panel-single').classList.toggle('active', mode === 'single');
+  document.getElementById('panel-compare').classList.toggle('active', mode === 'compare');
+}
+
+function toggleCatTable() {
+  const wrap = document.getElementById('cat-table-wrap');
+  wrap.classList.toggle('open');
+  const btn = wrap.previousElementSibling;
+  btn.textContent = wrap.classList.contains('open')
+    ? 'Hide Per-Category Results ▴'
+    : 'Show Per-Category Results ▾';
+}
+
+/* ═══════════════════════════════════════════════════════════
+   SINGLE IMAGE
+   ═══════════════════════════════════════════════════════════ */
+function onSingleFile(e) {
+  singleFile = e.target.files?.[0] || null;
+  if (!singleFile) return;
+  document.getElementById('single-filename').textContent = singleFile.name;
+  setImg('single-input-box', URL.createObjectURL(singleFile), 'single-input-ph');
+  document.getElementById('single-result').classList.add('hidden');
+  document.getElementById('btn-analyze').disabled = false;
+  // Reset output
+  const outPh = document.getElementById('single-output-ph');
+  if (outPh) outPh.style.display = '';
+  const outImg = document.getElementById('single-output-box').querySelector('img');
+  if (outImg) outImg.remove();
+  log(`Selected: ${singleFile.name}`);
+}
+
+async function runSingle() {
+  if (!singleFile) { log('No image selected.', true); return; }
+
+  const btn = document.getElementById('btn-analyze');
+  const spinner = document.getElementById('spinner-single');
+  btn.disabled = true;
+  spinner.classList.add('active');
+  document.getElementById('single-result').classList.add('hidden');
+  log('Running single-image inference...');
+
+  try {
+    const fd = new FormData();
+    fd.append('image', singleFile);
+    const res = await fetch(`${API}/api/infer`, { method: 'POST', body: fd });
+    const data = await res.json();
+    if (!res.ok || !data.ok) throw new Error(data.error || 'Inference failed');
+
+    const r = data.result;
+
+    // Show heatmap overlay
+    setImg('single-output-box', r.heatmap_data_uri, 'single-output-ph');
+
+    // Score display
+    const scoreEl = document.getElementById('single-score');
+    scoreEl.textContent = `Score: ${Number(r.score_raw).toFixed(4)}`;
+    scoreEl.className = 'score-display ' + (r.score_raw < 500 ? 'low' : r.score_raw < 2000 ? 'medium' : 'high');
+
+    // Detail grid
+    document.getElementById('s-raw').textContent = Number(r.score_raw).toFixed(4);
+    document.getElementById('s-time').textContent = `${r.inference_ms} ms`;
+    document.getElementById('s-k').textContent = r.scoring_k;
+    document.getElementById('s-hmax').textContent = Number(r.heatmap_max).toFixed(2);
+    document.getElementById('s-hmean').textContent = Number(r.heatmap_mean).toFixed(2);
+    document.getElementById('s-dims').textContent = r.dimensions;
+
+    document.getElementById('single-result').classList.remove('hidden');
+    log(`Inference complete. Score: ${Number(r.score_raw).toFixed(4)}`);
+  } catch (e) {
+    log(`Inference failed: ${e.message}`, true);
+  } finally {
+    btn.disabled = false;
+    spinner.classList.remove('active');
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   TWO-IMAGE COMPARISON
+   ═══════════════════════════════════════════════════════════ */
+function onCmpFile(e, side) {
+  const f = e.target.files?.[0] || null;
+  if (side === 'a') { cmpFileA = f; }
+  if (side === 'b') { cmpFileB = f; }
+  if (!f) return;
+
+  document.getElementById(`cmp-fname-${side}`).textContent = f.name;
+  setImg(`cmp-box-${side}`, URL.createObjectURL(f), `cmp-ph-${side}`);
+  document.getElementById('cmp-result').classList.add('hidden');
+  document.getElementById('btn-compare').disabled = !(cmpFileA && cmpFileB);
+  log(`Selected image ${side.toUpperCase()}: ${f.name}`);
+}
+
+async function runCompare() {
+  if (!cmpFileA || !cmpFileB) { log('Upload both images.', true); return; }
+
+  const btn = document.getElementById('btn-compare');
+  const spinner = document.getElementById('spinner-compare');
+  btn.disabled = true;
+  spinner.classList.add('active');
+  document.getElementById('cmp-result').classList.add('hidden');
+  log('Running comparison...');
+
+  try {
+    const fd = new FormData();
+    fd.append('image_a', cmpFileA);
+    fd.append('image_b', cmpFileB);
+    const res = await fetch(`${API}/api/compare`, { method: 'POST', body: fd });
+    const data = await res.json();
+    if (!res.ok || !data.ok) throw new Error(data.error || 'Comparison failed');
+
+    // Show heatmap overlays
+    setImg('cmp-box-a', data.result_a.heatmap_data_uri, 'cmp-ph-a');
+    setImg('cmp-box-b', data.result_b.heatmap_data_uri, 'cmp-ph-b');
+
+    // Verdict
+    const verdict = document.getElementById('cmp-verdict');
+    const h = data.higher_risk;
+    if (h === 'A') {
+      verdict.textContent = '⚠ Image A has a higher anomaly score';
+      verdict.className = 'compare-verdict a';
+    } else if (h === 'B') {
+      verdict.textContent = '⚠ Image B has a higher anomaly score';
+      verdict.className = 'compare-verdict b';
+    } else {
+      verdict.textContent = '✓ Both images have similar anomaly scores';
+      verdict.className = 'compare-verdict equal';
+    }
+
+    document.getElementById('cmp-sa').textContent = Number(data.result_a.score_raw).toFixed(4);
+    document.getElementById('cmp-sb').textContent = Number(data.result_b.score_raw).toFixed(4);
+    document.getElementById('cmp-delta').textContent = Number(data.delta).toFixed(4);
+    document.getElementById('cmp-ta').textContent = `${data.result_a.inference_ms} ms`;
+    document.getElementById('cmp-tb').textContent = `${data.result_b.inference_ms} ms`;
+
+    document.getElementById('cmp-result').classList.remove('hidden');
+    log(`Comparison complete. Higher risk: ${h}. Delta: ${Number(data.delta).toFixed(4)}`);
+  } catch (e) {
+    log(`Comparison failed: ${e.message}`, true);
+  } finally {
+    btn.disabled = false;
+    spinner.classList.remove('active');
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   DRAG & DROP
+   ═══════════════════════════════════════════════════════════ */
+function setupDrop(zoneId, inputId, onChangeFn) {
+  const zone = document.getElementById(zoneId);
+  zone.addEventListener('dragover', e => { e.preventDefault(); zone.classList.add('dragover'); });
+  zone.addEventListener('dragleave', () => zone.classList.remove('dragover'));
+  zone.addEventListener('drop', e => {
+    e.preventDefault();
+    zone.classList.remove('dragover');
+    const file = e.dataTransfer.files[0];
+    if (file) {
+      const input = document.getElementById(inputId);
+      const dt = new DataTransfer();
+      dt.items.add(file);
+      input.files = dt.files;
+      input.dispatchEvent(new Event('change'));
+    }
+  });
+}
+
+setupDrop('drop-single', 'single-file', onSingleFile);
+setupDrop('drop-a', 'cmp-file-a', e => onCmpFile(e, 'a'));
+setupDrop('drop-b', 'cmp-file-b', e => onCmpFile(e, 'b'));
+
+/* ═══════════════════════════════════════════════════════════
+   HYPERPARAMETER CONTROLS
+   ═══════════════════════════════════════════════════════════ */
+const HP_DEFAULTS = { k: 9, image_score_method: 'max', top_k_percent: 1.0 };
+
+function toggleHP() {
+  const body = document.getElementById('hp-body');
+  const arrow = document.getElementById('hp-arrow');
+  body.classList.toggle('open');
+  arrow.classList.toggle('open');
+}
+
+function syncHPControls(params) {
+  document.getElementById('hp-k').value = params.k;
+  document.getElementById('hp-k-val').textContent = params.k;
+  document.getElementById('hp-method').value = params.image_score_method;
+  const topkPct = Math.round(params.top_k_percent * 100);
+  document.getElementById('hp-topk').value = topkPct;
+  document.getElementById('hp-topk-val').textContent = topkPct + '%';
+}
+
+async function loadHP() {
+  try {
+    const res = await fetch(`${API}/api/hyperparams`);
+    const d = await res.json();
+    if (d.ok) syncHPControls(d.params);
+  } catch (e) { /* ignore on boot */ }
+}
+
+async function applyHP() {
+  const k = parseInt(document.getElementById('hp-k').value);
+  const method = document.getElementById('hp-method').value;
+  const topk = parseInt(document.getElementById('hp-topk').value) / 100.0;
+
+  const status = document.getElementById('hp-status');
+  status.classList.remove('show');
+
+  try {
+    log(`Applying hyperparams: k=${k}, method=${method}, top_k=${(topk*100).toFixed(0)}%`);
+    const res = await fetch(`${API}/api/hyperparams`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ k, image_score_method: method, top_k_percent: topk }),
+    });
+    const d = await res.json();
+    if (d.ok) {
+      syncHPControls(d.params);
+      status.textContent = '✓ Applied — re-run inference to see effect';
+      status.style.color = 'var(--success)';
+      status.classList.add('show');
+      log(`Hyperparams updated: k=${d.params.k}, method=${d.params.image_score_method}`);
+      setTimeout(() => status.classList.remove('show'), 3000);
+    } else {
+      throw new Error(d.error || 'Failed');
+    }
+  } catch (e) {
+    status.textContent = '✗ ' + e.message;
+    status.style.color = 'var(--danger)';
+    status.classList.add('show');
+    log(`Hyperparams update failed: ${e.message}`, true);
+  }
+}
+
+async function resetHP() {
+  document.getElementById('hp-k').value = HP_DEFAULTS.k;
+  document.getElementById('hp-k-val').textContent = HP_DEFAULTS.k;
+  document.getElementById('hp-method').value = HP_DEFAULTS.image_score_method;
+  document.getElementById('hp-topk').value = Math.round(HP_DEFAULTS.top_k_percent * 100);
+  document.getElementById('hp-topk-val').textContent = Math.round(HP_DEFAULTS.top_k_percent * 100) + '%';
+  await applyHP();
+}
+
+/* Boot */
+boot();
+loadHP();
+</script>
+</body>
+</html>

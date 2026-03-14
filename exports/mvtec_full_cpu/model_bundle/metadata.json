@@ -1,0 +1,57 @@
+{
+  "name": "MemoryAD MVTec Full CPU Bundle",
+  "dataset": {
+    "name": "mvtec_ad",
+    "root": "./data/mvtec_ad"
+  },
+  "categories": [
+    "bottle",
+    "cable",
+    "capsule",
+    "carpet",
+    "grid",
+    "hazelnut",
+    "leather",
+    "metal_nut",
+    "pill",
+    "screw",
+    "tile",
+    "toothbrush",
+    "transistor",
+    "wood",
+    "zipper"
+  ],
+  "spatial_dims": [
+    37,
+    37
+  ],
+  "feature_dim": 1536,
+  "coreset_size": 9990,
+  "backbone": {
+    "name": "dinov2_vitb14",
+    "layers": [
+      7,
+      11
+    ],
+    "feature_aggregation": "concat",
+    "input_size": 518,
+    "batch_size": 4,
+    "use_fp16": false
+  },
+  "scoring": {
+    "k": 9,
+    "image_score_method": "max",
+    "top_k_percent": 1.0
+  },
+  "coreset": {
+    "global_budget": 10000,
+    "strategy": "proportional",
+    "min_per_category": 100
+  },
+  "training_summary": {
+    "final_mean_auroc": 0.9461000993067075,
+    "avg_incremental_auroc": 0.9272508709706349,
+    "forgetting_rate": 0.009507952561775961,
+    "total_time_seconds": 346.4825744628906
+  }
+}

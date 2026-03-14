@@ -1,0 +1,219 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MemoryAD CPU Demo - MVTec Full Bundle</title>
+  <style>
+    :root {
+      --bg1: #0b132b;
+      --bg2: #1c2541;
+      --panel: #f9fafb;
+      --ink: #111827;
+      --muted: #4b5563;
+      --accent: #00b4d8;
+      --accent2: #fb8500;
+    }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", "Trebuchet MS", sans-serif;
+      color: var(--ink);
+      background: radial-gradient(1200px 700px at 15% -10%, #3a506b 0%, transparent 60%),
+                  radial-gradient(900px 550px at 100% 0%, #5bc0be 0%, transparent 50%),
+                  linear-gradient(145deg, var(--bg1), var(--bg2));
+      min-height: 100vh;
+    }
+    .wrap { max-width: 1200px; margin: 0 auto; padding: 28px 18px 42px; }
+    .hero {
+      background: linear-gradient(120deg, rgba(0,180,216,0.22), rgba(251,133,0,0.20));
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 16px;
+      color: #ecfeff;
+      padding: 18px 20px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+      margin-bottom: 20px;
+    }
+    h1 { margin: 0 0 8px; font-size: 1.8rem; letter-spacing: 0.2px; }
+    .subtitle { margin: 0; opacity: 0.94; font-size: 0.98rem; }
+    .grid {
+      display: grid;
+      gap: 14px;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    }
+    .card {
+      background: var(--panel);
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 10px 22px rgba(0,0,0,0.18);
+      transform: translateY(0);
+      transition: transform 160ms ease, box-shadow 160ms ease;
+    }
+    .card:hover { transform: translateY(-3px); box-shadow: 0 16px 28px rgba(0,0,0,0.22); }
+    .meta {
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      color: white;
+      padding: 8px 10px;
+      font-weight: 700;
+      font-size: 0.88rem;
+    }
+    .card img { width: 100%; display: block; aspect-ratio: 1 / 1; object-fit: cover; }
+    .path { padding: 9px 10px 12px; font-size: 0.78rem; color: var(--muted); word-break: break-all; }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <section class="hero">
+      <h1>MemoryAD CPU Demo - MVTec Full Bundle</h1>
+      <p class="subtitle">Top anomaly-ranked overlays from the exported CPU bundle on the 120-image mini MVTec test pack.</p>
+    </section>
+    <section class="grid">
+      
+            <article class="card">
+              <div class="meta">#1 | score: 7810.165039</div>
+              <img src="../demo_inference\overlays\001_overlay.png" alt="overlay" />
+              <div class="path">exports/mvtec_full_cpu/mini_testset_120/grid/test/bent/001.png</div>
+            </article>
+            
+            <article class="card">
+              <div class="meta">#2 | score: 6324.299805</div>
+              <img src="../demo_inference\overlays\001_overlay.png" alt="overlay" />
+              <div class="path">exports/mvtec_full_cpu/mini_testset_120/leather/test/good/001.png</div>
+            </article>
+            
+            <article class="card">
+              <div class="meta">#3 | score: 5491.256836</div>
+              <img src="../demo_inference\overlays\000_overlay.png" alt="overlay" />
+              <div class="path">exports/mvtec_full_cpu/mini_testset_120/grid/test/bent/000.png</div>
+            </article>
+            
+            <article class="card">
+              <div class="meta">#4 | score: 4715.932129</div>
+              <img src="../demo_inference\overlays\000_overlay.png" alt="overlay" />
+              <div class="path">exports/mvtec_full_cpu/mini_testset_120/leather/test/color/000.png</div>
+            </article>
+            
+            <article class="card">
+              <div class="meta">#5 | score: 4496.152832</div>
+              <img src="../demo_inference\overlays\002_overlay.png" alt="overlay" />
+              <div class="path">exports/mvtec_full_cpu/mini_testset_120/grid/test/good/002.png</div>
+            </article>
+            
+            <article class="card">
+              <div class="meta">#6 | score: 4093.122803</div>
+              <img src="../demo_inference\overlays\000_mask_overlay.png" alt="overlay" />
+              <div class="path">exports/mvtec_full_cpu/mini_testset_120/hazelnut/ground_truth/crack/000_mask.png</div>
+            </article>
+            
+            <article class="card">
+              <div class="meta">#7 | score: 3933.322998</div>
+              <img src="../demo_inference\overlays\002_mask_overlay.png" alt="overlay" />
+              <div class="path">exports/mvtec_full_cpu/mini_testset_120/bottle/ground_truth/broken_large/002_mask.png</div>
+            </article>
+            
+            <article class="card">
+              <div class="meta">#8 | score: 3925.171875</div>
+              <img src="../demo_inference\overlays\001_mask_overlay.png" alt="overlay" />
+              <div class="path">exports/mvtec_full_cpu/mini_testset_120/bottle/ground_truth/broken_large/001_mask.png</div>
+            </article>
+            
+            <article class="card">
+              <div class="meta">#9 | score: 3913.197998</div>
+              <img src="../demo_inference\overlays\002_mask_overlay.png" alt="overlay" />
+              <div class="path">exports/mvtec_full_cpu/mini_testset_120/toothbrush/ground_truth/defective/002_mask.png</div>
+            </article>
+            
+            <article class="card">
+              <div class="meta">#10 | score: 3903.340820</div>
+              <img src="../demo_inference\overlays\003_mask_overlay.png" alt="overlay" />
+              <div class="path">exports/mvtec_full_cpu/mini_testset_120/wood/ground_truth/color/003_mask.png</div>
+            </article>
+            
+            <article class="card">
+              <div class="meta">#11 | score: 3821.657471</div>
+              <img src="../demo_inference\overlays\002_mask_overlay.png" alt="overlay" />
+              <div class="path">exports/mvtec_full_cpu/mini_testset_120/tile/ground_truth/crack/002_mask.png</div>
+            </article>
+            
+            <article class="card">
+              <div class="meta">#12 | score: 3798.752686</div>
+              <img src="../demo_inference\overlays\003_mask_overlay.png" alt="overlay" />
+              <div class="path">exports/mvtec_full_cpu/mini_testset_120/bottle/ground_truth/broken_large/003_mask.png</div>
+            </article>
+            
+            <article class="card">
+              <div class="meta">#13 | score: 3741.396729</div>
+              <img src="../demo_inference\overlays\003_mask_overlay.png" alt="overlay" />
+              <div class="path">exports/mvtec_full_cpu/mini_testset_120/tile/ground_truth/crack/003_mask.png</div>
+            </article>
+            
+            <article class="card">
+              <div class="meta">#14 | score: 3728.044189</div>
+              <img src="../demo_inference\overlays\002_overlay.png" alt="overlay" />
+              <div class="path">exports/mvtec_full_cpu/mini_testset_120/tile/test/crack/002.png</div>
+            </article>
+            
+            <article class="card">
+              <div class="meta">#15 | score: 3651.836914</div>
+              <img src="../demo_inference\overlays\001_mask_overlay.png" alt="overlay" />
+              <div class="path">exports/mvtec_full_cpu/mini_testset_120/tile/ground_truth/crack/001_mask.png</div>
+            </article>
+            
+            <article class="card">
+              <div class="meta">#16 | score: 3643.771729</div>
+              <img src="../demo_inference\overlays\000_mask_overlay.png" alt="overlay" />
+              <div class="path">exports/mvtec_full_cpu/mini_testset_120/bottle/ground_truth/broken_large/000_mask.png</div>
+            </article>
+            
+            <article class="card">
+              <div class="meta">#17 | score: 3630.957520</div>
+              <img src="../demo_inference\overlays\001_overlay.png" alt="overlay" />
+              <div class="path">exports/mvtec_full_cpu/mini_testset_120/leather/test/color/001.png</div>
+            </article>
+            
+            <article class="card">
+              <div class="meta">#18 | score: 3606.614258</div>
+              <img src="../demo_inference\overlays\001_mask_overlay.png" alt="overlay" />
+              <div class="path">exports/mvtec_full_cpu/mini_testset_120/capsule/ground_truth/crack/001_mask.png</div>
+            </article>
+            
+            <article class="card">
+              <div class="meta">#19 | score: 3604.883789</div>
+              <img src="../demo_inference\overlays\001_overlay.png" alt="overlay" />
+              <div class="path">exports/mvtec_full_cpu/mini_testset_120/tile/test/crack/001.png</div>
+            </article>
+            
+            <article class="card">
+              <div class="meta">#20 | score: 3598.248779</div>
+              <img src="../demo_inference\overlays\003_mask_overlay.png" alt="overlay" />
+              <div class="path">exports/mvtec_full_cpu/mini_testset_120/hazelnut/ground_truth/crack/003_mask.png</div>
+            </article>
+            
+            <article class="card">
+              <div class="meta">#21 | score: 3592.442383</div>
+              <img src="../demo_inference\overlays\002_mask_overlay.png" alt="overlay" />
+              <div class="path">exports/mvtec_full_cpu/mini_testset_120/hazelnut/ground_truth/crack/002_mask.png</div>
+            </article>
+            
+            <article class="card">
+              <div class="meta">#22 | score: 3570.109131</div>
+              <img src="../demo_inference\overlays\001_overlay.png" alt="overlay" />
+              <div class="path">exports/mvtec_full_cpu/mini_testset_120/toothbrush/test/defective/001.png</div>
+            </article>
+            
+            <article class="card">
+              <div class="meta">#23 | score: 3553.132080</div>
+              <img src="../demo_inference\overlays\000_mask_overlay.png" alt="overlay" />
+              <div class="path">exports/mvtec_full_cpu/mini_testset_120/tile/ground_truth/crack/000_mask.png</div>
+            </article>
+            
+            <article class="card">
+              <div class="meta">#24 | score: 3510.919189</div>
+              <img src="../demo_inference\overlays\002_overlay.png" alt="overlay" />
+              <div class="path">exports/mvtec_full_cpu/mini_testset_120/hazelnut/test/crack/002.png</div>
+            </article>
+            
+    </section>
+  </main>
+</body>
+</html>

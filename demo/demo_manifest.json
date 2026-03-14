@@ -1,0 +1,41 @@
+{
+  "dataset": {
+    "categories": {
+      "bottle": {
+        "train_good": 8,
+        "test_good": 4,
+        "test_anomalous": 4,
+        "anomaly_type": "broken_large",
+        "masks": 4
+      },
+      "cable": {
+        "train_good": 8,
+        "test_good": 4,
+        "test_anomalous": 4,
+        "anomaly_type": "bent_wire",
+        "masks": 4
+      }
+    }
+  },
+  "features": {
+    "categories": {
+      "bottle": {
+        "train_patches": 10952,
+        "test_images": 8,
+        "test_good": 4,
+        "test_anomalous": 4
+      },
+      "cable": {
+        "train_patches": 10952,
+        "test_images": 8,
+        "test_good": 4,
+        "test_anomalous": 4
+      }
+    },
+    "patch_count": 1369
+  },
+  "paths": {
+    "dataset_root": "demo/demo_data/mvtec_subset",
+    "feature_root": "demo/demo_features/dinov2_vitb14"
+  }
+}

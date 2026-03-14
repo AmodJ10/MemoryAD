@@ -1,0 +1,11 @@
+# Tiny 2-task demo split for judge presentation
+
+dataset:
+  name: "mvtec_ad"
+  root: "./demo/demo_data/mvtec_subset"
+
+tasks:
+  - task_id: 0
+    categories: ["bottle"]
+  - task_id: 1
+    categories: ["cable"]

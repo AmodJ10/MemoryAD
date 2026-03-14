@@ -1,0 +1,97 @@
+\documentclass[border=10pt,tikz]{standalone}
+\usepackage{tikz}
+\usetikzlibrary{positioning,3d,calc,arrows.meta,shapes.geometric,decorations.pathreplacing,fit,backgrounds}
+
+\begin{document}
+\begin{tikzpicture}[
+    x={(0.866cm,-0.5cm)}, y={(0.866cm,0.5cm)}, z={(0cm,1cm)}, 
+    scale=1.0, 
+    font=\sffamily,
+    >=Stealth,
+    layer/.style={draw=black!70, thick, fill=white, fill opacity=0.8},
+    lbl/.style={font=\scriptsize\bfseries, text=black!80},
+    box/.style={draw=black!70, thick, fill=white, rounded corners=2pt, align=center, inner sep=5pt, font=\small},
+    frozen/.style={box, fill=blue!10, draw=blue!60},
+    core/.style={box, fill=orange!10, draw=orange!60},
+    score/.style={box, fill=red!10, draw=red!60},
+    arrow/.style={->, thick, draw=black!70}
+]
+
+% Macros for drawing 3D tensors (PlotNeuralNet style)
+% Usage: \tensor{x}{y}{z}{width}{height}{depth}{color}{opacity}{label}
+\newcommand{\tensor}[9]{
+    \begin{scope}[shift={(#1,#2,#3)}]
+        % Back faces
+        \filldraw[layer, fill=#7, fill opacity=#8] (0, #5, 0) -- (#4, #5, 0) -- (#4, 0, 0) -- (0, 0, 0) -- cycle;
+        \filldraw[layer, fill=#7!80, fill opacity=#8] (0, #5, #6) -- (0, #5, 0) -- (0, 0, 0) -- (0, 0, #6) -- cycle;
+        % Top face
+        \filldraw[layer, fill=#7!60, fill opacity=#8] (0, #5, #6) -- (#4, #5, #6) -- (#4, #5, 0) -- (0, #5, 0) -- cycle;
+        % Front face
+        \filldraw[layer, fill=#7, fill opacity=#8] (0, 0, #6) -- (#4, 0, #6) -- (#4, #5, #6) -- (0, #5, #6) -- cycle;
+        % Right face
+        \filldraw[layer, fill=#7!80, fill opacity=#8] (#4, 0, 0) -- (#4, 0, #6) -- (#4, #5, #6) -- (#4, #5, 0) -- cycle;
+        
+        \node[lbl] at (#4/2, -0.5, #6/2) {#9};
+    \end{scope}
+}
+
+% ----------------------------------------------------
+% Tensors
+% ----------------------------------------------------
+
+% 1. Input Image
+\tensor{0}{0}{0}{0.2}{5}{5}{gray!30}{1.0}{Image\\$3\times518^2$}
+
+% 2. DINOv2 Backbone (Abstract block)
+\begin{scope}[shift={(2.5, 2.5, 2.5)}]
+    \node[frozen, minimum height=3cm, minimum width=2cm, rotate=0, transform shape=false] (dinov2) {Frozen\\DINOv2\\ViT-B/14};
+\end{scope}
+\draw[arrow] (0.2, 2.5, 2.5) -- (dinov2.west);
+
+% 3. Extracted Features (Layer 7 & Layer 11)
+\tensor{5}{-1.5}{0}{1}{2.5}{2.5}{blue!30}{0.9}{L7\\$768\times37^2$}
+\tensor{5}{2.5}{0}{1}{2.5}{2.5}{purple!30}{0.9}{L11\\$768\times37^2$}
+
+\draw[arrow, dashed] (dinov2.east) -- (5, -0.25, 1.25);
+\draw[arrow, dashed] (dinov2.east) -- (5, 3.75, 1.25);
+
+% 4. Concatenated Features
+\tensor{7.5}{0.5}{0}{2}{2.5}{2.5}{cyan!40}{0.9}{Concat/Pool\\$1536\times1369$}
+
+\draw[arrow] (6, -0.25, 1.25) -- (7.5, 1.75, 1.25);
+\draw[arrow] (6, 3.75, 1.25) -- (7.5, 1.75, 1.25);
+
+% 5. Coreset Selection Module
+\begin{scope}[shift={(10.5, 1.75, 1.25)}]
+    \node[core, minimum width=2.5cm, align=center, transform shape=false] (coresetmgr) {Greedy \textit{k}-Center\\Selection};
+\end{scope}
+\draw[arrow] (9.5, 1.75, 1.25) -- (coresetmgr.west);
+
+% 6. Memory Bank (Coreset)
+% Draw a vertical "stack" of vectors
+\tensor{13.5}{0.5}{-1}{1}{2.5}{5}{orange!40}{1.0}{Global Memory Bank\\($\le B$ patches)}
+
+\draw[arrow] (coresetmgr.east) -- (13.5, 1.75, 1.25);
+
+% 7. Inference Pathway (Test Image)
+\node[lbl, blue] (trainlbl) at (7.5, 5, 5) {--- \textbf{TRAIN PHASE} ---};
+\node[lbl, red] (testlbl) at (10.5, -3, 0) {--- \textbf{TEST PHASE} ---};
+
+\tensor{7.5}{-4}{0}{2}{2.5}{2.5}{cyan!20}{0.9}{Test Features}
+\draw[arrow, red, thick] (dinov2.east) + (0, -1, 0) to[out=0, in=180] (7.5, -2.75, 1.25);
+
+% 8. k-NN Scorer
+\begin{scope}[shift={(13.5, -2.75, 1.25)}]
+    \node[score, transform shape=false] (knn) {\textit{k}-NN Scorer\\L2 Distance};
+\end{scope}
+
+\draw[arrow, red] (9.5, -2.75, 1.25) -- (knn.west);
+% Arrow from memory bank to KNN
+\draw[arrow, dashed, orange, thick] (14, 0.5, 1.25) -- (knn.north);
+
+% 9. Final Anomaly Score / Heatmap
+\tensor{16.5}{-4}{0}{0.2}{2.5}{2.5}{red!40}{0.9}{Anomaly Map}
+\draw[arrow, red] (knn.east) -- (16.5, -2.75, 1.25);
+
+\end{tikzpicture}
+\end{document}

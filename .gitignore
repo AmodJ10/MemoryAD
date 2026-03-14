@@ -13,6 +13,7 @@ data/features/
 results/
 tmp/
 *.npy
+!demo/demo_features/**/*.npy
 
 # OS
 .DS_Store

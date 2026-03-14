@@ -28,6 +28,48 @@ python scripts/run_experiment.py --config configs/default.yaml --tasks configs/m
 python scripts/run_experiment.py --config configs/default.yaml --tasks configs/mvtec_5task.yaml --budget 5000 --output results/E3_budget_5k
 ```
 
+## Judge Demo (Fast, Portable)
+
+This repo includes a tiny 2-task demo that runs quickly and can be pushed to GitHub.
+
+```bash
+# 1) Create tiny demo assets (small MVTec subset + tiny cached features)
+python scripts/create_demo_assets.py
+
+# 2) Run demo (cached mode, very fast)
+python scripts/run_demo.py
+```
+
+Demo outputs:
+- `demo/demo_data/mvtec_subset` (small dataset subset)
+- `demo/demo_features/dinov2_vitb14` (tiny cached features)
+- `results/demo_judge/results.json` (final metrics)
+
+Optional live demo (extract features from tiny dataset at runtime):
+
+```bash
+python scripts/run_demo.py --live
+```
+
+## Push Demo To GitHub
+
+After generating demo assets, commit and push:
+
+```bash
+git add scripts/create_demo_assets.py scripts/run_demo.py configs/demo_default.yaml configs/demo_tasks.yaml demo README.md .gitignore
+git commit -m "Add portable tiny demo dataset and runner"
+git push origin <your-branch>
+```
+
+On another system:
+
+```bash
+git clone <your-repo-url>
+cd stellar-equinox
+pip install -r requirements.txt
+python scripts/run_demo.py
+```
+
 ## Project Structure
 
 ```

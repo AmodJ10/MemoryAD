@@ -46,6 +46,12 @@ def main():
                         help="Override coreset budget")
     parser.add_argument("--backbone", type=str, default=None,
                         help="Override backbone name")
+    parser.add_argument("--live", action="store_true",
+                        help="Disable feature cache and extract features live")
+    parser.add_argument("--feature-dir", type=str, default="data/features/dinov2_vitb14",
+                        help="Directory containing cached features")
+    parser.add_argument("--coreset-cache-dir", type=str, default="data/coreset_cache",
+                        help="Directory for cached coreset files")
 
     args = parser.parse_args()
 
@@ -64,6 +70,9 @@ def main():
         config=config,
         task_config=task_config,
         output_dir=args.output,
+        use_cache=not args.live,
+        feature_dir=args.feature_dir,
+        coreset_cache_dir=args.coreset_cache_dir,
     )
 
     results = pipeline.run()
