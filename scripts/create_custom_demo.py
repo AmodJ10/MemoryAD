@@ -141,6 +141,46 @@ def _resolve_mask(gt_root: Path, defect_type: str, image_name: str) -> Path | No
     return None
 
 
+def curate_toy_train_images(
+    dataset_root: Path,
+    output_root: Path,
+    categories: list[str],
+    images_per_cat: int = 10,
+) -> dict[str, Any]:
+    """
+    Build a compact training set by copying a handful of
+    normal ('good') images from the training split of each category.
+    This is used for the interactive 'Live Training' demo.
+    """
+    if output_root.exists():
+        shutil.rmtree(output_root, onerror=_force_remove_readonly)
+    output_root.mkdir(parents=True)
+
+    manifest: dict[str, Any] = {"categories": {}, "totals": {"images": 0}}
+
+    for cat in categories:
+        cat_dir = dataset_root / cat
+        train_dir = cat_dir / "train" / "good"
+
+        if not train_dir.exists():
+            print(f"  [WARN] Skipping {cat}: train dir not found at {train_dir}")
+            continue
+
+        train_imgs = sorted(
+            p for p in train_dir.iterdir() if p.suffix.lower() in VALID_IMAGE_EXTS
+        )[:images_per_cat]
+
+        for p in train_imgs:
+            copy_file(p, output_root / cat / p.name)
+
+        n_good = len(train_imgs)
+        manifest["categories"][cat] = {"train_images": n_good}
+        manifest["totals"]["images"] += n_good
+        print(f"  {cat}: {n_good} training images")
+
+    return manifest
+
+
 def build_bundle(
     existing_bundle: Path,
     results_json: Path,
@@ -177,6 +217,7 @@ def build_bundle(
     }
     metadata["per_category_results"] = results.get("per_category_final", {})
     metadata["coreset_stats"] = results.get("coreset_stats", {})
+    metadata["auroc_matrix"] = results.get("auroc_matrix", [])
 
     with (output_bundle / "metadata.json").open("w") as f:
         json.dump(metadata, f, indent=2)
@@ -230,9 +271,9 @@ def main() -> None:
         output_bundle=output / "model_bundle",
     )
 
-    # Step 2: Curate test images
-    print("\n[2/3] Curating test images for all categories...")
-    manifest = curate_test_images(
+    # --- Create Test Images ---
+    print("\n[2/4] Curating mini test set (120 images)...")
+    test_manifest = curate_test_images(
         dataset_root=Path(args.dataset_root),
         output_root=output / "test_data",
         categories=ALL_CATEGORIES,
@@ -240,19 +281,43 @@ def main() -> None:
         bad_per_cat=args.bad_per_cat,
     )
 
-    # Save manifest
-    with (output / "manifest.json").open("w") as f:
-        json.dump(manifest, f, indent=2)
+    # --- Create Toy Train Images ---
+    print("\n[3/4] Curating toy training set (150 images)...")
+    train_manifest = curate_toy_train_images(
+        dataset_root=Path(args.dataset_root),
+        output_root=output / "toy_train_data",
+        categories=ALL_CATEGORIES,
+        images_per_cat=10,
+    )
 
-    # Step 3: Summary
-    print(f"\n[3/3] Demo package created at: {output.resolve()}")
-    print(f"  Model bundle:  {output / 'model_bundle'}")
-    print(f"  Test data:     {output / 'test_data'}")
-    print(f"  Total images:  {manifest['totals']['images']}")
-    print(f"    Good:        {manifest['totals']['good']}")
-    print(f"    Anomalous:   {manifest['totals']['anomalous']}")
+    # Save manifest combining both
+    manifest_path = output / "manifest.json"
+    with manifest_path.open("w") as f:
+        json.dump({"test": test_manifest, "train": train_manifest}, f, indent=2)
+
+    # --- Copy UI / Backend Scripts ---
+    print("\n[4/4] Copying UI & Backend resources...")
+    ui_src = Path(__file__).resolve().parents[1] / "custom_demo.html"
+    if ui_src.exists():
+        shutil.copy2(ui_src, output / "index.html")
+    else:
+        print("  [WARN] custom_demo.html not found.")
+
+    server_src = Path(__file__).resolve().parent / "custom_demo_server.py"
+    if server_src.exists():
+        shutil.copy2(server_src, output / "server.py")
+
+    print("\n=== Demo package created successfully! ===")
+    print(f"  Demo package at: {output.resolve()}")
+    print(f"  Model bundle:    {output / 'model_bundle'}")
+    print(f"  Test data:       {output / 'test_data'}")
+    print(f"  Toy train data:  {output / 'toy_train_data'}")
+    print(f"  Total test images:  {test_manifest['totals']['images']}")
+    print(f"    Good:        {test_manifest['totals']['good']}")
+    print(f"    Anomalous:   {test_manifest['totals']['anomalous']}")
+    print(f"  Total train images: {train_manifest['totals']['images']}")
     print("=" * 60)
-    print("Done! Next: python scripts/custom_demo_server.py")
+    print("Next: python custom_demo/server.py")
 
 
 if __name__ == "__main__":

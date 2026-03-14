@@ -1,99 +1,153 @@
 {
-  "categories": {
-    "bottle": {
-      "defect_type": "broken_large",
-      "good": 4,
-      "anomalous": 4,
-      "total": 8
+  "test": {
+    "categories": {
+      "bottle": {
+        "defect_type": "broken_large",
+        "good": 4,
+        "anomalous": 4,
+        "total": 8
+      },
+      "cable": {
+        "defect_type": "bent_wire",
+        "good": 4,
+        "anomalous": 4,
+        "total": 8
+      },
+      "capsule": {
+        "defect_type": "crack",
+        "good": 4,
+        "anomalous": 4,
+        "total": 8
+      },
+      "carpet": {
+        "defect_type": "color",
+        "good": 4,
+        "anomalous": 4,
+        "total": 8
+      },
+      "grid": {
+        "defect_type": "bent",
+        "good": 4,
+        "anomalous": 4,
+        "total": 8
+      },
+      "hazelnut": {
+        "defect_type": "crack",
+        "good": 4,
+        "anomalous": 4,
+        "total": 8
+      },
+      "leather": {
+        "defect_type": "color",
+        "good": 4,
+        "anomalous": 4,
+        "total": 8
+      },
+      "metal_nut": {
+        "defect_type": "bent",
+        "good": 4,
+        "anomalous": 4,
+        "total": 8
+      },
+      "pill": {
+        "defect_type": "color",
+        "good": 4,
+        "anomalous": 4,
+        "total": 8
+      },
+      "screw": {
+        "defect_type": "manipulated_front",
+        "good": 4,
+        "anomalous": 4,
+        "total": 8
+      },
+      "tile": {
+        "defect_type": "crack",
+        "good": 4,
+        "anomalous": 4,
+        "total": 8
+      },
+      "toothbrush": {
+        "defect_type": "defective",
+        "good": 4,
+        "anomalous": 4,
+        "total": 8
+      },
+      "transistor": {
+        "defect_type": "bent_lead",
+        "good": 4,
+        "anomalous": 4,
+        "total": 8
+      },
+      "wood": {
+        "defect_type": "color",
+        "good": 4,
+        "anomalous": 4,
+        "total": 8
+      },
+      "zipper": {
+        "defect_type": "broken_teeth",
+        "good": 4,
+        "anomalous": 4,
+        "total": 8
+      }
     },
-    "cable": {
-      "defect_type": "bent_wire",
-      "good": 4,
-      "anomalous": 4,
-      "total": 8
-    },
-    "capsule": {
-      "defect_type": "crack",
-      "good": 4,
-      "anomalous": 4,
-      "total": 8
-    },
-    "carpet": {
-      "defect_type": "color",
-      "good": 4,
-      "anomalous": 4,
-      "total": 8
-    },
-    "grid": {
-      "defect_type": "bent",
-      "good": 4,
-      "anomalous": 4,
-      "total": 8
-    },
-    "hazelnut": {
-      "defect_type": "crack",
-      "good": 4,
-      "anomalous": 4,
-      "total": 8
-    },
-    "leather": {
-      "defect_type": "color",
-      "good": 4,
-      "anomalous": 4,
-      "total": 8
-    },
-    "metal_nut": {
-      "defect_type": "bent",
-      "good": 4,
-      "anomalous": 4,
-      "total": 8
-    },
-    "pill": {
-      "defect_type": "color",
-      "good": 4,
-      "anomalous": 4,
-      "total": 8
-    },
-    "screw": {
-      "defect_type": "manipulated_front",
-      "good": 4,
-      "anomalous": 4,
-      "total": 8
-    },
-    "tile": {
-      "defect_type": "crack",
-      "good": 4,
-      "anomalous": 4,
-      "total": 8
-    },
-    "toothbrush": {
-      "defect_type": "defective",
-      "good": 4,
-      "anomalous": 4,
-      "total": 8
-    },
-    "transistor": {
-      "defect_type": "bent_lead",
-      "good": 4,
-      "anomalous": 4,
-      "total": 8
-    },
-    "wood": {
-      "defect_type": "color",
-      "good": 4,
-      "anomalous": 4,
-      "total": 8
-    },
-    "zipper": {
-      "defect_type": "broken_teeth",
-      "good": 4,
-      "anomalous": 4,
-      "total": 8
+    "totals": {
+      "images": 120,
+      "good": 60,
+      "anomalous": 60
     }
   },
-  "totals": {
-    "images": 120,
-    "good": 60,
-    "anomalous": 60
+  "train": {
+    "categories": {
+      "bottle": {
+        "train_images": 10
+      },
+      "cable": {
+        "train_images": 10
+      },
+      "capsule": {
+        "train_images": 10
+      },
+      "carpet": {
+        "train_images": 10
+      },
+      "grid": {
+        "train_images": 10
+      },
+      "hazelnut": {
+        "train_images": 10
+      },
+      "leather": {
+        "train_images": 10
+      },
+      "metal_nut": {
+        "train_images": 10
+      },
+      "pill": {
+        "train_images": 10
+      },
+      "screw": {
+        "train_images": 10
+      },
+      "tile": {
+        "train_images": 10
+      },
+      "toothbrush": {
+        "train_images": 10
+      },
+      "transistor": {
+        "train_images": 10
+      },
+      "wood": {
+        "train_images": 10
+      },
+      "zipper": {
+        "train_images": 10
+      }
+    },
+    "totals": {
+      "images": 150
+    }
   }
 }
